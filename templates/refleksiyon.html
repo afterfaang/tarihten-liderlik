@@ -97,31 +97,35 @@ function selectTag(btn) {
     selectedTag = btn.dataset.tag;
 }
 
-function saveReflection() {
+async function saveReflection() {
     const title = document.getElementById('ref-title').value.trim();
     const content = document.getElementById('ref-content').value.trim();
     if (!content) return alert('Lutfen bir not yazin.');
 
-    const reflections = JSON.parse(localStorage.getItem('tl_reflections') || '[]');
-    reflections.unshift({
-        id: Date.now(),
+    const result = await API.post('/api/reflection/save', {
         title: title || 'Basliksiz Not',
         content: content,
-        tag: selectedTag,
-        date: new Date().toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+        tag: selectedTag
     });
-    localStorage.setItem('tl_reflections', JSON.stringify(reflections));
+
+    if (result.error) { alert(result.error); return; }
+
+    if (window.TL_DATA) {
+        if (!window.TL_DATA.reflections) window.TL_DATA.reflections = [];
+        window.TL_DATA.reflections.unshift(result);
+    }
 
     document.getElementById('ref-title').value = '';
     document.getElementById('ref-content').value = '';
     renderReflections();
 }
 
-function deleteReflection(id) {
+async function deleteReflection(id) {
     if (!confirm('Bu notu silmek istediginize emin misiniz?')) return;
-    let reflections = JSON.parse(localStorage.getItem('tl_reflections') || '[]');
-    reflections = reflections.filter(r => r.id !== id);
-    localStorage.setItem('tl_reflections', JSON.stringify(reflections));
+    await API.del(`/api/reflection/${id}`);
+    if (window.TL_DATA && window.TL_DATA.reflections) {
+        window.TL_DATA.reflections = window.TL_DATA.reflections.filter(r => r.id !== id);
+    }
     renderReflections();
 }
 
@@ -141,7 +145,7 @@ function getTagLabel(tag) {
 }
 
 function renderReflections() {
-    const reflections = JSON.parse(localStorage.getItem('tl_reflections') || '[]');
+    const reflections = getData().reflections || [];
     const filter = document.getElementById('ref-filter').value;
     const filtered = filter === 'all' ? reflections : reflections.filter(r => r.tag === filter);
     const list = document.getElementById('reflections-list');
@@ -172,6 +176,9 @@ function renderReflections() {
     `).join('');
 }
 
-document.addEventListener('DOMContentLoaded', renderReflections);
+document.addEventListener('DOMContentLoaded', async function() {
+    await window.TL_READY;
+    renderReflections();
+});
 </script>
 {% endblock %}

@@ -157,8 +157,9 @@
 const geziDuraklar = {{ duraklar|tojson }};
 let activeGeziDurak = 1;
 
-document.addEventListener('DOMContentLoaded', function() {
-    const visited = JSON.parse(localStorage.getItem('tl_visited_duraklar') || '[]');
+document.addEventListener('DOMContentLoaded', async function() {
+    await window.TL_READY;
+    const visited = getData().visited_duraklar || [];
     let startDurak = 1;
     for (let i = 1; i <= 7; i++) {
         if (!visited.includes(i)) { startDurak = i; break; }
@@ -185,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function setActiveGezi(durakId) {
     activeGeziDurak = durakId;
-    const visited = JSON.parse(localStorage.getItem('tl_visited_duraklar') || '[]');
+    const visited = getData().visited_duraklar || [];
 
     document.querySelectorAll('.gezi-slide').forEach(s => s.classList.add('hidden'));
     const slide = document.querySelector(`[data-slide="${durakId}"]`);
@@ -235,11 +236,13 @@ function setActiveGezi(durakId) {
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-function completeGeziStop() {
-    let visited = JSON.parse(localStorage.getItem('tl_visited_duraklar') || '[]');
+async function completeGeziStop() {
+    const visited = getData().visited_duraklar || [];
     if (!visited.includes(activeGeziDurak)) {
-        visited.push(activeGeziDurak);
-        localStorage.setItem('tl_visited_duraklar', JSON.stringify(visited));
+        const result = await API.post('/api/durak/visit', { durak_id: activeGeziDurak });
+        if (window.TL_DATA && result.visited_duraklar) {
+            window.TL_DATA.visited_duraklar = result.visited_duraklar;
+        }
         if (activeGeziDurak < 7) {
             setTimeout(() => setActiveGezi(activeGeziDurak + 1), 500);
         } else {
@@ -251,12 +254,14 @@ function completeGeziStop() {
 function geziPrev() { if (activeGeziDurak > 1) setActiveGezi(activeGeziDurak - 1); }
 function geziNext() { if (activeGeziDurak < 7) setActiveGezi(activeGeziDurak + 1); }
 
-function saveGeziNote(durakId) {
+async function saveGeziNote(durakId) {
     const ta = document.getElementById(`gezi-note-${durakId}`);
     if (!ta) return;
-    const notes = JSON.parse(localStorage.getItem('tl_durak_notes') || '{}');
-    notes[durakId] = ta.value;
-    localStorage.setItem('tl_durak_notes', JSON.stringify(notes));
+    await API.post('/api/durak/note', { durak_id: durakId, note: ta.value });
+    if (window.TL_DATA) {
+        if (!window.TL_DATA.durak_notes) window.TL_DATA.durak_notes = {};
+        window.TL_DATA.durak_notes[durakId] = ta.value;
+    }
     const s = document.getElementById(`gezi-saved-${durakId}`);
     if (s) { s.classList.remove('hidden'); setTimeout(() => s.classList.add('hidden'), 2000); }
 }
@@ -264,7 +269,7 @@ function saveGeziNote(durakId) {
 function loadGeziNote(durakId) {
     const ta = document.getElementById(`gezi-note-${durakId}`);
     if (!ta) return;
-    const notes = JSON.parse(localStorage.getItem('tl_durak_notes') || '{}');
+    const notes = getData().durak_notes || {};
     if (notes[durakId]) ta.value = notes[durakId];
 }
 </script>

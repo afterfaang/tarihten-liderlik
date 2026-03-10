@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel - Tarihten Liderlik{% endblock %}
+
+{% block content %}
+<div class="bg-gray-50 min-h-screen">
+    <div class="bg-ottoman-dark text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="font-serif text-2xl font-bold">&#9881; Admin Panel</h1>
+                    <p class="text-gray-400 text-sm mt-1">Kullanici yonetimi ve analitik</p>
+                </div>
+                <div class="flex gap-3">
+                    <a href="{{ url_for('admin_users') }}" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm font-semibold transition">&#128101; Kullanicilar</a>
+                    <a href="{{ url_for('admin_create_user') }}" class="px-4 py-2 rounded-xl bg-ottoman-gold text-ottoman-dark text-sm font-bold hover:bg-ottoman-gold/80 transition">+ Yeni Kullanici</a>
+                    <a href="{{ url_for('admin_export') }}" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm font-semibold transition">&#128229; CSV Export</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
+                <div class="text-3xl font-bold text-ottoman-red">{{ total_users }}</div>
+                <div class="text-xs text-gray-500 mt-1">Toplam Kullanici</div>
+            </div>
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
+                <div class="text-3xl font-bold text-ottoman-red">{{ total_quiz }}</div>
+                <div class="text-xs text-gray-500 mt-1">Quiz Tamamlayan</div>
+            </div>
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
+                <div class="text-3xl font-bold text-ottoman-red">{{ total_reflections }}</div>
+                <div class="text-xs text-gray-500 mt-1">Toplam Refleksiyon</div>
+            </div>
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
+                <div class="text-3xl font-bold text-ottoman-red">{{ avg_durak }}</div>
+                <div class="text-xs text-gray-500 mt-1">Ort. Durak Ziyareti</div>
+            </div>
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
+                <div class="text-xl font-bold text-ottoman-red">{{ popular_result }}</div>
+                <div class="text-xs text-gray-500 mt-1">En Populer Sonuc</div>
+            </div>
+        </div>
+
+        <!-- Recent Logins -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128337; Son Girisler</h2>
+            {% if recent_logins %}
+            <div class="space-y-3">
+                {% for user in recent_logins %}
+                <div class="flex items-center justify-between py-3 border-b border-gray-50 last:border-0">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-ottoman-red/10 rounded-xl flex items-center justify-center text-ottoman-red font-bold text-sm">{{ user.name[:2]|upper }}</div>
+                        <div>
+                            <p class="font-semibold text-sm text-ottoman-dark">{{ user.name }}</p>
+                            <p class="text-xs text-gray-400">{{ user.email }}</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">{{ user.last_login.strftime('%d.%m.%Y %H:%M') if user.last_login else '-' }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-gray-400 text-sm">Henuz giris yapan yok.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

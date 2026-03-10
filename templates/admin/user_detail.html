@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}{{ user.name }} - Admin{% endblock %}
+
+{% block content %}
+<div class="bg-gray-50 min-h-screen">
+    <div class="bg-ottoman-dark text-white py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex items-center gap-3 mb-2">
+                <a href="{{ url_for('admin_dashboard') }}" class="text-gray-400 hover:text-white transition text-sm">&#9881; Admin</a>
+                <span class="text-gray-600">/</span>
+                <a href="{{ url_for('admin_users') }}" class="text-gray-400 hover:text-white transition text-sm">Kullanicilar</a>
+                <span class="text-gray-600">/</span>
+                <span class="text-white text-sm font-semibold">{{ user.name }}</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-ottoman-gold/20 rounded-2xl flex items-center justify-center text-ottoman-gold font-bold text-xl">{{ user.name[:2]|upper }}</div>
+                <div>
+                    <h1 class="font-serif text-2xl font-bold">{{ user.name }}</h1>
+                    <p class="text-gray-400 text-sm">{{ user.email }} &bull; Kayit: {{ user.created_at.strftime('%d.%m.%Y') if user.created_at else '-' }} &bull; Son Giris: {{ user.last_login.strftime('%d.%m.%Y %H:%M') if user.last_login else 'Hic' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 py-8 space-y-6">
+
+        <!-- Durak Ilerleme -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#127984; Durak Ilerleme ({{ visited|length }}/7)</h2>
+            <div class="grid grid-cols-7 gap-2">
+                {% for durak in duraklar %}
+                <div class="text-center p-3 rounded-xl {% if durak.id in visited %}bg-green-50 border border-green-200{% else %}bg-gray-50 border border-gray-100{% endif %}">
+                    <div class="text-lg mb-1">{{ durak.emoji }}</div>
+                    <div class="text-xs font-bold {% if durak.id in visited %}text-green-600{% else %}text-gray-300{% endif %}">D{{ durak.id }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Durak Notlari -->
+        {% if durak_notes %}
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128221; Durak Notlari</h2>
+            <div class="space-y-3">
+                {% for durak_id, note in durak_notes.items() %}
+                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <p class="text-xs font-bold text-ottoman-red mb-1">Durak {{ durak_id }}</p>
+                    <p class="text-sm text-gray-700">{{ note }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Quiz Sonucu -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#129504; Quiz Sonucu</h2>
+            {% if quiz_result %}
+            <div class="bg-ottoman-cream/50 rounded-xl p-4 border border-ottoman-gold/10">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-2xl">{% set emojis = {'iskender':'&#9876;&#65039;','augustus':'&#127963;&#65039;','fatih':'&#127984;','medici':'&#127912;','ataturk':'&#11088;'} %}{{ emojis.get(quiz_result.result, '') }}</span>
+                    <div>
+                        <p class="font-bold text-ottoman-dark">{{ quiz_result.result|capitalize }}</p>
+                        <p class="text-xs text-gray-400">{{ quiz_result.date }}</p>
+                    </div>
+                </div>
+                <div class="flex gap-2 mt-3">
+                    {% for key, score in quiz_result.scores.items() %}
+                    <div class="text-center bg-white rounded-lg p-2 flex-1 border border-gray-100">
+                        <div class="text-sm font-bold {% if key == quiz_result.result %}text-ottoman-red{% else %}text-gray-400{% endif %}">{{ score }}</div>
+                        <div class="text-[10px] text-gray-400">{{ key[:3] }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <p class="text-gray-400 text-sm">Quiz henuz cozulmedi.</p>
+            {% endif %}
+        </div>
+
+        <!-- HAP Cevaplari -->
+        {% if hap_answers %}
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128161; HAP Cevaplari</h2>
+            {% for lider_id, answers in hap_answers.items() %}
+            {% set lider = liderler|selectattr('id', 'equalto', lider_id)|first %}
+            <div class="mb-6 last:mb-0">
+                <p class="font-bold text-sm text-ottoman-red mb-2">{{ lider.emoji if lider else '' }} {{ lider.isim if lider else 'Lider ' ~ lider_id }}</p>
+                <div class="space-y-2">
+                    {% for answer in answers %}
+                    <div class="bg-gray-50 rounded-lg p-3 border border-gray-100">
+                        <p class="text-xs text-gray-400 mb-1">Soru {{ loop.index }}</p>
+                        <p class="text-sm text-gray-700">{{ answer }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Refleksiyonlar -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128214; Refleksiyonlar ({{ reflections|length }})</h2>
+            {% if reflections %}
+            <div class="space-y-3">
+                {% for ref in reflections %}
+                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-semibold text-sm text-ottoman-dark">{{ ref.title }}</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs bg-ottoman-cream text-ottoman-dark px-2 py-0.5 rounded-lg">{{ ref.tag }}</span>
+                            <span class="text-xs text-gray-400">{{ ref.created_at.strftime('%d.%m.%Y') if ref.created_at else '' }}</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 whitespace-pre-wrap">{{ ref.content }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-gray-400 text-sm">Henuz refleksiyon yok.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

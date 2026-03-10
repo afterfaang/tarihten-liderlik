@@ -1,15 +1,42 @@
 /* Tarihten Liderlik - Frontend JavaScript */
 
 // ============================================
+// API Helper
+// ============================================
+
+const API = {
+    async post(url, data) {
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        return res.json();
+    },
+    async del(url) {
+        const res = await fetch(url, { method: 'DELETE' });
+        return res.json();
+    }
+};
+
+function getData() {
+    return window.TL_DATA || {};
+}
+
+// ============================================
 // DURAK NOTES (durak_detay.html)
 // ============================================
 
-function saveDurakNote(durakId) {
+async function saveDurakNote(durakId) {
     const textarea = document.getElementById(`durak-note-${durakId}`);
     if (!textarea) return;
-    const notes = JSON.parse(localStorage.getItem('tl_durak_notes') || '{}');
-    notes[durakId] = textarea.value;
-    localStorage.setItem('tl_durak_notes', JSON.stringify(notes));
+
+    await API.post('/api/durak/note', { durak_id: durakId, note: textarea.value });
+
+    if (window.TL_DATA) {
+        if (!window.TL_DATA.durak_notes) window.TL_DATA.durak_notes = {};
+        window.TL_DATA.durak_notes[durakId] = textarea.value;
+    }
 
     const saved = document.getElementById(`note-saved-${durakId}`);
     if (saved) {
@@ -18,10 +45,11 @@ function saveDurakNote(durakId) {
     }
 }
 
-function loadDurakNote(durakId) {
+async function loadDurakNote(durakId) {
+    await window.TL_READY;
     const textarea = document.getElementById(`durak-note-${durakId}`);
     if (!textarea) return;
-    const notes = JSON.parse(localStorage.getItem('tl_durak_notes') || '{}');
+    const notes = getData().durak_notes || {};
     if (notes[durakId]) {
         textarea.value = notes[durakId];
     }
@@ -31,17 +59,17 @@ function loadDurakNote(durakId) {
 // DURAK VISITED TRACKING
 // ============================================
 
-function markDurakVisited(durakId) {
-    let visited = JSON.parse(localStorage.getItem('tl_visited_duraklar') || '[]');
-    if (!visited.includes(durakId)) {
-        visited.push(durakId);
-        localStorage.setItem('tl_visited_duraklar', JSON.stringify(visited));
+async function markDurakVisited(durakId) {
+    const result = await API.post('/api/durak/visit', { durak_id: durakId });
+    if (window.TL_DATA && result.visited_duraklar) {
+        window.TL_DATA.visited_duraklar = result.visited_duraklar;
     }
     updateVisitedButton(durakId);
 }
 
-function updateVisitedButton(durakId) {
-    const visited = JSON.parse(localStorage.getItem('tl_visited_duraklar') || '[]');
+async function updateVisitedButton(durakId) {
+    await window.TL_READY;
+    const visited = getData().visited_duraklar || [];
     const btn = document.getElementById('mark-visited-btn');
     if (btn && visited.includes(durakId)) {
         btn.textContent = '\u2705 Tamamlandi';
@@ -51,8 +79,9 @@ function updateVisitedButton(durakId) {
     }
 }
 
-function updateDurakProgress() {
-    const visited = JSON.parse(localStorage.getItem('tl_visited_duraklar') || '[]');
+async function updateDurakProgress() {
+    await window.TL_READY;
+    const visited = getData().visited_duraklar || [];
     const total = 7;
     const percent = Math.round((visited.length / total) * 100);
 
@@ -61,7 +90,6 @@ function updateDurakProgress() {
     if (bar) bar.style.width = percent + '%';
     if (text) text.textContent = `${visited.length}/${total}`;
 
-    // Update individual durak status indicators
     visited.forEach(id => {
         const status = document.querySelector(`.durak-status[data-durak="${id}"]`);
         const statusText = document.querySelector(`.durak-status-text[data-durak="${id}"]`);
@@ -71,7 +99,6 @@ function updateDurakProgress() {
             statusText.classList.add('text-green-500');
             statusText.classList.remove('text-gray-400');
         }
-        // Add green border to visited card
         const card = document.getElementById(`durak-card-${id}`);
         if (card) card.classList.add('ring-2', 'ring-green-400');
     });
@@ -81,12 +108,18 @@ function updateDurakProgress() {
 // HAP ANSWERS (hap.html, lider_detay.html)
 // ============================================
 
-function saveHapAnswers(liderId) {
+async function saveHapAnswers(liderId) {
     const answers = [];
     document.querySelectorAll(`.hap-answer[data-lider="${liderId}"]`).forEach(ta => {
         answers[parseInt(ta.dataset.question)] = ta.value;
     });
-    localStorage.setItem(`tl_hap_${liderId}`, JSON.stringify(answers));
+
+    await API.post('/api/hap/save', { lider_id: liderId, answers: answers });
+
+    if (window.TL_DATA) {
+        if (!window.TL_DATA.hap_answers) window.TL_DATA.hap_answers = {};
+        window.TL_DATA.hap_answers[liderId] = answers;
+    }
 
     const saved = document.getElementById(`hap-saved-${liderId}`);
     if (saved) {
@@ -95,8 +128,10 @@ function saveHapAnswers(liderId) {
     }
 }
 
-function loadHapAnswers(liderId) {
-    const answers = JSON.parse(localStorage.getItem(`tl_hap_${liderId}`) || '[]');
+async function loadHapAnswers(liderId) {
+    await window.TL_READY;
+    const hapData = getData().hap_answers || {};
+    const answers = hapData[liderId] || hapData[String(liderId)] || [];
     document.querySelectorAll(`.hap-answer[data-lider="${liderId}"]`).forEach(ta => {
         const idx = parseInt(ta.dataset.question);
         if (answers[idx]) ta.value = answers[idx];
@@ -138,7 +173,6 @@ function checkAnswer(btn, selectedIndex, correctIndex) {
         }
     }
 
-    // Check if all questions answered
     const quizContainer = document.getElementById('durak-quiz');
     if (quizContainer) {
         const allQuestions = quizContainer.querySelectorAll('.quiz-question');
@@ -146,7 +180,6 @@ function checkAnswer(btn, selectedIndex, correctIndex) {
         if (allQuestions.length === answeredQuestions.length) {
             let correct = 0;
             answeredQuestions.forEach(q => {
-                const correctIdx = parseInt(q.dataset.correct);
                 const selectedOpt = q.querySelector('.quiz-correct:not(.quiz-wrong)');
                 const wrongOpt = q.querySelector('.quiz-wrong');
                 if (selectedOpt && !wrongOpt) correct++;

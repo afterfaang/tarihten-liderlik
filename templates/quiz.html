@@ -258,15 +258,23 @@
         const result = testData.sonuclar[maxKey];
 
         const liderIdMap = {iskender: 1, augustus: 2, fatih: 3, medici: 4, ataturk: 5};
-        localStorage.setItem('tl_quiz_result', JSON.stringify({
+
+        // Save to server
+        API.post('/api/quiz/result', {
             result: maxKey,
             liderId: liderIdMap[maxKey],
-            aciklama: result.aciklama,
-            guclu: result.gucluyonler,
-            gelisim: result.gelisim,
-            scores: scores,
-            date: new Date().toISOString()
-        }));
+            scores: scores
+        });
+
+        // Update local cache
+        if (window.TL_DATA) {
+            window.TL_DATA.quiz_result = {
+                result: maxKey,
+                liderId: liderIdMap[maxKey],
+                scores: scores,
+                date: new Date().toISOString()
+            };
+        }
 
         const emojis = {iskender: '\u2694\ufe0f', augustus: '\ud83c\udfdb\ufe0f', fatih: '\ud83c\udff0', medici: '\ud83c\udfa8', ataturk: '\u2b50'};
         const gorseller = {

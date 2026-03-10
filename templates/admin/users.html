@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Kullanicilar - Admin{% endblock %}
+
+{% block content %}
+<div class="bg-gray-50 min-h-screen">
+    <div class="bg-ottoman-dark text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-1">
+                        <a href="{{ url_for('admin_dashboard') }}" class="text-gray-400 hover:text-white transition text-sm">&#9881; Admin</a>
+                        <span class="text-gray-600">/</span>
+                        <span class="text-white text-sm font-semibold">Kullanicilar</span>
+                    </div>
+                    <h1 class="font-serif text-2xl font-bold">&#128101; Kullanicilar</h1>
+                </div>
+                <div class="flex gap-3">
+                    <a href="{{ url_for('admin_create_user') }}" class="px-4 py-2 rounded-xl bg-ottoman-gold text-ottoman-dark text-sm font-bold hover:bg-ottoman-gold/80 transition">+ Yeni Kullanici</a>
+                    <a href="{{ url_for('admin_export') }}" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm font-semibold transition">&#128229; CSV Export</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="mb-4 px-4 py-3 rounded-xl text-sm font-medium
+            {% if category == 'success' %}bg-green-50 text-green-700 border border-green-200
+            {% elif category == 'error' %}bg-red-50 text-red-700 border border-red-200
+            {% else %}bg-blue-50 text-blue-700 border border-blue-200{% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <table class="w-full">
+                <thead>
+                    <tr class="bg-gray-50 border-b border-gray-100">
+                        <th class="text-left px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Kullanici</th>
+                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Duraklar</th>
+                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Quiz</th>
+                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Refleksiyon</th>
+                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">HAP</th>
+                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Son Giris</th>
+                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Islemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in user_data %}
+                    <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-ottoman-red/10 rounded-xl flex items-center justify-center text-ottoman-red font-bold text-sm">{{ item.user.name[:2]|upper }}</div>
+                                <div>
+                                    <p class="font-semibold text-sm text-ottoman-dark">{{ item.user.name }}</p>
+                                    <p class="text-xs text-gray-400">{{ item.user.email }}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center px-4 py-4">
+                            <span class="text-sm font-bold {% if item.visited == 7 %}text-green-600{% elif item.visited > 0 %}text-ottoman-red{% else %}text-gray-300{% endif %}">{{ item.visited }}/7</span>
+                        </td>
+                        <td class="text-center px-4 py-4">
+                            {% if item.quiz_done %}
+                            <span class="text-green-500 text-lg">&#9989;</span>
+                            {% else %}
+                            <span class="text-gray-300 text-lg">&#9675;</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-center px-4 py-4">
+                            <span class="text-sm font-semibold {% if item.reflections > 0 %}text-ottoman-dark{% else %}text-gray-300{% endif %}">{{ item.reflections }}</span>
+                        </td>
+                        <td class="text-center px-4 py-4">
+                            <span class="text-sm font-semibold {% if item.hap > 0 %}text-ottoman-dark{% else %}text-gray-300{% endif %}">{{ item.hap }}</span>
+                        </td>
+                        <td class="text-center px-4 py-4">
+                            <span class="text-xs text-gray-400">{{ item.user.last_login.strftime('%d.%m %H:%M') if item.user.last_login else '-' }}</span>
+                        </td>
+                        <td class="text-center px-4 py-4">
+                            <div class="flex justify-center gap-2">
+                                <a href="{{ url_for('admin_user_detail', user_id=item.user.id) }}" class="px-3 py-1.5 rounded-lg bg-ottoman-dark/5 hover:bg-ottoman-dark/10 text-ottoman-dark text-xs font-semibold transition">Detay</a>
+                                <form method="POST" action="{{ url_for('admin_delete_user', user_id=item.user.id) }}" onsubmit="return confirm('{{ item.user.name }} silinecek. Emin misiniz?')">
+                                    <button class="px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold transition">Sil</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% if not user_data %}
+                    <tr>
+                        <td colspan="7" class="text-center py-12 text-gray-400">Henuz kullanici yok.</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
