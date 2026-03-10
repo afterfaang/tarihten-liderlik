@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% block title %}{{ durak.baslik }} - Tarihten Liderlik{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="relative h-[50vh] md:h-[55vh] overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ durak.gorsel }}');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20"></div>
+    <div class="absolute top-20 left-0 right-0 px-4">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="/duraklar" class="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full transition">
+                &#8592; Tum Duraklar
+            </a>
+            <span class="bg-ottoman-red text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+                Durak {{ durak.id }} / {{ toplam_durak }}
+            </span>
+        </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center gap-3 mb-3">
+                <span class="text-4xl drop-shadow-2xl">{{ durak.emoji }}</span>
+                <div class="inline-block bg-ottoman-gold/20 backdrop-blur-sm text-ottoman-gold text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                    {{ durak.altbaslik }}
+                </div>
+            </div>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-white drop-shadow-lg mb-2">{{ durak.baslik }}</h1>
+            <p class="text-gray-300 max-w-xl text-lg">Topkapi Sarayi &bull; Durak {{ durak.id }}</p>
+        </div>
+    </div>
+</section>
+
+<!-- Sticky Navigation -->
+<div class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex items-center gap-6 py-3 overflow-x-auto text-sm">
+            <a href="#tarihi" class="text-ottoman-dark hover:text-ottoman-red font-medium transition whitespace-nowrap">Tarihi Bilgi</a>
+            <a href="#liderlik" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Liderlik Dersi</a>
+            <a href="#modern" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Modern Baglanti</a>
+            <a href="#yetkinlikler" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Yetkinlikler</a>
+            <a href="#dusunce" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Dusunce</a>
+            {% if quiz %}
+            <a href="#quiz" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Quiz</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<section class="bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 py-12">
+
+        <!-- Tarihi Bilgi + Liderlik Dersi Split -->
+        <div id="tarihi" class="scroll-mt-20 scroll-reveal bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 mb-10">
+            <div class="md:flex">
+                <!-- Tarihi Bilgi -->
+                <div class="md:w-1/2 p-8 md:p-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-12 h-12 bg-ottoman-red/10 rounded-xl flex items-center justify-center text-xl">&#128220;</span>
+                        <h2 class="font-serif text-xl font-bold text-ottoman-dark">Tarihi Bilgi</h2>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed text-[15px]">{{ durak.tarihi_aciklama }}</p>
+                </div>
+                <!-- Liderlik Dersi -->
+                <div id="liderlik" class="scroll-mt-20 md:w-1/2 bg-gradient-to-b from-ottoman-cream/40 to-white p-8 md:p-10 border-l border-gray-100">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-12 h-12 bg-ottoman-gold/20 rounded-xl flex items-center justify-center text-xl">&#127942;</span>
+                        <h2 class="font-serif text-xl font-bold text-ottoman-dark">Liderlik Dersi</h2>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed text-[15px]">{{ durak.liderlik_dersi }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modern Baglanti -->
+        <div id="modern" class="scroll-mt-20 scroll-reveal mb-10">
+            <div class="bg-gradient-to-r from-ottoman-navy to-ottoman-dark rounded-3xl shadow-lg p-8 md:p-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-ottoman-gold/5 rounded-full -mr-32 -mt-32"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-ottoman-gold/5 rounded-full -ml-24 -mb-24"></div>
+                <div class="relative">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-xl">&#128188;</span>
+                        <div>
+                            <h2 class="font-serif text-xl font-bold text-white">Bugunku Is Dunyasina Baglanti</h2>
+                            <p class="text-ottoman-gold text-sm">Tarihten Bugune</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed text-[15px]">{{ durak.modern_baglanti }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anahtar Yetkinlikler -->
+        <div id="yetkinlikler" class="scroll-mt-20 scroll-reveal mb-10">
+            <div class="bg-white rounded-3xl shadow-lg p-8 md:p-10 border border-gray-100">
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="w-12 h-12 bg-ottoman-green/10 rounded-xl flex items-center justify-center text-xl">&#127919;</span>
+                    <h2 class="font-serif text-xl font-bold text-ottoman-dark">Anahtar Liderlik Yetkinlikleri</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {% for yetkinlik in durak.anahtar_yetkinlikler %}
+                    <div class="group relative bg-gradient-to-b from-ottoman-cream to-white rounded-2xl p-6 border border-ottoman-gold/10 text-center hover:shadow-lg transition-all duration-300">
+                        <div class="w-12 h-12 mx-auto bg-ottoman-gold/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                            <span class="text-lg font-bold text-ottoman-red">{{ loop.index }}</span>
+                        </div>
+                        <p class="font-bold text-ottoman-dark text-sm">{{ yetkinlik }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Dusundurici Soru -->
+        <div id="dusunce" class="scroll-mt-20 scroll-reveal mb-10">
+            <div class="bg-ottoman-dark text-white rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-lg">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-ottoman-gold/10 rounded-full -mr-24 -mt-24"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-ottoman-red/10 rounded-full -ml-16 -mb-16"></div>
+                <div class="relative">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl">&#129300;</span>
+                        <h2 class="font-serif text-xl font-bold text-ottoman-gold">Dusundurici Soru</h2>
+                    </div>
+                    <blockquote class="text-xl md:text-2xl italic leading-relaxed text-gray-200 mb-8 font-serif border-l-4 border-ottoman-gold pl-6">
+                        {{ durak.dusundurici_soru }}
+                    </blockquote>
+                    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <label class="block text-sm font-semibold text-ottoman-gold mb-3">Kisisel Notunuz</label>
+                        <textarea id="durak-note-{{ durak.id }}"
+                            class="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder-gray-400 focus:outline-none focus:border-ottoman-gold resize-none transition"
+                            rows="4"
+                            placeholder="Dusuncelerinizi buraya yazin..."></textarea>
+                        <div class="flex items-center gap-3 mt-3">
+                            <button onclick="saveDurakNote({{ durak.id }})" class="bg-ottoman-gold text-ottoman-dark px-6 py-2.5 rounded-xl font-bold hover:bg-ottoman-gold/80 transition inline-flex items-center gap-2">
+                                &#128190; Kaydet
+                            </button>
+                            <span id="note-saved-{{ durak.id }}" class="text-green-400 text-sm hidden">Kaydedildi!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini Quiz -->
+        {% if quiz %}
+        <div id="quiz" class="scroll-mt-20 mb-10">
+            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100">
+                <div class="bg-gradient-to-r from-purple-600 to-purple-800 p-6 md:p-8">
+                    <div class="flex items-center gap-4">
+                        <span class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl">&#127891;</span>
+                        <div>
+                            <h2 class="font-serif text-xl font-bold text-white">Mini Quiz</h2>
+                            <p class="text-purple-200 text-sm">{{ durak.baslik }} - Ogrendiklerini Test Et</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8" id="durak-quiz" data-durak="{{ durak.id }}">
+                    {% for soru in quiz.sorular %}
+                    <div class="quiz-question mb-6 p-5 bg-gray-50 rounded-2xl border border-gray-100" data-question="{{ loop.index0 }}" data-correct="{{ soru.dogru }}">
+                        <p class="font-bold text-ottoman-dark mb-4 flex items-start gap-3">
+                            <span class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 font-bold text-sm flex-shrink-0">{{ loop.index }}</span>
+                            <span>{{ soru.soru }}</span>
+                        </p>
+                        <div class="space-y-2 ml-11">
+                            {% for secenek in soru.secenekler %}
+                            <button onclick="checkAnswer(this, {{ loop.index0 }}, {{ soru.dogru }})"
+                                class="quiz-option w-full text-left px-5 py-3.5 rounded-xl border-2 border-gray-100 hover:border-purple-300 hover:bg-purple-50/50 transition text-sm font-medium"
+                                data-index="{{ loop.index0 }}">
+                                {{ secenek }}
+                            </button>
+                            {% endfor %}
+                        </div>
+                        <div class="quiz-feedback hidden mt-3 ml-11 p-4 rounded-xl text-sm"></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Tamamlandi + Navigation -->
+        <div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                {% if durak.id > 1 %}
+                <a href="/durak/{{ durak.id - 1 }}" class="flex items-center gap-3 text-ottoman-dark hover:text-ottoman-red transition font-semibold group">
+                    <span class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-ottoman-red/10 transition">&#8592;</span>
+                    Onceki Durak
+                </a>
+                {% else %}
+                <div></div>
+                {% endif %}
+
+                <button onclick="markDurakVisited({{ durak.id }})" id="mark-visited-btn" class="bg-ottoman-green text-white px-8 py-3 rounded-xl font-bold hover:bg-ottoman-green/80 transition shadow-lg inline-flex items-center gap-2">
+                    &#9989; Tamamlandi Olarak Isaretle
+                </button>
+
+                {% if durak.id < toplam_durak %}
+                <a href="/durak/{{ durak.id + 1 }}" class="flex items-center gap-3 text-ottoman-dark hover:text-ottoman-red transition font-semibold group">
+                    Sonraki Durak
+                    <span class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-ottoman-red/10 transition">&#10132;</span>
+                </a>
+                {% else %}
+                <a href="/duraklar" class="flex items-center gap-3 text-ottoman-dark hover:text-ottoman-red transition font-semibold group">
+                    Tum Duraklar
+                    <span class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-ottoman-red/10 transition">&#10132;</span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    loadDurakNote({{ durak.id }});
+    updateVisitedButton({{ durak.id }});
+});
+</script>
+{% endblock %}

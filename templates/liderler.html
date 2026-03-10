@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Tarihten Liderler - Tarihten Liderlik{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="relative h-[40vh] md:h-[45vh] overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/static/img/durak6.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20"></div>
+    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-ottoman-gold font-semibold text-sm uppercase tracking-widest mb-2">Tarihten Liderlik</p>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-3 drop-shadow-lg">Bes Lider, Bes Vizyon</h1>
+            <p class="text-gray-300 max-w-xl text-lg">MO 356'dan 1938'e uzanan zaman diliminde, tarihi degistiren liderlerin ortak paydasi.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Ribbon -->
+<div class="bg-ottoman-dark">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between py-4 overflow-x-auto gap-4">
+            {% for lider in liderler %}
+            <a href="#lider-{{ lider.id }}" class="flex items-center gap-2 text-white/70 hover:text-ottoman-gold transition flex-shrink-0 group">
+                <span class="text-xl">{{ lider.emoji }}</span>
+                <div>
+                    <p class="text-xs font-bold group-hover:text-ottoman-gold transition">{{ lider.isim.split(' ')[-1] }}</p>
+                    <p class="text-[10px] text-gray-500">{{ lider.donem }}</p>
+                </div>
+            </a>
+            {% if not loop.last %}
+            <div class="w-8 h-px bg-ottoman-gold/30 flex-shrink-0"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Lider Cards -->
+<section class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-4 space-y-20">
+        {% for lider in liderler %}
+        <div id="lider-{{ lider.id }}" class="scroll-mt-24">
+            <a href="/lider/{{ lider.id }}" class="group block">
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+                    <div class="md:flex {% if loop.index is odd %}{% else %}md:flex-row-reverse{% endif %}">
+                        <!-- Visual Side -->
+                        <div class="md:w-5/12 relative overflow-hidden">
+                            <div class="h-64 md:h-full min-h-[320px] relative">
+                                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ lider.gorsel }}');"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-center">
+                                    <div class="text-6xl mb-3 drop-shadow-2xl group-hover:scale-110 transition-transform duration-500">{{ lider.emoji }}</div>
+                                    <div class="inline-block bg-ottoman-gold/20 backdrop-blur-sm text-ottoman-gold text-xs font-bold px-4 py-1.5 rounded-full mb-2 uppercase tracking-wider">
+                                        {{ lider.tema }}
+                                    </div>
+                                    <h2 class="font-serif text-3xl font-bold text-white drop-shadow-lg">{{ lider.isim }}</h2>
+                                    <p class="text-gray-300 font-serif italic mt-1">{{ lider.unvan }} &bull; {{ lider.donem }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Content Side -->
+                        <div class="md:w-7/12 p-8 md:p-10 flex flex-col justify-center">
+                            <p class="text-gray-600 leading-relaxed mb-6">{{ lider.ozet }}</p>
+
+                            <!-- Liderlik Ozellikleri -->
+                            <div class="grid grid-cols-2 gap-3 mb-6">
+                                {% for ozellik in lider.liderlik_ozellikleri %}
+                                <div class="bg-gradient-to-r from-ottoman-cream/50 to-white rounded-xl p-4 border border-ottoman-gold/10">
+                                    <h4 class="font-bold text-ottoman-dark text-sm mb-1">{{ ozellik.baslik }}</h4>
+                                    <p class="text-gray-500 text-xs line-clamp-2">{{ ozellik.aciklama }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            <!-- Soz Preview -->
+                            {% if lider.onemli_sozler %}
+                            <div class="p-4 bg-ottoman-cream/30 rounded-xl border-l-4 border-ottoman-gold mb-4">
+                                <p class="text-sm text-gray-700 italic line-clamp-2 font-serif">"{{ lider.onemli_sozler[0] }}"</p>
+                            </div>
+                            {% endif %}
+
+                            <!-- Degisim Anahtari Preview -->
+                            <div class="flex items-center gap-3 p-4 bg-ottoman-red/5 rounded-xl border-l-4 border-ottoman-red mb-6">
+                                <span class="text-ottoman-red text-lg">&#128273;</span>
+                                <p class="text-sm text-gray-700 italic line-clamp-2">{{ lider.degisim_anahtarlari[0] }}</p>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2 text-xs text-gray-400">
+                                    <span>&#128197;</span>
+                                    {% if lider.onemli_tarihler %}
+                                    <span>{{ lider.onemli_tarihler|length }} Onemli Tarih</span>
+                                    {% endif %}
+                                    <span class="mx-1">&bull;</span>
+                                    <span>{{ lider.liderlik_ozellikleri|length }} Ozellik</span>
+                                    <span class="mx-1">&bull;</span>
+                                    <span>{{ lider.hap_sorulari|length }} HAP</span>
+                                </div>
+                                <span class="text-ottoman-red font-bold text-sm group-hover:translate-x-2 transition-transform duration-300 inline-flex items-center gap-1">
+                                    Kesfet <span class="text-lg">&#10132;</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Quiz CTA -->
+<section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-ottoman-dark to-ottoman-navy"></div>
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-10 left-10 w-96 h-96 border border-ottoman-gold rounded-full"></div>
+        <div class="absolute bottom-10 right-10 w-72 h-72 border border-ottoman-gold rounded-full"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-4 py-20 text-center">
+        <div class="text-6xl mb-6">&#129504;</div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Hangi Lidere Benziyorsun?</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-lg mx-auto">6 soruyla kendi liderlik tarzini kesfet. Her soru seni tarihin buyuk liderlerinden birine yaklastiracak.</p>
+        <a href="/quiz" class="inline-flex items-center gap-3 bg-ottoman-gold text-ottoman-dark px-10 py-4 rounded-2xl font-bold text-lg hover:bg-ottoman-gold/90 transition shadow-lg shadow-ottoman-gold/20">
+            &#127942; Testi Coz
+        </a>
+    </div>
+</section>
+{% endblock %}

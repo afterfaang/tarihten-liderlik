@@ -1,0 +1,339 @@
+{% extends "base.html" %}
+{% block title %}Liderlik Testi - Tarihten Liderlik{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="relative h-[35vh] md:h-[40vh] overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/static/img/durak6.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20"></div>
+    <div class="absolute inset-0 overflow-hidden opacity-10">
+        <div class="absolute top-0 right-0 w-96 h-96 border border-ottoman-gold rounded-full -mr-48 -mt-48"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 border border-ottoman-gold rounded-full -ml-32 -mb-32"></div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="text-5xl mb-4">&#129504;</div>
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">{{ test.baslik }}</h1>
+            <p class="text-gray-300 max-w-lg mx-auto">{{ test.aciklama }}</p>
+        </div>
+    </div>
+</section>
+
+<div class="bg-gray-50 min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 py-10">
+
+        <!-- Quiz Container -->
+        <div id="quiz-container">
+            <!-- Progress bar -->
+            <div class="bg-white rounded-2xl shadow-md p-6 mb-8 border border-gray-100">
+                <div class="flex justify-between items-center mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-ottoman-red/10 rounded-xl flex items-center justify-center">
+                            <span class="text-ottoman-red font-bold text-sm" id="quiz-current-num">1</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-ottoman-dark text-sm">Ilerleme</p>
+                            <p class="text-xs text-gray-400" id="quiz-progress-text">0 / {{ test.sorular|length }}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        {% for soru in test.sorular %}
+                        <div class="quiz-dot w-3 h-3 rounded-full bg-gray-200 transition-all duration-300" data-dot="{{ loop.index0 }}"></div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-full h-2.5 overflow-hidden">
+                    <div id="quiz-progress-bar" class="bg-gradient-to-r from-ottoman-red to-ottoman-gold h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Questions -->
+            {% for soru in test.sorular %}
+            {% set soru_idx = loop.index0 %}
+            <div class="quiz-slide hidden" data-slide="{{ soru_idx }}">
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100">
+                    <!-- Question header -->
+                    <div class="bg-gradient-to-r from-ottoman-dark to-ottoman-navy p-6 text-white">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center font-bold text-lg">{{ loop.index }}</span>
+                            <h2 class="font-serif text-xl font-bold flex-1">{{ soru.soru }}</h2>
+                        </div>
+                    </div>
+                    <!-- Options -->
+                    <div class="p-6 md:p-8 space-y-3">
+                        {% for secenek in soru.secenekler %}
+                        <button onclick="selectPersonalityAnswer({{ loop.index0 }}, this)"
+                            class="personality-option w-full text-left px-6 py-5 rounded-2xl border-2 border-gray-100 hover:border-ottoman-gold hover:bg-ottoman-cream/20 transition-all duration-200 group"
+                            data-question="{{ soru_idx }}"
+                            data-option="{{ loop.index0 }}">
+                            <div class="flex items-center gap-4">
+                                <div class="w-8 h-8 rounded-full border-2 border-gray-200 group-hover:border-ottoman-gold flex items-center justify-center flex-shrink-0 transition">
+                                    <div class="w-3 h-3 rounded-full bg-transparent group-hover:bg-ottoman-gold/30 transition"></div>
+                                </div>
+                                <span class="font-medium text-gray-700 group-hover:text-ottoman-dark transition">{{ secenek.metin }}</span>
+                            </div>
+                        </button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- Navigation buttons -->
+            <div class="flex justify-between items-center mt-8">
+                <button onclick="prevSlide()" id="prev-btn" class="hidden px-6 py-3 rounded-xl bg-white shadow-md border border-gray-100 text-gray-600 hover:bg-gray-50 font-semibold transition inline-flex items-center gap-2">
+                    <span>&#8592;</span> Onceki
+                </button>
+                <div></div>
+                <button onclick="nextSlide()" id="next-btn" class="hidden px-8 py-3 rounded-xl bg-ottoman-red text-white font-semibold hover:bg-ottoman-red/90 transition shadow-lg shadow-ottoman-red/20 inline-flex items-center gap-2">
+                    Sonraki <span>&#10132;</span>
+                </button>
+                <button onclick="showResults()" id="results-btn" class="hidden px-10 py-4 rounded-2xl bg-gradient-to-r from-ottoman-gold to-ottoman-gold/80 text-ottoman-dark font-bold hover:from-ottoman-gold/90 hover:to-ottoman-gold/70 transition text-lg shadow-lg shadow-ottoman-gold/20 inline-flex items-center gap-3">
+                    &#127942; Sonucu Gor
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="results-container" class="hidden">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <!-- Result Hero with Leader Photo -->
+                <div class="relative h-64 md:h-72 overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center" id="result-bg-image"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="relative text-center px-6">
+                            <div class="w-20 h-20 bg-ottoman-gold/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
+                                <span class="text-4xl" id="result-emoji"></span>
+                            </div>
+                            <p class="text-ottoman-gold text-sm font-semibold uppercase tracking-widest mb-2" id="result-subtitle">Liderlik Tarziniz</p>
+                            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white drop-shadow-lg mb-2" id="result-title"></h2>
+                            <p class="text-gray-300 text-sm" id="result-donem"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 md:p-10 space-y-8">
+                    <!-- Description -->
+                    <div class="bg-ottoman-cream/50 rounded-2xl p-6 border border-ottoman-gold/10">
+                        <p class="text-gray-700 leading-relaxed" id="result-description"></p>
+                    </div>
+
+                    <!-- Strengths & Growth -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 rounded-2xl p-6 border border-green-100">
+                            <h3 class="font-bold text-green-800 mb-4 flex items-center gap-2">
+                                <span class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">&#9989;</span>
+                                Guclu Yonleriniz
+                            </h3>
+                            <div class="space-y-2" id="result-strengths"></div>
+                        </div>
+                        <div class="bg-orange-50 rounded-2xl p-6 border border-orange-100">
+                            <h3 class="font-bold text-orange-800 mb-4 flex items-center gap-2">
+                                <span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">&#128200;</span>
+                                Gelisim Alanlariniz
+                            </h3>
+                            <div class="space-y-2" id="result-growth"></div>
+                        </div>
+                    </div>
+
+                    <!-- Score breakdown -->
+                    <div class="bg-white rounded-2xl p-6 border-2 border-gray-100">
+                        <h3 class="font-bold text-ottoman-dark mb-5 flex items-center gap-2">
+                            <span class="w-8 h-8 bg-ottoman-gold/10 rounded-lg flex items-center justify-center">&#128202;</span>
+                            Tum Liderlerle Uyum
+                        </h3>
+                        <div class="space-y-4" id="result-breakdown"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-10">
+                <button onclick="retakeQuiz()" class="px-8 py-3 rounded-xl bg-white shadow-md border border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition inline-flex items-center justify-center gap-2">
+                    &#128260; Tekrar Coz
+                </button>
+                <a href="/profil" class="px-8 py-3 rounded-xl bg-ottoman-red text-white font-semibold hover:bg-ottoman-red/90 transition shadow-lg shadow-ottoman-red/20 inline-flex items-center justify-center gap-2">
+                    &#128100; Profilimi Gor
+                </a>
+                <a href="/liderler" class="px-8 py-3 rounded-xl bg-ottoman-dark text-white font-semibold hover:bg-ottoman-dark/90 transition shadow-lg inline-flex items-center justify-center gap-2">
+                    &#9876;&#65039; Liderleri Incele
+                </a>
+                <a id="result-lider-link" href="/lider/1" class="hidden px-8 py-3 rounded-xl bg-ottoman-gold text-ottoman-dark font-semibold hover:bg-ottoman-gold/80 transition shadow-lg inline-flex items-center justify-center gap-2">
+                    &#128214; Liderini Tani
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const testData = {{ test|tojson }};
+    let currentSlide = 0;
+    let answers = {};
+    const totalQuestions = testData.sorular.length;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        showSlide(0);
+    });
+
+    function updateDots() {
+        document.querySelectorAll('.quiz-dot').forEach(dot => {
+            const idx = parseInt(dot.dataset.dot);
+            dot.classList.remove('bg-ottoman-red', 'bg-green-400', 'bg-gray-200', 'w-4');
+            if (idx === currentSlide) {
+                dot.classList.add('bg-ottoman-red', 'w-4');
+            } else if (answers[idx] !== undefined) {
+                dot.classList.add('bg-green-400');
+            } else {
+                dot.classList.add('bg-gray-200');
+            }
+        });
+    }
+
+    function showSlide(index) {
+        document.querySelectorAll('.quiz-slide').forEach(s => s.classList.add('hidden'));
+        const slide = document.querySelector(`[data-slide="${index}"]`);
+        if (slide) slide.classList.remove('hidden');
+
+        document.getElementById('quiz-current-num').textContent = index + 1;
+        document.getElementById('prev-btn').classList.toggle('hidden', index === 0);
+        document.getElementById('next-btn').classList.toggle('hidden', index >= totalQuestions - 1 || !answers[index] && answers[index] !== 0);
+        document.getElementById('results-btn').classList.toggle('hidden', index < totalQuestions - 1 || !answers[index] && answers[index] !== 0);
+
+        const pct = Math.round((Object.keys(answers).length / totalQuestions) * 100);
+        document.getElementById('quiz-progress-bar').style.width = pct + '%';
+        document.getElementById('quiz-progress-text').textContent = Object.keys(answers).length + ' / ' + totalQuestions;
+
+        updateDots();
+    }
+
+    function selectPersonalityAnswer(optionIndex, btn) {
+        const questionIndex = currentSlide;
+        answers[questionIndex] = optionIndex;
+
+        const slide = btn.closest('.quiz-slide');
+        slide.querySelectorAll('.personality-option').forEach(b => {
+            b.classList.remove('border-ottoman-gold', 'bg-ottoman-cream/30');
+            b.classList.add('border-gray-100');
+            b.querySelector('.w-3').classList.remove('bg-ottoman-gold');
+            b.querySelector('.w-3').classList.add('bg-transparent');
+        });
+        btn.classList.remove('border-gray-100');
+        btn.classList.add('border-ottoman-gold', 'bg-ottoman-cream/30');
+        btn.querySelector('.w-3').classList.remove('bg-transparent');
+        btn.querySelector('.w-3').classList.add('bg-ottoman-gold');
+
+        setTimeout(() => {
+            if (currentSlide < totalQuestions - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            } else {
+                showSlide(currentSlide);
+            }
+        }, 300);
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) { currentSlide--; showSlide(currentSlide); }
+    }
+
+    function nextSlide() {
+        if (currentSlide < totalQuestions - 1) { currentSlide++; showSlide(currentSlide); }
+    }
+
+    function showResults() {
+        const scores = {iskender: 0, augustus: 0, fatih: 0, medici: 0, ataturk: 0};
+
+        for (let qi in answers) {
+            const oi = answers[qi];
+            const puan = testData.sorular[qi].secenekler[oi].puan;
+            for (let key in puan) {
+                scores[key] += puan[key];
+            }
+        }
+
+        const maxKey = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        const result = testData.sonuclar[maxKey];
+
+        const liderIdMap = {iskender: 1, augustus: 2, fatih: 3, medici: 4, ataturk: 5};
+        localStorage.setItem('tl_quiz_result', JSON.stringify({
+            result: maxKey,
+            liderId: liderIdMap[maxKey],
+            aciklama: result.aciklama,
+            guclu: result.gucluyonler,
+            gelisim: result.gelisim,
+            scores: scores,
+            date: new Date().toISOString()
+        }));
+
+        const emojis = {iskender: '\u2694\ufe0f', augustus: '\ud83c\udfdb\ufe0f', fatih: '\ud83c\udff0', medici: '\ud83c\udfa8', ataturk: '\u2b50'};
+        const gorseller = {
+            iskender: '/static/img/lider1.jpg',
+            augustus: '/static/img/lider2.jpg',
+            fatih: '/static/img/lider3.jpg',
+            medici: '/static/img/lider4.jpg',
+            ataturk: '/static/img/lider5.jpg'
+        };
+        const donemler = {iskender: 'MO 356 - MO 323', augustus: 'MO 63 - MS 14', fatih: '1432 - 1481', medici: '1449 - 1492', ataturk: '1881 - 1938'};
+        document.getElementById('result-emoji').textContent = emojis[maxKey] || '';
+        document.getElementById('result-title').textContent = result.baslik;
+        document.getElementById('result-subtitle').textContent = 'Liderlik Tarziniz';
+        document.getElementById('result-description').textContent = result.aciklama;
+        const bgEl = document.getElementById('result-bg-image');
+        if (bgEl && gorseller[maxKey]) bgEl.style.backgroundImage = `url('${gorseller[maxKey]}')`;
+        const donemEl = document.getElementById('result-donem');
+        if (donemEl && donemler[maxKey]) donemEl.textContent = donemler[maxKey];
+        const liderLink = document.getElementById('result-lider-link');
+        if (liderLink && liderIdMap[maxKey]) {
+            liderLink.href = '/lider/' + liderIdMap[maxKey];
+            liderLink.classList.remove('hidden');
+        }
+
+        const strengthsEl = document.getElementById('result-strengths');
+        strengthsEl.innerHTML = result.gucluyonler.map(s => `<div class="bg-white text-green-700 px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2"><span class="text-green-500">&#10003;</span> ${s}</div>`).join('');
+
+        const growthEl = document.getElementById('result-growth');
+        growthEl.innerHTML = result.gelisim.map(g => `<div class="bg-white text-orange-700 px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2"><span class="text-orange-500">&#10148;</span> ${g}</div>`).join('');
+
+        const maxScore = Math.max(...Object.values(scores));
+        const breakdownEl = document.getElementById('result-breakdown');
+        const names = {iskender: 'B. Iskender', augustus: 'Augustus', fatih: 'Fatih Sultan Mehmed', medici: 'Lorenzo de Medici', ataturk: 'M.K. Ataturk'};
+        const emojisMap = {iskender: '\u2694\ufe0f', augustus: '\ud83c\udfdb\ufe0f', fatih: '\ud83c\udff0', medici: '\ud83c\udfa8', ataturk: '\u2b50'};
+        breakdownEl.innerHTML = Object.keys(scores).sort((a,b) => scores[b] - scores[a]).map(key => {
+            const pct = maxScore > 0 ? Math.round((scores[key] / maxScore) * 100) : 0;
+            return `<div class="flex items-center gap-4">
+                <span class="text-lg">${emojisMap[key]}</span>
+                <span class="w-36 text-sm font-medium text-gray-700">${names[key]}</span>
+                <div class="flex-1 bg-gray-100 rounded-full h-3 overflow-hidden">
+                    <div class="h-full rounded-full transition-all duration-1000 ${key === maxKey ? 'bg-gradient-to-r from-ottoman-red to-ottoman-gold' : 'bg-gray-300'}" style="width: ${pct}%"></div>
+                </div>
+                <span class="text-sm font-bold w-8 text-right ${key === maxKey ? 'text-ottoman-red' : 'text-gray-400'}">${scores[key]}</span>
+            </div>`;
+        }).join('');
+
+        document.getElementById('quiz-container').classList.add('hidden');
+        document.getElementById('results-container').classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function retakeQuiz() {
+        answers = {};
+        currentSlide = 0;
+        document.querySelectorAll('.personality-option').forEach(b => {
+            b.classList.remove('border-ottoman-gold', 'bg-ottoman-cream/30');
+            b.classList.add('border-gray-100');
+            const dot = b.querySelector('.w-3');
+            if (dot) {
+                dot.classList.remove('bg-ottoman-gold');
+                dot.classList.add('bg-transparent');
+            }
+        });
+        document.getElementById('results-container').classList.add('hidden');
+        document.getElementById('quiz-container').classList.remove('hidden');
+        showSlide(0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+{% endblock %}

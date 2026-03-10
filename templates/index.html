@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% block title %}Tarihten Liderlik - Osmanli'dan Liderlik Ogrenimleri{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Background Image -->
+<section class="relative h-[60vh] md:h-[70vh] overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/static/img/durak2.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-ottoman-dark via-ottoman-dark/60 to-ottoman-dark/30"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+        <div class="text-center px-4 max-w-3xl">
+            <div class="text-6xl mb-6 animate-float">&#127984;</div>
+            <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
+                <span class="text-ottoman-gold">Tarihten</span> Liderlik
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-2 font-serif italic drop-shadow">Osmanli'dan Liderlik Ogrenimleri</p>
+            <p class="text-lg text-ottoman-gold mb-8 drop-shadow">Bediz Kilickini</p>
+            <p class="max-w-2xl mx-auto text-gray-300 mb-10 leading-relaxed drop-shadow">
+                {{ program.tanim }}
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/gezi" class="bg-ottoman-red hover:bg-ottoman-red/90 text-white px-8 py-3 rounded-xl font-semibold text-lg transition shadow-lg hover:shadow-ottoman-red/30">
+                    &#128506; Gezi Rehberini Ac
+                </a>
+                <a href="/duraklar" class="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 px-8 py-3 rounded-xl font-semibold text-lg transition">
+                    &#127984; Duraklari Kesfet
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="bg-white shadow-sm border-b">
+    <div class="max-w-7xl mx-auto px-4 py-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+                <div class="text-3xl font-bold text-ottoman-red">7</div>
+                <div class="text-sm text-gray-500">Topkapi Duragi</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-ottoman-red">5</div>
+                <div class="text-sm text-gray-500">Tarihi Lider</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-ottoman-red">28+</div>
+                <div class="text-sm text-gray-500">Liderlik Yetkinligi</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-ottoman-red">30+</div>
+                <div class="text-sm text-gray-500">Dusundurici Soru</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Duraklar Preview with Photos -->
+<section class="max-w-7xl mx-auto px-4 py-16">
+    <div class="text-center mb-12 scroll-reveal">
+        <h2 class="font-serif text-3xl font-bold text-ottoman-dark mb-3">Topkapi Sarayi Duraklari</h2>
+        <p class="text-gray-600 max-w-xl mx-auto">Sarayin her kosesinde, liderligin ve yonetimin tarihsel izlerini gormek mumkundur.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for durak in duraklar %}
+        <a href="/durak/{{ durak.id }}" class="card-hover scroll-reveal bg-white rounded-2xl shadow-lg overflow-hidden group">
+            <div class="relative h-44 overflow-hidden">
+                <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('{{ durak.gorsel }}');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute top-3 left-3">
+                    <span class="text-xs bg-ottoman-red text-white px-2.5 py-1 rounded-full font-bold shadow">Durak {{ durak.id }}</span>
+                </div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <h3 class="font-serif text-xl font-bold text-white drop-shadow">{{ durak.baslik }}</h3>
+                </div>
+            </div>
+            <div class="p-5">
+                <p class="text-ottoman-gold font-semibold text-sm mb-2">{{ durak.altbaslik }}</p>
+                <p class="text-gray-600 text-sm line-clamp-2">{{ durak.tarihi_aciklama[:120] }}...</p>
+                <div class="mt-3 flex flex-wrap gap-1.5">
+                    {% for yetkinlik in durak.anahtar_yetkinlikler[:2] %}
+                    <span class="text-xs bg-ottoman-cream text-ottoman-dark px-2 py-1 rounded-full">{{ yetkinlik }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+        <!-- CTA Card -->
+        <a href="/gezi" class="card-hover bg-gradient-to-br from-ottoman-red to-ottoman-dark rounded-2xl shadow-lg p-8 flex flex-col items-center justify-center text-center group text-white">
+            <div class="text-4xl mb-4">&#128506;</div>
+            <p class="font-serif text-xl font-bold mb-2">Gezi Rehberini Ac</p>
+            <p class="text-gray-300 text-sm">Topkapi turuna interaktif eslik</p>
+        </a>
+    </div>
+</section>
+
+<!-- Liderler Preview -->
+<section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12 scroll-reveal">
+            <h2 class="font-serif text-3xl font-bold text-ottoman-dark mb-3">Tarihten Liderler</h2>
+            <p class="text-gray-600 max-w-xl mx-auto">Bes farkli medeniyet, bes farkli donem, bes farkli lider.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {% for lider in liderler %}
+            <a href="/lider/{{ lider.id }}" class="card-hover scroll-reveal group relative rounded-2xl overflow-hidden shadow-lg aspect-[3/4]">
+                <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700" style="background-image: url('{{ lider.gorsel }}');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute top-3 left-3">
+                    <span class="text-2xl drop-shadow-lg">{{ lider.emoji }}</span>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-4 text-center">
+                    <div class="inline-block bg-ottoman-gold/20 backdrop-blur-sm text-ottoman-gold text-[10px] font-bold px-2.5 py-1 rounded-full mb-2 uppercase tracking-wider">
+                        {{ lider.tema }}
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-sm mb-0.5 drop-shadow-lg">{{ lider.isim }}</h3>
+                    <p class="text-[11px] text-gray-300">{{ lider.donem }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Features -->
+<section class="max-w-7xl mx-auto px-4 py-16">
+    <div class="text-center mb-12 scroll-reveal">
+        <h2 class="font-serif text-3xl font-bold text-ottoman-dark mb-3">Interaktif Ogrenme Araclari</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+        <a href="/quiz" class="card-hover bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
+            <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">&#129504;</div>
+            <h3 class="font-serif font-bold text-lg mb-2 text-ottoman-dark">Liderlik Testi</h3>
+            <p class="text-gray-500 text-sm">Hangi tarihi lidere benzedigini kesfet. 6 soru, kisisel sonuc.</p>
+        </a>
+        <a href="/hap" class="card-hover bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
+            <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">&#128161;</div>
+            <h3 class="font-serif font-bold text-lg mb-2 text-ottoman-dark">HAP - Aksiyon Plani</h3>
+            <p class="text-gray-500 text-sm">Hemen Aksiyon Plani ile ogrendiklerini hayata gecir.</p>
+        </a>
+        <a href="/refleksiyon" class="card-hover bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
+            <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">&#128221;</div>
+            <h3 class="font-serif font-bold text-lg mb-2 text-ottoman-dark">Refleksiyon Defteri</h3>
+            <p class="text-gray-500 text-sm">Kisisel notlarini tut, dusuncelerini kaydet.</p>
+        </a>
+    </div>
+</section>
+
+<!-- About -->
+<section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('/static/img/durak3.jpg');"></div>
+    <div class="absolute inset-0 bg-ottoman-dark/95"></div>
+    <div class="relative max-w-4xl mx-auto px-4 py-16">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="w-32 h-32 bg-ottoman-gold/20 rounded-full flex items-center justify-center text-5xl flex-shrink-0">
+                &#128218;
+            </div>
+            <div class="text-white">
+                <h2 class="font-serif text-2xl font-bold text-ottoman-gold mb-3">Bediz Kilickini Hakkinda</h2>
+                <p class="text-gray-300 leading-relaxed text-sm">{{ program.yazar_bio }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Program Akisi -->
+<section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="font-serif text-2xl font-bold text-ottoman-dark mb-8 text-center">Program Akisi</h2>
+    <div class="space-y-4">
+        {% for adim in program.program_akisi %}
+        <div class="flex items-center gap-4 bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+            <div class="w-20 text-center">
+                <span class="font-mono font-bold text-ottoman-red text-lg">{{ adim.saat }}</span>
+            </div>
+            <div class="w-px h-8 bg-ottoman-gold/30"></div>
+            <div class="font-medium text-ottoman-dark">{{ adim.etkinlik }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% block title %}Gezi Rehberi - Topkapi Sarayi{% endblock %}
+
+{% block content %}
+<div class="bg-white min-h-screen relative" id="gezi-app">
+
+    <!-- Ust Bar: Ilerleme -->
+    <div class="sticky top-16 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 py-3">
+            <div class="flex items-center gap-3">
+                <span class="text-ottoman-red font-serif font-bold text-sm hidden sm:block">Topkapi Turu</span>
+                <div class="flex-1 flex items-center gap-1">
+                    {% for durak in duraklar %}
+                    <button onclick="setActiveGezi({{ durak.id }})" class="gezi-step-btn group flex-1 relative" data-step="{{ durak.id }}">
+                        <div class="h-2 rounded-full transition-all duration-500 {% if loop.first %}bg-ottoman-red{% else %}bg-gray-200{% endif %}" data-step-bar="{{ durak.id }}"></div>
+                        <span class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-gray-400 opacity-0 group-hover:opacity-100 transition whitespace-nowrap">{{ durak.id }}</span>
+                    </button>
+                    {% endfor %}
+                </div>
+                <span class="text-xs text-gray-500 font-semibold" id="gezi-counter">1/7</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ana Icerik: Slider -->
+    <div class="relative overflow-hidden" id="gezi-slider-wrapper">
+        {% for durak in duraklar %}
+        <div class="gezi-slide {% if not loop.first %}hidden{% endif %}" data-slide="{{ durak.id }}">
+
+            <!-- Hero Gorsel -->
+            <div class="relative h-[45vh] md:h-[50vh] overflow-hidden">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700"
+                     style="background-image: url('{{ durak.gorsel }}');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+
+                <!-- Durak Bilgi Overlay -->
+                <div class="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+                    <div class="max-w-5xl mx-auto">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="inline-flex items-center gap-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full border border-white/30">
+                                <span class="w-2 h-2 bg-ottoman-gold rounded-full animate-pulse"></span>
+                                Durak {{ durak.id }} / {{ duraklar|length }}
+                            </span>
+                            <span class="gezi-visited-tag hidden text-xs bg-green-500/90 backdrop-blur-sm text-white px-3 py-1 rounded-full font-semibold" data-vtag="{{ durak.id }}">Tamamlandi</span>
+                        </div>
+                        <h1 class="font-serif text-3xl md:text-5xl font-bold mb-2 text-white drop-shadow-lg">{{ durak.baslik }}</h1>
+                        <p class="text-ottoman-gold text-lg md:text-xl font-serif italic drop-shadow">{{ durak.altbaslik }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Icerik Kartlari -->
+            <div class="max-w-5xl mx-auto px-4 -mt-6 relative z-10 pb-32 space-y-4">
+
+                <!-- Tarihi Bilgi -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="w-9 h-9 bg-ottoman-red/10 rounded-lg flex items-center justify-center text-lg">&#128220;</span>
+                        <h3 class="font-serif font-bold text-ottoman-dark">Tarihi Bilgi</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">{{ durak.tarihi_aciklama }}</p>
+                </div>
+
+                <!-- Liderlik Dersi -->
+                <div class="bg-gradient-to-r from-ottoman-red/5 to-white rounded-2xl shadow-lg p-6 border-l-4 border-ottoman-red">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="w-9 h-9 bg-ottoman-red/10 rounded-lg flex items-center justify-center text-lg">&#127942;</span>
+                        <h3 class="font-serif font-bold text-ottoman-dark">Liderlik Dersi</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">{{ durak.liderlik_dersi }}</p>
+                </div>
+
+                <!-- Modern Baglanti -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center text-lg">&#128188;</span>
+                        <h3 class="font-serif font-bold text-ottoman-dark">Bugunku Is Dunyasi</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">{{ durak.modern_baglanti }}</p>
+                </div>
+
+                <!-- Anahtar Yetkinlikler -->
+                <div class="flex flex-wrap gap-2">
+                    {% for yetkinlik in durak.anahtar_yetkinlikler %}
+                    <span class="bg-ottoman-cream text-ottoman-dark text-xs px-4 py-2 rounded-full font-medium border border-ottoman-gold/20">{{ yetkinlik }}</span>
+                    {% endfor %}
+                </div>
+
+                <!-- Dusundurici Soru -->
+                <div class="bg-ottoman-dark rounded-2xl p-6 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-ottoman-gold/10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="relative">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-9 h-9 bg-ottoman-gold/20 rounded-lg flex items-center justify-center text-lg">&#129300;</span>
+                            <h3 class="font-serif font-bold text-ottoman-gold">Dusundurici Soru</h3>
+                        </div>
+                        <p class="text-gray-200 text-base italic leading-relaxed mb-4">{{ durak.dusundurici_soru }}</p>
+                        <textarea
+                            id="gezi-note-{{ durak.id }}"
+                            class="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder-gray-400 focus:outline-none focus:border-ottoman-gold/50 resize-none text-sm"
+                            rows="3"
+                            placeholder="Dusuncelerinizi buraya yazin..."></textarea>
+                        <div class="flex items-center justify-between mt-3">
+                            <button onclick="saveGeziNote({{ durak.id }})" class="bg-ottoman-gold/20 hover:bg-ottoman-gold/30 text-ottoman-gold px-5 py-2 rounded-xl text-xs font-bold transition border border-ottoman-gold/30">
+                                &#128190; Not Kaydet
+                            </button>
+                            <span id="gezi-saved-{{ durak.id }}" class="text-green-400 text-xs hidden">Kaydedildi!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detay Linki -->
+                <a href="/durak/{{ durak.id }}" class="bg-white rounded-2xl shadow-lg p-5 flex items-center justify-between group hover:shadow-xl border border-gray-100 transition block">
+                    <div>
+                        <p class="text-ottoman-dark font-semibold text-sm">Tam Detay ve Mini Quiz</p>
+                        <p class="text-gray-400 text-xs mt-1">Daha fazla bilgi, quiz ve yetkinlik analizi</p>
+                    </div>
+                    <span class="text-ottoman-red text-xl group-hover:translate-x-1 transition-transform">&#10132;</span>
+                </a>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Sticky Alt Nav -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+        <div class="max-w-5xl mx-auto px-4 py-3">
+            <div class="flex items-center gap-3">
+                <button onclick="geziPrev()" id="gezi-prev-btn"
+                    class="w-12 h-12 rounded-xl bg-gray-100 border border-gray-200 text-gray-400 hover:text-ottoman-dark hover:bg-gray-200 transition flex items-center justify-center text-lg disabled:opacity-20 flex-shrink-0"
+                    disabled>
+                    &#8592;
+                </button>
+
+                <button onclick="completeGeziStop()" id="gezi-complete-btn"
+                    class="flex-1 h-12 bg-gradient-to-r from-ottoman-red to-ottoman-red/80 text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-ottoman-red/20 transition flex items-center justify-center gap-2">
+                    <span id="gezi-complete-icon">&#128205;</span>
+                    <span id="gezi-complete-text">Buradayim - Tamamla</span>
+                </button>
+
+                <button onclick="geziNext()" id="gezi-next-btn"
+                    class="w-12 h-12 rounded-xl bg-ottoman-red/10 border border-ottoman-red/20 text-ottoman-red hover:bg-ottoman-red/20 transition flex items-center justify-center text-lg disabled:opacity-20 flex-shrink-0">
+                    &#10132;
+                </button>
+            </div>
+        </div>
+        <div class="h-[env(safe-area-inset-bottom)]"></div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const geziDuraklar = {{ duraklar|tojson }};
+let activeGeziDurak = 1;
+
+document.addEventListener('DOMContentLoaded', function() {
+    const visited = JSON.parse(localStorage.getItem('tl_visited_duraklar') || '[]');
+    let startDurak = 1;
+    for (let i = 1; i <= 7; i++) {
+        if (!visited.includes(i)) { startDurak = i; break; }
+        if (i === 7) startDurak = 7;
+    }
+    setActiveGezi(startDurak);
+    for (let i = 1; i <= 7; i++) loadGeziNote(i);
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, {passive: true});
+    document.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        const dy = e.changedTouches[0].screenY - touchStartY;
+        if (Math.abs(dx) > 80 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+            if (dx > 0 && activeGeziDurak > 1) geziPrev();
+            else if (dx < 0 && activeGeziDurak < 7) geziNext();
+        }
+    }, {passive: true});
+});
+
+function setActiveGezi(durakId) {
+    activeGeziDurak = durakId;
+    const visited = JSON.parse(localStorage.getItem('tl_visited_duraklar') || '[]');
+
+    document.querySelectorAll('.gezi-slide').forEach(s => s.classList.add('hidden'));
+    const slide = document.querySelector(`[data-slide="${durakId}"]`);
+    if (slide) {
+        slide.classList.remove('hidden');
+        slide.style.animation = 'geziSlideIn 0.4s ease-out';
+    }
+
+    document.querySelectorAll('[data-step-bar]').forEach(bar => {
+        const id = parseInt(bar.dataset.stepBar);
+        bar.classList.remove('bg-ottoman-red', 'bg-green-500', 'bg-gray-200', 'h-2.5');
+        if (id === durakId) {
+            bar.classList.add('bg-ottoman-red', 'h-2.5');
+        } else if (visited.includes(id)) {
+            bar.classList.add('bg-green-500');
+        } else {
+            bar.classList.add('bg-gray-200');
+        }
+    });
+
+    document.getElementById('gezi-counter').textContent = `${durakId}/7`;
+
+    document.querySelectorAll('.gezi-visited-tag').forEach(t => t.classList.add('hidden'));
+    if (visited.includes(durakId)) {
+        const tag = document.querySelector(`[data-vtag="${durakId}"]`);
+        if (tag) tag.classList.remove('hidden');
+    }
+
+    document.getElementById('gezi-prev-btn').disabled = durakId <= 1;
+    document.getElementById('gezi-next-btn').disabled = durakId >= 7;
+
+    const btn = document.getElementById('gezi-complete-btn');
+    const icon = document.getElementById('gezi-complete-icon');
+    const text = document.getElementById('gezi-complete-text');
+    if (visited.includes(durakId)) {
+        btn.classList.remove('from-ottoman-red', 'to-ottoman-red/80');
+        btn.classList.add('from-green-600', 'to-green-700');
+        icon.innerHTML = '&#9989;';
+        text.textContent = 'Tamamlandi';
+    } else {
+        btn.classList.remove('from-green-600', 'to-green-700');
+        btn.classList.add('from-ottoman-red', 'to-ottoman-red/80');
+        icon.innerHTML = '&#128205;';
+        text.textContent = 'Buradayim - Tamamla';
+    }
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function completeGeziStop() {
+    let visited = JSON.parse(localStorage.getItem('tl_visited_duraklar') || '[]');
+    if (!visited.includes(activeGeziDurak)) {
+        visited.push(activeGeziDurak);
+        localStorage.setItem('tl_visited_duraklar', JSON.stringify(visited));
+        if (activeGeziDurak < 7) {
+            setTimeout(() => setActiveGezi(activeGeziDurak + 1), 500);
+        } else {
+            setActiveGezi(activeGeziDurak);
+        }
+    }
+}
+
+function geziPrev() { if (activeGeziDurak > 1) setActiveGezi(activeGeziDurak - 1); }
+function geziNext() { if (activeGeziDurak < 7) setActiveGezi(activeGeziDurak + 1); }
+
+function saveGeziNote(durakId) {
+    const ta = document.getElementById(`gezi-note-${durakId}`);
+    if (!ta) return;
+    const notes = JSON.parse(localStorage.getItem('tl_durak_notes') || '{}');
+    notes[durakId] = ta.value;
+    localStorage.setItem('tl_durak_notes', JSON.stringify(notes));
+    const s = document.getElementById(`gezi-saved-${durakId}`);
+    if (s) { s.classList.remove('hidden'); setTimeout(() => s.classList.add('hidden'), 2000); }
+}
+
+function loadGeziNote(durakId) {
+    const ta = document.getElementById(`gezi-note-${durakId}`);
+    if (!ta) return;
+    const notes = JSON.parse(localStorage.getItem('tl_durak_notes') || '{}');
+    if (notes[durakId]) ta.value = notes[durakId];
+}
+</script>
+{% endblock %}

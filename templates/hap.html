@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block title %}HAP - Hemen Aksiyon Plani{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="relative h-[35vh] md:h-[40vh] overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/static/img/durak3.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20"></div>
+    <div class="absolute inset-0 overflow-hidden opacity-10">
+        <div class="absolute top-0 right-0 w-96 h-96 border border-ottoman-gold rounded-full -mr-48 -mt-48"></div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="text-5xl mb-4">&#128161;</div>
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">HAP - Hemen Aksiyon Plani</h1>
+            <p class="text-gray-300 max-w-xl mx-auto">Her liderin ogretilerini kendi hayatiniza uyarlayin. Sorulari cevaplayin, planlama yapin.</p>
+        </div>
+    </div>
+</section>
+
+<div class="bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 py-10">
+
+        <!-- Lider Tabs -->
+        <div class="bg-white rounded-2xl shadow-md p-4 mb-10 border border-gray-100 sticky top-16 z-20 backdrop-blur-md">
+            <div class="flex overflow-x-auto gap-2 pb-1">
+                {% for lider in liderler %}
+                <button onclick="showHapTab({{ lider.id }})"
+                    class="hap-tab flex-shrink-0 flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200
+                    {% if loop.first %}bg-ottoman-dark text-white shadow-lg{% else %}bg-gray-50 text-gray-500 hover:bg-gray-100{% endif %}"
+                    data-tab="{{ lider.id }}">
+                    <span class="text-lg">{{ lider.emoji }}</span>
+                    <span class="hidden sm:inline">{{ lider.isim }}</span>
+                    <span class="sm:hidden">{{ lider.isim.split(' ')[-1] }}</span>
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% for lider in liderler %}
+        <div class="hap-content {% if not loop.first %}hidden{% endif %} space-y-8" data-content="{{ lider.id }}">
+
+            <!-- Lider Quick Info -->
+            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100">
+                <div class="relative p-8 text-white overflow-hidden min-h-[160px]">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ lider.gorsel }}');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+                    <div class="relative flex items-center gap-6">
+                        <div class="text-6xl drop-shadow-2xl">{{ lider.emoji }}</div>
+                        <div>
+                            <h2 class="font-serif text-2xl font-bold drop-shadow-lg">{{ lider.isim }}</h2>
+                            <p class="text-ottoman-gold text-sm font-semibold">{{ lider.tema }}</p>
+                            <p class="text-gray-300 text-sm">{{ lider.unvan }} &bull; {{ lider.donem }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Degisim Anahtarlari -->
+            <div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-ottoman-gold/20 to-ottoman-cream rounded-xl flex items-center justify-center text-xl shadow-sm">&#128273;</div>
+                    <div>
+                        <h2 class="font-serif text-xl font-bold text-ottoman-dark">Degisim Anahtarlari Ozeti</h2>
+                        <p class="text-xs text-gray-400">{{ lider.isim }}'in liderlik ogretileri</p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    {% for anahtar in lider.degisim_anahtarlari %}
+                    <div class="flex items-start gap-3 p-4 bg-gradient-to-r from-ottoman-cream/30 to-white rounded-xl border border-ottoman-gold/10">
+                        <div class="w-7 h-7 bg-ottoman-gold/20 rounded-lg flex items-center justify-center text-ottoman-red font-bold text-xs flex-shrink-0 mt-0.5">{{ loop.index }}</div>
+                        <p class="text-gray-700 text-sm leading-relaxed">{{ anahtar }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- HAP Sorulari -->
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <div class="bg-gradient-to-r from-ottoman-red to-ottoman-red/80 p-8 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-20 -mt-20"></div>
+                    <div class="relative flex items-center gap-4">
+                        <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-2xl">&#128221;</div>
+                        <div>
+                            <h2 class="font-serif text-xl font-bold">Kendi Degisimime Liderlik Etme Sorulari</h2>
+                            <p class="text-white/70 text-sm">Her soruyu dusunun ve ictenlikle cevaplayin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 space-y-6">
+                    {% for soru in lider.hap_sorulari %}
+                    <div class="rounded-2xl border-2 border-gray-100 p-6 hover:border-ottoman-gold/30 transition">
+                        <div class="flex items-start gap-4 mb-4">
+                            <span class="w-8 h-8 bg-ottoman-red/10 rounded-lg flex items-center justify-center text-ottoman-red font-bold text-sm flex-shrink-0">{{ loop.index }}</span>
+                            <p class="text-ottoman-dark font-semibold">{{ soru }}</p>
+                        </div>
+                        <textarea
+                            class="hap-answer w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-ottoman-gold focus:bg-white resize-none text-sm transition"
+                            rows="3"
+                            placeholder="Cevabinizi buraya yazin..."
+                            data-lider="{{ lider.id }}"
+                            data-question="{{ loop.index0 }}"></textarea>
+                    </div>
+                    {% endfor %}
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <button onclick="saveHapAnswers({{ lider.id }})" class="bg-ottoman-red text-white px-8 py-3 rounded-xl font-bold hover:bg-ottoman-red/90 transition shadow-lg shadow-ottoman-red/20 inline-flex items-center gap-2">
+                            &#128190; Kaydet
+                        </button>
+                        <span id="hap-saved-{{ lider.id }}" class="text-green-500 text-sm font-semibold hidden">&#9989; Kaydedildi!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lider Detay Link -->
+            <div class="text-center">
+                <a href="/lider/{{ lider.id }}" class="inline-flex items-center gap-2 text-ottoman-red font-semibold hover:underline transition">
+                    {{ lider.isim }} hakkinda detayli bilgi <span>&#10132;</span>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function showHapTab(liderId) {
+    document.querySelectorAll('.hap-tab').forEach(t => {
+        t.classList.remove('bg-ottoman-dark', 'text-white', 'shadow-lg');
+        t.classList.add('bg-gray-50', 'text-gray-500');
+    });
+    const activeTab = document.querySelector(`.hap-tab[data-tab="${liderId}"]`);
+    activeTab.classList.add('bg-ottoman-dark', 'text-white', 'shadow-lg');
+    activeTab.classList.remove('bg-gray-50', 'text-gray-500');
+
+    document.querySelectorAll('.hap-content').forEach(c => c.classList.add('hidden'));
+    document.querySelector(`.hap-content[data-content="${liderId}"]`).classList.remove('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    {% for lider in liderler %}
+    loadHapAnswers({{ lider.id }});
+    {% endfor %}
+});
+</script>
+{% endblock %}

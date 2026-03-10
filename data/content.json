@@ -1,0 +1,1215 @@
+{
+  "program": {
+    "baslik": "Tarihten Liderlik",
+    "altbaslik": "Osmanlı'dan Liderlik Öğrenimleri",
+    "yazar": "Bediz Kılıçkını",
+    "tanim": "Topkapı Sarayı'nın tarihi dokusu içinde dolaşırken, tarihin tozlu sayfaları ile günümüzün dinamiklerini yan yana getiren bir liderlik yaklaşımı.",
+    "yazar_bio": "Bediz Kılıçkını, koçluk, liderlik ve profesyonel gelişim konularında uzmanlaşmış bir yazar, eğitmen ve profesyonel koçtur. 2011 yılında MB Akademi'yi kurmuştur. 2012 yılında Aim Coaching koçluk okulunu kurarak 450'ye yakın profesyonel koçun gelişim sürecine rehberlik etmiştir. 'Kalbe Dokunan Koçluk', 'Koçluk Öyküleri' ve 'Transaksiyonel Analiz ile Liderlik Öyküleri' kitaplarıyla bilinmektedir. Son 10 yıldır 'Tarihten Liderlik Dersleri' programını Topkapı Sarayı'nda sürdürmektedir.",
+    "program_akisi": [
+      {
+        "saat": "09:00",
+        "etkinlik": "Buluşma ve Kahvaltı"
+      },
+      {
+        "saat": "10:00",
+        "etkinlik": "Brief Toplantısı"
+      },
+      {
+        "saat": "11:00",
+        "etkinlik": "Otel'den Ayrılma ve Topkapı Sarayı'na Hareket"
+      },
+      {
+        "saat": "14:30",
+        "etkinlik": "Otele Dönüş ve Yemek"
+      },
+      {
+        "saat": "15:30",
+        "etkinlik": "Kapanış Brief"
+      },
+      {
+        "saat": "16:00",
+        "etkinlik": "Otel'den Ayrılma"
+      }
+    ]
+  },
+  "duraklar": [
+    {
+      "id": 1,
+      "baslik": "Bab-ı Hümayun",
+      "altbaslik": "Güven ve Taahhüt",
+      "emoji": "🏰",
+      "gorsel": "/static/img/durak1.jpg",
+      "tarihi_aciklama": "Topkapı Sarayı'nın Ayasofya Meydanı'na açılan ana dış kapısıdır. Sultan II. Mehmet tarafından 1478 yılında inşa edilmiştir. Sultanlığın kamusal alanından özel alanına geçişi sembolize ediyordu. Kitabeler ve hat sanatıyla süslenmiş olup, Sultan'ın otoritesini ve ilahi hakkını vurguluyordu.",
+      "liderlik_dersi": "Bab-ı Hümayun, Osmanlı liderliğinin ve yönetişiminin sembolü olarak, sultanların gücünü ve halkına olan taahhütlerini temsil eder. Birinci Avlu'nun halkla etkileşim ve törensel etkinlikler için bir alan olarak işlevi, modern halkla ilişkiler ve kurumsal iletişim departmanlarının bir kuruluşun kamu imajını yönetmesiyle paralellik göstermektedir.",
+      "modern_baglanti": "Modern işletmelerin büyük ölçekli etkinlikler, ürün lansmanları ve kurumsal toplantılar düzenlenmesi, Birinci Avlu'da gerçekleştirilen törenleri yansıtmaktadır. Halk algısını yönetmek, şikâyetleri ele almak ve başarıları sergilemek hem tarihi hem de çağdaş bağlamlarda ortak hedeflerdir.",
+      "dusundurici_soru": "Lider olarak ekibinize ve paydaşlarınıza hangi taahhütlerde bulundunuz? Bu taahhütleri ne kadar tutarlı biçimde yerine getiriyorsunuz?",
+      "anahtar_yetkinlikler": [
+        "Güven İnşası",
+        "Kurumsal İletişim",
+        "Algı Yönetimi",
+        "Paydaş İlişkileri"
+      ]
+    },
+    {
+      "id": 2,
+      "baslik": "Babüsselam",
+      "altbaslik": "Simgeler ve Aidiyet",
+      "emoji": "⚔️",
+      "gorsel": "/static/img/durak2.jpg",
+      "tarihi_aciklama": "İkinci Avlu'ya (Divan Meydanı) giriştir. Orta Kapı olarak da bilinir. Kanuni Sultan Süleyman döneminde ikiz kulelerini kazanmıştır. Sadece Sultan'ın at üzerinde geçmesine izin verilirdi.",
+      "liderlik_dersi": "Bu kapılar sadece fiziksel engeller olmanın ötesinde, imparatorluk otoritesinin güçlü sembolleriydi; erişimi kontrol ediyor ve saraydaki etkileşimlerin tonunu belirliyorlardı. Kapıların kasıtlı tasarımı ve kısıtlı erişim, liderlikte sembolizmin ve kontrollü ortamların gücüne dair açık bir anlayışı göstermektedir.",
+      "modern_baglanti": "Modern şirket merkezlerinin genellikle mimari ve güvenlik önlemlerini kullanarak statülerini yansıtması ve girişi kontrol etmesiyle benzerlik göstermektedir. Osmanlılar bu mimari özellikleri kullanarak imparatorluk sarayının hiyerarşisini ve seçkinliğini pekiştirmişlerdir.",
+      "dusundurici_soru": "Organizasyonunuzda hangi semboller ve ritüeller aidiyet duygusunu güçlendiriyor? Bunları bilinçli olarak mı kullanıyorsunuz?",
+      "anahtar_yetkinlikler": [
+        "Sembolik Liderlik",
+        "Kültür Oluşturma",
+        "Aidiyet Duygusu",
+        "Kurumsal Kimlik"
+      ]
+    },
+    {
+      "id": 3,
+      "baslik": "Bâbüssaâde",
+      "altbaslik": "Kültür ve Ritüeller",
+      "emoji": "👑",
+      "gorsel": "/static/img/durak3.jpg",
+      "tarihi_aciklama": "Bâbüssaâde, Sultanın otoritesini ve imparatorluğun ihtişamını pekiştiren halka açık törenler için bir sahne görevi görmüştür. Özellikle tahta çıkış (cülûs) ve bayram törenleri burada gerçekleştirilirdi.",
+      "liderlik_dersi": "Bâbüssaâde Kapısı, Topkapı Sarayı'nın kültür oluşturma ve yaşatma rolünü simgeler. Törenlerin ayrıntılı anlatımları, liderlikte görsel iletişimin ve sembolik temsilin önemini vurgulamaktadır. Osmanlı yöneticileri bu etkinlikleri güçlerini, meşruiyetlerini ve tebaalarıyla olan bağlarını göstermek için kullanmışlardır.",
+      "modern_baglanti": "Modern iş dünyasında Bâbüssaâde, bir şirket merkezinin ana girişine benzetilebilir. Günümüz liderlerinin halka hitapları veya önemli politika duyuruları gibi sembolik jestleri, Bâbüssaâde'deki törenleri yansıtır.",
+      "dusundurici_soru": "Organizasyonunuzda hangi kültürel ritüeller var? Bunlar gerçekten yaşıyor mu, yoksa sadece kağıt üzerinde mi kalıyor?",
+      "anahtar_yetkinlikler": [
+        "Kültür Yönetimi",
+        "Törensel Liderlik",
+        "Kurumsal Değerler",
+        "Meşruiyet İnşası"
+      ]
+    },
+    {
+      "id": 4,
+      "baslik": "Topkapı Maketi",
+      "altbaslik": "Uzun Vadeli Stratejik Bakış",
+      "emoji": "🗺️",
+      "gorsel": "/static/img/durak4.jpg",
+      "tarihi_aciklama": "Topkapı Sarayı ve Dolmabahçe Sarayı'nın mimari yapıları, Osmanlı'nın stratejik düşünce süreçlerinin evrimini yansıtır. Topkapı döneminde mütevazı ama stratejik bir yapı, Dolmabahçe döneminde ise modernleşme ve Batılılaşma iradesinin fiziksel göstergesi.",
+      "liderlik_dersi": "Topkapı Sarayı aslında gösterişten uzak, mütevazı bir yapıdaydı. Çünkü güçlü bir askeri imparatorluğun parası daha çok büyük camiler, askeri binalar, köprüler gibi yapılar için harcanıyordu. Giyimden yaşam tarzına değişim: Topkapı'dan Dolmabahçe'ye geçiş, bir medeniyetin stratejik dönüşümünü gösterir.",
+      "modern_baglanti": "Stratejik dönüşüm programları, şirketlerin fiziksel ve kültürel yapılarını değiştirmesini gerektirir. Topkapı'dan Dolmabahçe'ye geçiş, bir kurumun köklü değişiminin en somut örneklerinden biridir.",
+      "dusundurici_soru": "Organizasyonunuzun 'Topkapı'sı ve 'Dolmabahçe'si nedir? Hangi köklü dönüşüm gerekiyor?",
+      "anahtar_yetkinlikler": [
+        "Stratejik Vizyon",
+        "Değişim Yönetimi",
+        "Uzun Vadeli Planlama",
+        "Dönüşüm Liderliği"
+      ]
+    },
+    {
+      "id": 5,
+      "baslik": "Matbah-ı Âmire",
+      "altbaslik": "Sistemik Düşünce ve Liyakat",
+      "emoji": "🍲",
+      "gorsel": "/static/img/durak5.jpg",
+      "tarihi_aciklama": "Osmanlı İmparatorluğu'nun mutfak bölümü, sarayın en büyük birimlerinden biriydi. Binlerce kişiye düzenli olarak yemek hazırlayan dev bir lojistik sistemdi. Hiyerarşik yapısı, kalite kontrolü ve liyakate dayalı terfi sistemiyle dikkat çekerdi.",
+      "liderlik_dersi": "Matbah-ı Âmire, liyakat ve sistemik düşüncenin önemini vurgular. Osmanlı mutfak sistemi, binlerce kişiye hizmet veren karmaşık bir organizasyondu. Başarısının arkasında net roller, sorumluluklar ve liyakate dayalı bir terfi sistemi vardı.",
+      "modern_baglanti": "Modern şirketlerde de tedarik zinciri yönetimi, kalite kontrolü ve liyakate dayalı kariyer yönetimi aynı prensiplere dayanır. Sistemik düşünce, bir organizasyonun tüm parçalarının birbiriyle nasıl etkileştiğini anlama becerisidir.",
+      "dusundurici_soru": "Organizasyonunuzda liyakat gerçekten işliyor mu? Yeteneği mi seçiyorsunuz, yoksa alışkanlıklarınızı mı?",
+      "anahtar_yetkinlikler": [
+        "Sistemik Düşünce",
+        "Liyakat",
+        "Süreç Yönetimi",
+        "Kalite Kontrolü"
+      ]
+    },
+    {
+      "id": 6,
+      "baslik": "Enderun",
+      "altbaslik": "Yetenek Yönetimi",
+      "emoji": "🎓",
+      "gorsel": "/static/img/durak6.jpg",
+      "tarihi_aciklama": "Enderun, genç yeteneklerin keşfi, yetiştirilmesi ve liderliğe hazırlanması konusundaki tarihi bir modeldir. Devşirme sistemiyle toplanan gençler, eğitimden geçirilerek devletin en üst kademelerine yükseltilebilirdi.",
+      "liderlik_dersi": "Enderun sistemi, Osmanlı'nın en özgün yetenek yönetimi modelidir. Kökenden bağımsız olarak yeteneği keşfetme, eğitme ve en üst makamlara taşıma anlayışı, bugünün en ileri insan kaynakları yaklaşımlarıyla örtüşmektedir. Fatih, devleti kuran Türk beylerinin doğal aristokrasisini, hanedanla rekabet edebilecek bir güç olmaktan çıkarıp Enderun merkezli, tamamen padişaha bağlı ve kökenden bağımsız bir bürokrasi sistemine dönüştürdü.",
+      "modern_baglanti": "Bugünün şirketlerinde yetenek yönetimi, çalışan gelişimi ve liderlik pipeline'ları Enderun'un modern karşılığıdır. Kurumları yaşatan soyadları değil; liyakat, sorumluluk ve değer üretme kapasitesidir.",
+      "dusundurici_soru": "Organizasyonunuzda yetenek keşfi ve geliştirme süreçleri ne kadar sistematik? Potansiyeli yüksek çalışanlarınızı tanıyor musunuz?",
+      "anahtar_yetkinlikler": [
+        "Yetenek Keşfi",
+        "Çalışan Gelişimi",
+        "Liderlik Pipeline",
+        "Meritokrasi"
+      ]
+    },
+    {
+      "id": 7,
+      "baslik": "Divan-ı Hümayun",
+      "altbaslik": "Delegasyon ve Çeşitlilik",
+      "emoji": "📜",
+      "gorsel": "/static/img/durak7.jpg",
+      "tarihi_aciklama": "Divan-ı Hümayun, Osmanlı İmparatorluğu'nun en yüksek karar alma organıydı. Sadrazam başkanlığında toplanır, devlet işleri burada görüşülürdü. Sultan, kafes arkasından toplantıları izleyebilirdi.",
+      "liderlik_dersi": "Divan-ı Hümayun, etkili delegasyon ve çeşitliliğin önemini gösterir. Farklı kökenlerden gelen vezirler, farklı bakış açıları sunarak daha sağlıklı kararlar alınmasını sağlamıştır. Sultan'ın kafes arkasından izlemesi, kontrolü elden bırakmadan yetki devretmenin sembolik ifadesidir.",
+      "modern_baglanti": "Modern yönetim kurulları ve üst düzey karar alma mekanizmaları, Divan-ı Hümayun'un çağdaş karşılığıdır. Çeşitlilik içeren ekipler daha iyi kararlar alır. Etkili delegasyon, liderin her şeyi kendisinin yapması değil, doğru insanlara yetki ve sorumluluk vermesidir.",
+      "dusundurici_soru": "Karar alma süreçlerinizde farklı bakış açılarına ne kadar yer veriyorsunuz? Yetki devri konusunda ne kadar rahatınız?",
+      "anahtar_yetkinlikler": [
+        "Delegasyon",
+        "Çeşitlilik Yönetimi",
+        "Stratejik Karar Alma",
+        "Yetkilendirme"
+      ]
+    }
+  ],
+  "liderler": [
+    {
+      "id": 1,
+      "isim": "Büyük İskender",
+      "donem": "MO 356 - MO 323",
+      "unvan": "Makedonya Kralı",
+      "tema": "Değişim Liderliği",
+      "emoji": "⚔️",
+      "gorsel": "/static/img/lider1.jpg",
+      "ozet": "Cüretkâr vizyonu ve askeri dehasıyla bilinen İskender, 30 yaşına gelmeden bilinen dünyanın büyük bölümünü fethetmiştir. Babası II. Filip'in kurduğu temeller üzerine yükselmiş, Aristoteles'in öğrencisi olarak yetişmiştir.",
+      "liderlik_ozellikleri": [
+        {
+          "baslik": "Vizyon",
+          "aciklama": "İmparatorluğun sınırlarını dünyanın sonuna kadar genişletme hayali"
+        },
+        {
+          "baslik": "Cesaret",
+          "aciklama": "Savaş meydanında her zaman ön saflarda yer alma"
+        },
+        {
+          "baslik": "Adaptasyon",
+          "aciklama": "Farklı kültürleri benimseme ve entegre etme becerisi"
+        },
+        {
+          "baslik": "Karizma",
+          "aciklama": "Askerlerini olağanüstü zorlukları aşmaya motive etme gücü"
+        }
+      ],
+      "degisim_anahtarlari": [
+        "Mirası stratejik bir sıçrama tahtasına dönüştürmek",
+        "Farklı kültürleri dışlamak yerine sentezlemek",
+        "Liderin bizzat risk almasının ilham gücü",
+        "Büyük hedeflerin büyük motivasyon yaratması"
+      ],
+      "hap_sorulari": [
+        "Organizasyonunuzda mirası nasıl değerlendiriyorsunuz? Geçmişi bir sıçrama tahtası olarak mı kullanıyorsunuz?",
+        "Farklı bakış açılarını ve kültürleri nasıl entegre ediyorsunuz?",
+        "Lider olarak risk almaya ne kadar hazırsınız?",
+        "Ekibinizi büyük hedeflere nasıl motive ediyorsunuz?"
+      ],
+      "detayli_bilgi": "MÖ 356'da Makedonya'nın başkenti Pella'da doğan İskender, tarih sahnesine küçük bir krallığın veliahdı olarak çıktı. Babası II. Filip, Yunan dünyasının en güçlü ordusunu inşa etmişti; İskender ise bu mirası bir sıçrama tahtasına dönüştürdü. 13 yaşından itibaren dönemin en büyük düşünürü Aristoteles'ten eğitim aldı. Felsefe, bilim, tıp ve edebiyat konularında derin bir donanım edindi.\n\nBabası MÖ 336'da suikaste kurban gittiğinde 20 yaşındaydı. Tahtı devraldığında ilk icraatı isyancı kabileleri bastırmak oldu. Ardından Asya seferine çıktı. Granikos (MÖ 334), İssos (MÖ 333) ve Gaugamela (MÖ 331) savaşlarıyla Pers İmparatorluğu'nu tarih sahnesinden sildi.\n\nİskender sadece bir fatih değildi; farklı kültürleri bir arada yaşatan bir imparatorluk modeli oluşturdu. Pers geleneklerini benimsemesi, yerel yöneticileri görevde tutması ve kültürlerarası evlilikleri teşvik etmesi, onu döneminin çok ötesinde bir vizyoner yaptı. Mısır'da İskenderiye şehrini kurarak yüzyıllarca bilimin merkezi olacak bir miras bıraktı. MÖ 323'te Babil'de sadece 32 yaşında hayata veda etti.",
+      "onemli_tarihler": [
+        {
+          "tarih": "MÖ 356",
+          "olay": "Pella'da doğum"
+        },
+        {
+          "tarih": "MÖ 343",
+          "olay": "Aristoteles'ten eğitim almaya başlaması"
+        },
+        {
+          "tarih": "MÖ 336",
+          "olay": "Babası II. Filip'in suikastı; Makedonya Kralı olması"
+        },
+        {
+          "tarih": "MÖ 334",
+          "olay": "Asya seferinin başlangıcı - Granikos Savaşı"
+        },
+        {
+          "tarih": "MÖ 333",
+          "olay": "İssos Savaşı - Pers Kralı III. Darius'u yenmesi"
+        },
+        {
+          "tarih": "MÖ 331",
+          "olay": "Gaugamela Savaşı - Pers İmparatorluğu'nun sonu"
+        },
+        {
+          "tarih": "MÖ 326",
+          "olay": "Hindistan seferi - Hydaspes Savaşı"
+        },
+        {
+          "tarih": "MÖ 323",
+          "olay": "Babil'de vefatı (32 yaşında)"
+        }
+      ],
+      "onemli_sozler": [
+        "Korkmuyorum; İmkansız diye bir şey yoktur, denemekten vazgeçenler için her şey imkansızdır.",
+        "Ben ölümden korkmam; sadece isimsiz yaşamaktan korkarım.",
+        "Babamdan hayatımı aldım; hocamdan ise iyi yaşamayı öğrendim."
+      ],
+      "ek_gorseller": [
+        {
+          "url": "/static/img/lider1_ek1.jpg",
+          "baslik": "İskender Büstü - British Museum",
+          "gorsel": "/static/img/lider1_ek1.jpg"
+        },
+        {
+          "url": "/static/img/lider1_ek2.jpg",
+          "baslik": "İskender'in Babil'e Girişi - Charles Le Brun (1665)",
+          "gorsel": "/static/img/lider1_ek2.jpg"
+        }
+      ],
+      "tarihi_etki": "İskender'in fetihleri Helenistik dönemin başlangıcını işaret etti. Yunan kültürü, felsefesi ve bilimi Mısır'dan Hindistan'a kadar yayıldı. Kurduğu İskenderiye şehri yüzyıllarca dünyanın bilim ve kültür başkenti oldu. Doğu ve Batı medeniyetlerinin sentezine dayanan vizyonu, kendisinden sonraki tüm büyük imparatorlukları derinden etkiledi."
+    },
+    {
+      "id": 2,
+      "isim": "Augustus",
+      "donem": "MO 63 - MS 14",
+      "unvan": "Roma İmparatoru",
+      "tema": "Değişim Liderliği",
+      "emoji": "🏛️",
+      "gorsel": "/static/img/lider2.jpg",
+      "ozet": "Roma Cumhuriyeti'ni İmparatorluğa dönüştüren Augustus, sistem kurucu dehasıyla öne çıkar. Pax Romana döneminin mimarı olarak 200 yıllık barış ve refahın temellerini atmıştır.",
+      "liderlik_ozellikleri": [
+        {
+          "baslik": "Sistem Kurma",
+          "aciklama": "Kalıcı kurumlar ve yasalar inşa etme becerisi"
+        },
+        {
+          "baslik": "Sabır",
+          "aciklama": "Uzun vadeli planlarla adım adım ilerleme stratejisi"
+        },
+        {
+          "baslik": "Pragmatizm",
+          "aciklama": "Gerçekçi çözümler üretme ve esnek davranma"
+        },
+        {
+          "baslik": "Algı Yönetimi",
+          "aciklama": "Gücünü gizleyerek, halkın rızasıyla yönetme sanatı"
+        }
+      ],
+      "degisim_anahtarlari": [
+        "Devrim yerine evrim: Köklü değişimi kademeli adımlarla gerçekleştirmek",
+        "Kurumsal yapıları kişilerden bağımsız hale getirmek",
+        "Görünürde mütevazı, özde güçlü liderlik",
+        "Toplumsal uzlaşıyı değişimin temeli yapmak"
+      ],
+      "hap_sorulari": [
+        "Organizasyonunuzda kişilere bağımlı mı yoksa sisteme bağlı mı çalışıyorsunuz?",
+        "Değişimi bir anda mı yoksa kademeli mi gerçekleştiriyorsunuz?",
+        "Gücünüzü nasıl kullanıyorsunuz: Gösterişle mi, etkinlikle mi?",
+        "Kalici kurumlar kurabiliyor musunuz?"
+      ],
+      "detayli_bilgi": "MÖ 63'te Roma'da doğan Gaius Octavius, Julius Caesar'ın kız kardeşinin torunuydu. Caesar'ın suikastının ardından vasiyetnamesinde evlat edinildiğini ve mirasçısı olarak belirlendiğini öğrendi. Henüz 18 yaşındaydı.\n\nOctavianus adını alan genç, Marcus Antonius ve Lepidus ile Üçlü İttifak kurarak rakiplerini tasfiye etti. Ardından Antonius ile arası açıldı; MÖ 31'deki Actium Deniz Savaşı'nda onu yenerek Roma dünyasının tek hakimi oldu.\n\nAugustus, Caesar'ın hatalarından ders çıkardı: Diktatör unvanını reddetti, Senato'yu görünürde güçlü tuttu, 'Princeps' (birinci vatandaş) unvanını tercih etti. Cumhuriyet kurumlarını koruyarak, aslında mutlak bir monarşi inşa etti. Bu stratejisi sayesinde 40 yıl boyunca Roma'yı barış ve refah içinde yönetti.\n\nPax Romana olarak bilinen 200 yıllık barış döneminin mimarı oldu. Yollar, su kemerleri, hukuk sistemi ve vergi reformlarıyla Roma'yı bir tuğla şehirden mermer bir başkente dönüştürdü. MS 14'te 76 yaşında öldüğünde, ardında tarihin en uzun ömürlü siyasi sistemlerinden birini bıraktı.",
+      "onemli_tarihler": [
+        {
+          "tarih": "MÖ 63",
+          "olay": "Roma'da doğum"
+        },
+        {
+          "tarih": "MÖ 44",
+          "olay": "Caesar'ın suikastı; mirasçı ilan edilmesi"
+        },
+        {
+          "tarih": "MÖ 43",
+          "olay": "Üçlü İttifak'ın kurulması"
+        },
+        {
+          "tarih": "MÖ 31",
+          "olay": "Actium Deniz Savaşı - Antonius ve Kleopatra'yı yenmesi"
+        },
+        {
+          "tarih": "MÖ 27",
+          "olay": "'Augustus' unvanını alması - Roma İmparatorluğu'nun başlangıcı"
+        },
+        {
+          "tarih": "MS 14",
+          "olay": "Nola'da vefatı (76 yaşında)"
+        }
+      ],
+      "onemli_sozler": [
+        "Roma'yı tuğladan bir şehir olarak buldum, mermerden bir şehir olarak bırakıyorum.",
+        "Acele edin ama yavaş gidin - Festina Lente.",
+        "İyi yapılan bir iş, hızlı yapılmış bir işten her zaman üstündür."
+      ],
+      "ek_gorseller": [
+        {
+          "url": "/static/img/lider2_ek1.jpg",
+          "baslik": "Roma Forumu - Augustus'un İmparatorluk Merkezi",
+          "gorsel": "/static/img/lider2_ek1.jpg"
+        },
+        {
+          "url": "/static/img/lider2_ek2.jpg",
+          "baslik": "Augustus Heykeli - Via dei Fori Imperiali",
+          "gorsel": "/static/img/lider2_ek2.jpg"
+        }
+      ],
+      "tarihi_etki": "Augustus, Roma'yı bir cumhuriyetten imparatorluğa dönüştürürken toplumsal uzlaşıyı korumayı başardı. Kurduğu idari yapı, hukuk sistemi ve altyapı yüzyıllar boyunca Akdeniz dünyasını şekillendirdi. Pax Romana döneminde ticaret, sanat ve bilim altın çağını yaşadı. Modern devlet yönetimi, hukuk ve kentsel planlama kavramlarının temelleri onun döneminde atıldı."
+    },
+    {
+      "id": 3,
+      "isim": "Fatih Sultan Mehmed",
+      "donem": "1432 - 1481",
+      "unvan": "Osmanlı Padişahı",
+      "tema": "Dönüşüm Liderliği",
+      "emoji": "🏰",
+      "gorsel": "/static/img/lider3.jpg",
+      "ozet": "30 Mart 1432'de doğan Fatih, 21 yaşında İstanbul'u fethederek bir çağı kapatıp yenisini açmıştır. Yalnızca askeri değil, düşünsel olarak da donanımlı bir hükümdar olmuş; Roma, Bizans, Pers ve Makedon imparatorluklarını incelemiş, geçmişin büyük güçlerinden aldığı fikirleri kendi çağının şartlarıyla sentezleyen hibrit bir imparatorluk tasarımı kurmuştur.",
+      "liderlik_ozellikleri": [
+        {
+          "baslik": "Stratejik Öngörü",
+          "aciklama": "Mevcut verilerin izin verdiği sınırların ötesini görebilme cesareti"
+        },
+        {
+          "baslik": "Merkezileşme",
+          "aciklama": "Gücü merkezde toplayarak dönüşümü bizzat yönetme"
+        },
+        {
+          "baslik": "İstisare",
+          "aciklama": "Otorite tartismaya açılmadan, hedefleri istisareyle belirleme"
+        },
+        {
+          "baslik": "Bilgi Açlığı",
+          "aciklama": "Sürekli öğrenme, farklı medeniyetlerden beslenen zihinsel açıklık"
+        }
+      ],
+      "degisim_anahtarlari": [
+        "Yetki bırakılabilir, ama güven devredilemez",
+        "Kurumları yaşatan soyadları değil; liyakat, sorumluluk ve değer üretme kapasitesidir",
+        "Gerçek liderlik, gücü mirasla değil, liyakatle yeniden üreten sistemler kurabilmektir",
+        "Stratejik öngörü, mevcut verilerin izin verdiği sınırların ötesini görebilme cesaretidir",
+        "Sadece işleyen düzeni koruyan bir yönetici olmak yetmez; büyük bir hedef için kurumları yeniden tasarlayan bir lider olmak gerekir"
+      ],
+      "hap_sorulari": [
+        "Bugünün hızına, belirsizliğine ve baskısına rağmen, liderliğin özünü ne kadar hatırlıyorsunuz?",
+        "Gücünüzü hangi vizyonu gerçekleştirmek için kullanıyorsunuz?",
+        "İstisareyi hiçbir zaman terk etmeden, nihai sorumluluğu başkalarına havale etmeden karar verebiliyor musunuz?",
+        "Organizasyonunuzda yeteneği mi seçiyorsunuz, yoksa alışkanlıklarınızı mı?",
+        "Bugünün dönüştürücü lideri olarak, kişisel sadakati değil kurumsal geleceği önceleyebiliyor musunuz?"
+      ],
+      "detayli_bilgi": "30 Mart 1432'de Edirne'de doğan Mehmed, Osmanlı İmparatorluğu'nun yedinci padişahıdır. İlk tahta çıkışı 1444'te, henüz 12 yaşındayken gerçekleşti. Ancak deneyimsizliği nedeniyle babası II. Murad tahtı geri aldı. Bu erken deneyim, onu daha kararlı ve stratejik bir lider haline getirdi.\n\n1451'de ikinci kez tahta çıktığında, aklında tek bir hedef vardı: Konstantinopolis'i fethetmek. 21 yaşında, 53 gün süren kuşatmanın ardından 29 Mayıs 1453'te şehri fethetti. Bin yıllık Bizans İmparatorluğu'na son vererek Orta Çağ'ı kapattı ve yeni bir çağ açtı.\n\nFatih yalnızca bir fatih değildi; aynı zamanda bir devlet mimarıydı. Kanunname-i Al-i Osman'ı hazırlayarak devletin temel yasalarını kodifiye etti. Roma, Bizans, Pers ve Makedon imparatorluklarını incelemiş, geçmişin büyük güçlerinden aldığı fikirleri kendi çağının şartlarıyla sentezleyen hibrit bir imparatorluk tasarımı kurmuştur.\n\nYedi dil bilen, bilim ve sanata tutkuyla bağlı bir entelektüeldi. İtalyan ressam Gentile Bellini'yi portresini yapması için İstanbul'a davet etmesi, onun kültürel açıklığının simgesidir. Topkapı Sarayı, Fatih Camii, Kapalıçarşı gibi yapılarla İstanbul'u bir dünya başkentine dönüştürdü.",
+      "onemli_tarihler": [
+        {
+          "tarih": "1432",
+          "olay": "Edirne'de doğum"
+        },
+        {
+          "tarih": "1444",
+          "olay": "İlk tahta çıkışı (12 yaşında)"
+        },
+        {
+          "tarih": "1451",
+          "olay": "İkinci kez tahta çıkması"
+        },
+        {
+          "tarih": "1452",
+          "olay": "Rumeli Hisarı'nın inşası (4 ay 16 günde)"
+        },
+        {
+          "tarih": "1453",
+          "olay": "İstanbul'un Fethi - 29 Mayıs"
+        },
+        {
+          "tarih": "1459-1461",
+          "olay": "Sırbistan, Mora ve Trabzon'un fethi"
+        },
+        {
+          "tarih": "1478",
+          "olay": "Kanunname-i Al-i Osman'ın hazırlanması"
+        },
+        {
+          "tarih": "1481",
+          "olay": "Gebze yakınlarında vefatı (49 yaşında)"
+        }
+      ],
+      "onemli_sozler": [
+        "Ya ben İstanbul'u alırım, ya İstanbul beni.",
+        "Dünyada tek bir din, tek bir devlet, tek bir padişah olmalıdır.",
+        "İlim bir memlekette bulunmaz; ilim gezip toplanır."
+      ],
+      "ek_gorseller": [
+        {
+          "url": "/static/img/lider3_ek1.jpg",
+          "baslik": "Rumeli Hisarı - Fetih'in Stratejik Anahtarı (1452)",
+          "gorsel": "/static/img/lider3_ek1.jpg"
+        },
+        {
+          "url": "/static/img/lider3_ek2.jpg",
+          "baslik": "İstanbul'un Fethi - Panorama 1453 Müzesi",
+          "gorsel": "/static/img/lider3_ek2.jpg"
+        }
+      ],
+      "tarihi_etki": "Fatih Sultan Mehmed, İstanbul'un fethiyle Orta Çağ'ı bitirip Yeni Çağ'ı başlattı. Osmanlı İmparatorluğu'nu bir dünya gücüne dönüştüren kurumsal altyapıyı inşa etti. Enderun sistemiyle liyakate dayalı bürokrasi modelini kurdu. Kanunname'siyle devleti kişilerden bağımsız bir sisteme kavuşturdu. Kültürel açıklığı ve entelektüel birikimi, onu sadece bir fatih değil, aynı zamanda bir medeniyet mimarı yaptı."
+    },
+    {
+      "id": 4,
+      "isim": "Lorenzo de Medici",
+      "donem": "1449 - 1492",
+      "unvan": "Floransa Hâkimi",
+      "tema": "Kültürel Liderlik",
+      "emoji": "🎨",
+      "gorsel": "/static/img/lider4.jpg",
+      "ozet": "Rönesans'ın en önemli hamilerinden biri olan Lorenzo, sanat ve kültürü destekleyerek bir çağın zihinsel dönüşümüne öncülük etmiştir. Siyaset, ekonomi ve sanatı bir arada yönetme ustalığıyla bilinir.",
+      "liderlik_ozellikleri": [
+        {
+          "baslik": "Hamilik",
+          "aciklama": "Sanat ve bilimi destekleyerek toplumsal dönüşüme öncülük etme"
+        },
+        {
+          "baslik": "Denge",
+          "aciklama": "Siyaset, ekonomi ve kültür arasında ince denge kurma"
+        },
+        {
+          "baslik": "Yumuşak Güç",
+          "aciklama": "Zorla değil, etki ve ilhamla yönetme becerisi"
+        },
+        {
+          "baslik": "Yenilikçilik",
+          "aciklama": "Yeni fikirlere ve yaklaşımlara açık olma"
+        }
+      ],
+      "degisim_anahtarlari": [
+        "Kültürel yatırım, uzun vadede en güçlü değişim aracıdır",
+        "Yumuşak güç, kalıcı değişim için sert güçten daha etkilidir",
+        "Farklı disiplinleri bir araya getirmek yaratıcılığı artırır",
+        "Lider, topluluğun en iyisini ortaya çıkaran bir katalizordür"
+      ],
+      "hap_sorulari": [
+        "Organizasyonunuzda kültürel yatırıma ne kadar önem veriyorsunuz?",
+        "Yumuşak gücünüzü ne kadar etkili kullanıyorsunuz?",
+        "Farklı disiplinlerden gelen fikirlere ne kadar açıksınız?",
+        "Ekibinizin yaratıcılığını teşvik etmek için ne yapıyorsunuz?"
+      ],
+      "detayli_bilgi": "1449'da Floransa'da doğan Lorenzo, Medici hanedanının en parlak temsilcisidir. 'Il Magnifico' (Muhteşem) lakabıyla anılır. Babası Piero de' Medici'nin 1469'da ölümünün ardından 20 yaşında Floransa'nın fiili yöneticisi oldu.\n\nLorenzo resmi bir unvan taşımadı; ne kral ne de dük idi. Floransa nominalde bir cumhuriyetti. Ancak Lorenzo, mali gücü, diplomatik zekası ve kültürel patronajıyla şehri perde arkasından yönetti. Bu 'yumuşak güç' kullanımı, onu benzersiz bir lider modeli yapmaktadır.\n\nHayatının en kritik anı 1478'deki Pazzi Komplosu'ydu. Rakip Pazzi ailesi tarafından kilisede suikaste uğradı; kardeşi Giuliano öldürüldü, kendisi kılıçla yaralanarak zor kurtuldu. Bu olaydan sonra diplomatik yeteneklerini kullanarak düşmanlarını yalnızlaştırdı ve gücünü pekiştirdi.\n\nLorenzo'nun asıl mirası, Rönesans'ın altın çağını finanse etmesidir. Botticelli, Leonardo da Vinci, Michelangelo gibi dâhileri himaye etti. Floransa'yı Avrupa'nın sanat ve düşünce merkezi haline getirdi. Aynı zamanda kendisi de başarılı bir şair ve filozoftu. İtalyan şehir-devletleri arasında denge politikası izleyerek barışı korudu.\n\n1492'de 43 yaşında hayatını kaybettiğinde, Floransa'nın ve Rönesans'ın altın çağı da sona erdi.",
+      "onemli_tarihler": [
+        {
+          "tarih": "1449",
+          "olay": "Floransa'da doğum"
+        },
+        {
+          "tarih": "1469",
+          "olay": "Floransa'nın fiili yöneticisi olması (20 yaşında)"
+        },
+        {
+          "tarih": "1478",
+          "olay": "Pazzi Komplosu - Kardeşi Giuliano'nun öldürülmesi"
+        },
+        {
+          "tarih": "1480",
+          "olay": "Napoli Kralı ile barış anlaşması - diplomatik zafer"
+        },
+        {
+          "tarih": "1489",
+          "olay": "Genç Michelangelo'yu himayesine alması"
+        },
+        {
+          "tarih": "1492",
+          "olay": "Floransa'da vefatı (43 yaşında)"
+        }
+      ],
+      "onemli_sozler": [
+        "Zaman kısa; yaşadığın anın tadını çıkar, yarınından emin olma.",
+        "En büyük hata, hata yapmaktan korkmaktır.",
+        "Sanat, bir milletin ruhunun aynasıdır."
+      ],
+      "ek_gorseller": [
+        {
+          "url": "/static/img/lider4_ek1.jpg",
+          "baslik": "Floransa Katedrali (Duomo) - Medici Floransa'sının Simgesi",
+          "gorsel": "/static/img/lider4_ek1.jpg"
+        },
+        {
+          "url": "/static/img/lider4_ek2.jpg",
+          "baslik": "Venüs'ün Doğuşu - Botticelli (Lorenzo'nun Himayesinde)",
+          "gorsel": "/static/img/lider4_ek2.jpg"
+        }
+      ],
+      "tarihi_etki": "Lorenzo de Medici, Rönesans'ın en parlak dönemini şekillendiren figürdür. Resmi bir unvan taşımadan, yumuşak güçle bir çağa damgasını vurdu. Finanse ettiği sanatçılar ve düşünürler, Batı medeniyetinin temellerini attı. Diplomatik becerisiyle İtalya'da barışı korurken, kültürel yatırımlarıyla insanlığın entelektüel mirasına kalıcı katkıda bulundu. Modern 'kültürel liderlik' kavramının en erken ve en güçlü örneğidir."
+    },
+    {
+      "id": 5,
+      "isim": "Mustafa Kemal Atatürk",
+      "donem": "1881 - 1938",
+      "unvan": "Türkiye Cumhuriyeti Kurucusu",
+      "tema": "Dönüştürücü Liderlik",
+      "emoji": "⭐",
+      "gorsel": "/static/img/lider5.jpg",
+      "ozet": "Bir imparatorluğun külünden modern bir cumhuriyet kuran Atatürk, karizmatik kişiliği, vizyonerliği, cesareti ve stratejik zekasıyla tarihin en başarılı dönüştürücü liderlerinden biridir.",
+      "liderlik_ozellikleri": [
+        {
+          "baslik": "Vizyon",
+          "aciklama": "Modern, laik ve demokratik bir ulus-devlet hayali"
+        },
+        {
+          "baslik": "Cesaret",
+          "aciklama": "En umutsuz koşullarda bile bağımsızlık için mücadele"
+        },
+        {
+          "baslik": "Reform",
+          "aciklama": "Köklü toplumsal ve kurumsal dönüşümler gerçekleştirme"
+        },
+        {
+          "baslik": "Karizma",
+          "aciklama": "Halkı ortak bir ideal etrafında birleştirme gücü"
+        }
+      ],
+      "degisim_anahtarlari": [
+        "En büyük dönüşümler en derin krizlerin içinden doğar",
+        "Lider, toplumun önüne geçerek yön göstermeli ama toplumu arkasında bırakmamalıdır",
+        "Kalıcı değişim, kurumsal ve kültürel reformların birlikte yürütülmesiyle mümkündür",
+        "Bağımsız düşünce, gerçek liderliğin temelidir"
+      ],
+      "hap_sorulari": [
+        "Kriz anlarında liderliğinizi nasıl gösteriyorsunuz?",
+        "Ekibinizi ortak bir ideal etrafında birleştirebiliyor musunuz?",
+        "Köklü değişimler için ne kadar hazırsınız?",
+        "Bağımsız düşünce ve eleştirel analizi ne kadar teşvik ediyorsunuz?"
+      ],
+      "detayli_bilgi": "1881'de Selanik'te doğan Mustafa Kemal, Osmanlı İmparatorluğu'nun çöküş döneminde büyüdü. Askeri okullardan geçerek yetişti; Harp Okulu'ndan ve Harp Akademisi'nden birincilikle mezun oldu. Genç bir subay olarak Trablusgarp (1911) ve Balkan Savaşları'nda (1912-1913) görev aldı.\n\nBirinci Dünya Savaşı'nda Çanakkale Cephesi'nde gösterdiği olağanüstü komutanlık, onu milli bir kahraman yaptı. 'Ben size savaşmayı emretmiyorum, ölmeyi emrediyorum' sözü, askerlerine verdiği cesaretin simgesi oldu.\n\n1919'da Samsun'a çıkarak Kurtuluş Savaşı'nı başlattı. İşgal altındaki bir ülkede, sıfırdan bir direniş hareketi örgütledi. Sakarya ve Büyük Taarruz savaşlarıyla düşmanı yenilgiye uğrattı.\n\n29 Ekim 1923'te Cumhuriyet'i ilan etti. Ardından tarihte eşi görülmemiş bir reform sürecini başlattı: Harf devrimi, hukuk reformları, kadın hakları, laiklik, eğitim reformu, kıyafet devrimi... Bir imparatorluğun külleri üzerine modern, laik ve demokratik bir ulus-devlet inşa etti.\n\n10 Kasım 1938'de 57 yaşında İstanbul'da hayata veda etti. Bıraktığı miras, sadece bir ülke değil, bir ulusun kendini yeniden tanımlama cesaretiydi.",
+      "onemli_tarihler": [
+        {
+          "tarih": "1881",
+          "olay": "Selanik'te doğum"
+        },
+        {
+          "tarih": "1905",
+          "olay": "Harp Akademisi'nden kurmay yüzbaşı olarak mezuniyet"
+        },
+        {
+          "tarih": "1915",
+          "olay": "Çanakkale Savaşı - Anafartalar Komutanlığı"
+        },
+        {
+          "tarih": "1919",
+          "olay": "19 Mayıs - Samsun'a çıkış, Milli Mücadele'nin başlangıcı"
+        },
+        {
+          "tarih": "1921",
+          "olay": "Sakarya Meydan Muharebesi - Başkomutanlık"
+        },
+        {
+          "tarih": "1922",
+          "olay": "26 Ağustos - Büyük Taarruz ve zafer"
+        },
+        {
+          "tarih": "1923",
+          "olay": "29 Ekim - Cumhuriyet'in ilanı"
+        },
+        {
+          "tarih": "1928",
+          "olay": "Harf Devrimi - Latin alfabesine geçiş"
+        },
+        {
+          "tarih": "1938",
+          "olay": "10 Kasım - İstanbul'da vefatı (57 yaşında)"
+        }
+      ],
+      "onemli_sozler": [
+        "Yurtta barış, dünyada barış.",
+        "Benim naçiz vücudum elbet bir gün toprak olacaktır; ama Türkiye Cumhuriyeti ilelebet payidar kalacaktır.",
+        "Muallimler! Yeni nesil, sizin eseriniz olacaktır."
+      ],
+      "ek_gorseller": [
+        {
+          "url": "/static/img/lider5_ek1.jpg",
+          "baslik": "Atatürk Halk Arasında (1930)",
+          "gorsel": "/static/img/lider5_ek1.jpg"
+        },
+        {
+          "url": "/static/img/lider5_ek2.jpg",
+          "baslik": "Anıtkabir - Türkiye Cumhuriyeti'nin Kurucusunun Anıt Mezarı",
+          "gorsel": "/static/img/lider5_ek2.jpg"
+        }
+      ],
+      "tarihi_etki": "Atatürk, tarihin en kapsamlı toplumsal dönüşümlerinden birini gerçekleştirdi. Bir imparatorluğun yıkıntıları üzerine modern bir ulus-devlet inşa etti. Hukuk, eğitim, kültür ve toplumsal yapıda gerçekleştirdiği reformlar, Türkiye'yi çağdaş medeniyetler seviyesine taşıdı. Bağımsızlık mücadelesi, dünya genelinde ulusal kurtuluş hareketlerine ilham kaynağı oldu."
+    }
+  ],
+  "quizler": {
+    "durak_quizleri": [
+      {
+        "durak_id": 1,
+        "sorular": [
+          {
+            "soru": "Bab-ı Hümayun'u kim inşa ettirmiştir?",
+            "secenekler": [
+              "Kanuni Sultan Süleyman",
+              "Sultan II. Mehmet",
+              "Sultan I. Murad",
+              "Sultan II. Bayezid"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Bab-ı Hümayun hangi liderlik temasıyla ilişkilendirilir?",
+            "secenekler": [
+              "Yetenek Yönetimi",
+              "Güven ve Taahhüt",
+              "Delegasyon",
+              "Stratejik Vizyon"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Birinci Avlu'nun modern karşılığı nedir?",
+            "secenekler": [
+              "Toplantı odası",
+              "Halkla ilişkiler departmanı",
+              "Depo",
+              "Ar-Ge birimi"
+            ],
+            "dogru": 1
+          }
+        ]
+      },
+      {
+        "durak_id": 2,
+        "sorular": [
+          {
+            "soru": "Babüsselam'dan sadece kimin at üzerinde geçmesine izin verilirdi?",
+            "secenekler": [
+              "Sadrazam",
+              "Sultan",
+              "Yeniçeri Ağası",
+              "Defterdar"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Babüsselam'daki ikiz kuleler hangi dönemde eklenmiştir?",
+            "secenekler": [
+              "Fatih dönemi",
+              "Kanuni dönemi",
+              "II. Bayezid dönemi",
+              "Yavuz dönemi"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Babüsselam hangi liderlik konseptiyle eşleşir?",
+            "secenekler": [
+              "Liyakat",
+              "Simgeler ve Aidiyet",
+              "Finansal Yönetim",
+              "Risk Analizi"
+            ],
+            "dogru": 1
+          }
+        ]
+      },
+      {
+        "durak_id": 3,
+        "sorular": [
+          {
+            "soru": "Bâbüssaâde'de hangi törenler düzelenirdi?",
+            "secenekler": [
+              "Savaş hazırlıkları",
+              "Cülûs ve bayram törenleri",
+              "Ticaret anlaşmaları",
+              "Halk şikayet toplantıları"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Bâbüssaâde'nin modern iş dünyasındaki karşılığı nedir?",
+            "secenekler": [
+              "Fabrika",
+              "Şirket merkezi ana girişi",
+              "Depo",
+              "Kantin"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Bâbüssaâde hangi liderlik yetkinliğiyle öne çıkar?",
+            "secenekler": [
+              "Teknik beceriler",
+              "Kültür ve Ritüeller",
+              "Finansal okuryazarlık",
+              "Kodlama"
+            ],
+            "dogru": 1
+          }
+        ]
+      },
+      {
+        "durak_id": 4,
+        "sorular": [
+          {
+            "soru": "Topkapı Sarayı'ndan Dolmabahçe'ye geçiş neyi sembolize eder?",
+            "secenekler": [
+              "Askeri gücü",
+              "Stratejik dönüşümü",
+              "Ekonomik krizi",
+              "Savaş hazırlığını"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Topkapı Sarayı'nın mimari yaklaşımı nasıldı?",
+            "secenekler": [
+              "Gösterişli ve israfçı",
+              "Mütevazı ve stratejik",
+              "Askeri kale tarzı",
+              "Avrupa saray stili"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Bu durakta vurgulanan liderlik teması nedir?",
+            "secenekler": [
+              "İnsan kaynakları",
+              "Uzun vadeli stratejik bakış",
+              "Finansal planlama",
+              "Operasyonel verimlilik"
+            ],
+            "dogru": 1
+          }
+        ]
+      },
+      {
+        "durak_id": 5,
+        "sorular": [
+          {
+            "soru": "Matbah-ı Âmire ne işe yarardı?",
+            "secenekler": [
+              "Silah üretimi",
+              "Sarayın mutfak bölümü",
+              "Eğitim merkezi",
+              "Hazıne odası"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Matbah-ı Âmire'de öne çıkan liderlik prensibi nedir?",
+            "secenekler": [
+              "Cesaret",
+              "Sistemik düşünce ve liyakat",
+              "Karizma",
+              "Risk yönetimi"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Modern iş dünyasında Matbah-ı Âmire neye benzer?",
+            "secenekler": [
+              "CEO ofisi",
+              "Tedarik zinciri yönetimi",
+              "Pazarlama departmanı",
+              "Hukuk birimi"
+            ],
+            "dogru": 1
+          }
+        ]
+      },
+      {
+        "durak_id": 6,
+        "sorular": [
+          {
+            "soru": "Enderun'un temel amacı neydi?",
+            "secenekler": [
+              "Askeri eğitim",
+              "Genç yeteneklerin keşfi ve yetiştirilmesi",
+              "Din eğitimi",
+              "Ticaret eğitimi"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Fatih, Enderun sistemiyle neyi amaçlamıştır?",
+            "secenekler": [
+              "Askeri gücü artırmak",
+              "Kökenden bağımsız, liyakate dayalı bürokrasi",
+              "Vergi toplamak",
+              "Dış ticaret"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Enderun'un modern karşılığı nedir?",
+            "secenekler": [
+              "Muhasebe",
+              "Yetenek yönetimi ve liderlik pipeline",
+              "Depolama",
+              "Lojistik"
+            ],
+            "dogru": 1
+          }
+        ]
+      },
+      {
+        "durak_id": 7,
+        "sorular": [
+          {
+            "soru": "Divan-ı Hümayun kimin başkanlığında toplanırdı?",
+            "secenekler": [
+              "Padişah",
+              "Sadrazam",
+              "Şeyhulislam",
+              "Yeniçeri Ağası"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Sultan toplantıları nasıl takip ederdi?",
+            "secenekler": [
+              "Bizzat başkanlık ederek",
+              "Kafes arkasından izleyerek",
+              "Yazılı raporlarla",
+              "Hiç takip etmezdi"
+            ],
+            "dogru": 1
+          },
+          {
+            "soru": "Divan-ı Hümayun hangi liderlik kavramıyla özdeşleşir?",
+            "secenekler": [
+              "Bireysel kahramanılık",
+              "Delegasyon ve çeşitlilik",
+              "Askeri strateji",
+              "Finansal yönetim"
+            ],
+            "dogru": 1
+          }
+        ]
+      }
+    ],
+    "liderlik_tarzi_testi": {
+      "baslik": "Hangi Tarihi Lidere Benziyorsunuz?",
+      "aciklama": "Aşağıdaki sorulara verin cevaplara göre liderlik tarzınızı keşfedin.",
+      "sorular": [
+        {
+          "soru": "Bir kriz anında ilk tepkiniz ne olur?",
+          "secenekler": [
+            {
+              "metin": "Hemen harekete geçer, riskleri göze alırım",
+              "puan": {
+                "iskender": 3,
+                "augustus": 0,
+                "fatih": 1,
+                "medici": 0,
+                "ataturk": 2
+              }
+            },
+            {
+              "metin": "Durumu analiz eder, sistematik bir plan yaparım",
+              "puan": {
+                "iskender": 0,
+                "augustus": 3,
+                "fatih": 2,
+                "medici": 0,
+                "ataturk": 1
+              }
+            },
+            {
+              "metin": "Danışmanımla istişare eder, stratejik bir yaklaşım belirlerim",
+              "puan": {
+                "iskender": 0,
+                "augustus": 1,
+                "fatih": 3,
+                "medici": 1,
+                "ataturk": 1
+              }
+            },
+            {
+              "metin": "Ekibimi motive eder, morali yüksek tutmaya çalışırım",
+              "puan": {
+                "iskender": 1,
+                "augustus": 0,
+                "fatih": 0,
+                "medici": 3,
+                "ataturk": 2
+              }
+            }
+          ]
+        },
+        {
+          "soru": "Ekibinizde en çok neye değer verirsiniz?",
+          "secenekler": [
+            {
+              "metin": "Cesaret ve inisiyatif alma",
+              "puan": {
+                "iskender": 3,
+                "augustus": 0,
+                "fatih": 1,
+                "medici": 0,
+                "ataturk": 2
+              }
+            },
+            {
+              "metin": "Disiplin ve süreçlere uyum",
+              "puan": {
+                "iskender": 0,
+                "augustus": 3,
+                "fatih": 2,
+                "medici": 0,
+                "ataturk": 1
+              }
+            },
+            {
+              "metin": "Liyakat ve yetkinlik",
+              "puan": {
+                "iskender": 0,
+                "augustus": 1,
+                "fatih": 3,
+                "medici": 0,
+                "ataturk": 2
+              }
+            },
+            {
+              "metin": "Yaratıcılık ve farklı bakış açıları",
+              "puan": {
+                "iskender": 1,
+                "augustus": 0,
+                "fatih": 0,
+                "medici": 3,
+                "ataturk": 1
+              }
+            }
+          ]
+        },
+        {
+          "soru": "Uzun vadeli hedefiniz ne olurdu?",
+          "secenekler": [
+            {
+              "metin": "Sınırları genişletmek ve yeni pazarlar keşfetmek",
+              "puan": {
+                "iskender": 3,
+                "augustus": 0,
+                "fatih": 2,
+                "medici": 0,
+                "ataturk": 1
+              }
+            },
+            {
+              "metin": "Kalıcı kurumlar ve sistemler kurmak",
+              "puan": {
+                "iskender": 0,
+                "augustus": 3,
+                "fatih": 1,
+                "medici": 0,
+                "ataturk": 2
+              }
+            },
+            {
+              "metin": "Organizasyonu kökten dönüştürmek",
+              "puan": {
+                "iskender": 0,
+                "augustus": 1,
+                "fatih": 3,
+                "medici": 0,
+                "ataturk": 2
+              }
+            },
+            {
+              "metin": "Kültürel bir miras bırakmak",
+              "puan": {
+                "iskender": 0,
+                "augustus": 0,
+                "fatih": 0,
+                "medici": 3,
+                "ataturk": 2
+              }
+            }
+          ]
+        },
+        {
+          "soru": "Değişime yaklaşımınız nasıldır?",
+          "secenekler": [
+            {
+              "metin": "Hızlı ve radikal",
+              "puan": {
+                "iskender": 3,
+                "augustus": 0,
+                "fatih": 1,
+                "medici": 0,
+                "ataturk": 2
+              }
+            },
+            {
+              "metin": "Kademeli ve planlı",
+              "puan": {
+                "iskender": 0,
+                "augustus": 3,
+                "fatih": 2,
+                "medici": 1,
+                "ataturk": 0
+              }
+            },
+            {
+              "metin": "Stratejik ve hesaplı",
+              "puan": {
+                "iskender": 0,
+                "augustus": 1,
+                "fatih": 3,
+                "medici": 0,
+                "ataturk": 2
+              }
+            },
+            {
+              "metin": "İlham vererek ve ikna ederek",
+              "puan": {
+                "iskender": 1,
+                "augustus": 0,
+                "fatih": 0,
+                "medici": 3,
+                "ataturk": 1
+              }
+            }
+          ]
+        },
+        {
+          "soru": "Gücünüzü nasıl kullanırsınız?",
+          "secenekler": [
+            {
+              "metin": "Önden yürüyerek ve örnek olarak",
+              "puan": {
+                "iskender": 3,
+                "augustus": 0,
+                "fatih": 0,
+                "medici": 0,
+                "ataturk": 3
+              }
+            },
+            {
+              "metin": "Kurumlar aracılığıyla ve yasalarla",
+              "puan": {
+                "iskender": 0,
+                "augustus": 3,
+                "fatih": 2,
+                "medici": 0,
+                "ataturk": 1
+              }
+            },
+            {
+              "metin": "Merkezi otoriteyle ama danışarak",
+              "puan": {
+                "iskender": 0,
+                "augustus": 1,
+                "fatih": 3,
+                "medici": 0,
+                "ataturk": 1
+              }
+            },
+            {
+              "metin": "Etki ve ilişkiler ağıyla",
+              "puan": {
+                "iskender": 0,
+                "augustus": 0,
+                "fatih": 0,
+                "medici": 3,
+                "ataturk": 0
+              }
+            }
+          ]
+        },
+        {
+          "soru": "Başarısızlık karşısında ne yaparsınız?",
+          "secenekler": [
+            {
+              "metin": "Hemen yeni bir hamle yaparım",
+              "puan": {
+                "iskender": 3,
+                "augustus": 0,
+                "fatih": 1,
+                "medici": 0,
+                "ataturk": 2
+              }
+            },
+            {
+              "metin": "Sistemi gözden geçirir, hatayı düzeltirim",
+              "puan": {
+                "iskender": 0,
+                "augustus": 3,
+                "fatih": 1,
+                "medici": 0,
+                "ataturk": 1
+              }
+            },
+            {
+              "metin": "Temel nedeni analiz eder, köklü çözüm ararım",
+              "puan": {
+                "iskender": 0,
+                "augustus": 1,
+                "fatih": 3,
+                "medici": 0,
+                "ataturk": 2
+              }
+            },
+            {
+              "metin": "Ekibimi toplar, birlikte çözüm üretiriz",
+              "puan": {
+                "iskender": 0,
+                "augustus": 0,
+                "fatih": 0,
+                "medici": 3,
+                "ataturk": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sonuclar": {
+        "iskender": {
+          "baslik": "Büyük İskender",
+          "aciklama": "Siz cüretkâr, vizyoner ve önden yürüyen bir lidersiniz. Risk almaktan çekinmez, büyük hedefler koyar ve ekibinizi coşkuyla peşinizden sürüklersiniz. Dikkat etmeniz gereken: Sabır ve sürdürülebilirlik.",
+          "gucluyonler": [
+            "Vizyon",
+            "Cesaret",
+            "Motivasyon",
+            "Hız"
+          ],
+          "gelisim": [
+            "Sabır",
+            "Sistem kurma",
+            "Delegasyon"
+          ]
+        },
+        "augustus": {
+          "baslik": "Augustus",
+          "aciklama": "Siz sistematik, sabırlı ve kurumsallaştırıcı bir lidersiniz. Kalıcı yapılar kurar, kademeli değişimi tercih eder ve pragmatik yaklaşımlarınızla sonucu alırsınız. Dikkat etmeniz gereken: Hız ve cesaret.",
+          "gucluyonler": [
+            "Sistem kurma",
+            "Sabır",
+            "Pragmatizm",
+            "Kurumsallaşma"
+          ],
+          "gelisim": [
+            "Hız",
+            "Risk alma",
+            "Vizyon paylaşımı"
+          ]
+        },
+        "fatih": {
+          "baslik": "Fatih Sultan Mehmed",
+          "aciklama": "Siz stratejik, analitik ve dönüştürücü bir lidersiniz. Geçmişten ders çıkarır, liyakati önceler ve merkezi otoriteyle büyük dönüşümleri yönetirsiniz. Dikkat etmeniz gereken: Esneklik ve empati.",
+          "gucluyonler": [
+            "Strateji",
+            "Analiz",
+            "Liyakat",
+            "Dönüşüm"
+          ],
+          "gelisim": [
+            "Esneklik",
+            "Empati",
+            "İletişim"
+          ]
+        },
+        "medici": {
+          "baslik": "Lorenzo de Medici",
+          "aciklama": "Siz kültürel, ilham verici ve ilişki odaklı bir lidersiniz. Yumuşak güçle yönetir, yaratıcılığı teşvik eder ve farklı disiplinleri bir araya getirirsiniz. Dikkat etmeniz gereken: Kararlılık ve yapısal düşünce.",
+          "gucluyonler": [
+            "Yaratıcılık",
+            "İlişki yönetimi",
+            "İlham",
+            "Kültür oluşturma"
+          ],
+          "gelisim": [
+            "Kararlılık",
+            "Yapısal düşünce",
+            "Disiplin"
+          ]
+        },
+        "ataturk": {
+          "baslik": "Mustafa Kemal Atatürk",
+          "aciklama": "Siz karizmatik, reformist ve vizyoner bir lidersiniz. Kriz anlarında parlarsınız, köklü dönüşümlerden çekinmez ve halkınızı ortak bir ideal etrafında birleştirirsiniz. Dikkat etmeniz gereken: Sabır ve uzlaşma.",
+          "gucluyonler": [
+            "Karizma",
+            "Reform",
+            "Vizyon",
+            "Birleştiricilik"
+          ],
+          "gelisim": [
+            "Sabır",
+            "Uzlaşma",
+            "Kademeli değişim"
+          ]
+        }
+      }
+    }
+  }
+}

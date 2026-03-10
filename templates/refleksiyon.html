@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% block title %}Refleksiyon Defteri - Tarihten Liderlik{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="relative h-[30vh] md:h-[35vh] overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/static/img/durak1.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20"></div>
+    <div class="absolute inset-0 overflow-hidden opacity-10">
+        <div class="absolute bottom-0 left-0 w-64 h-64 border border-ottoman-gold rounded-full -ml-32 -mb-32"></div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="text-5xl mb-3">&#128221;</div>
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">Refleksiyon Defteri</h1>
+            <p class="text-gray-300 max-w-xl mx-auto">Ogrenme yolculugunuz boyunca dusuncelerinizi kaydedin.</p>
+        </div>
+    </div>
+</section>
+
+<div class="bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 py-10">
+
+        <!-- Yeni Not Ekle -->
+        <div class="bg-white rounded-3xl shadow-lg p-8 mb-10 border border-gray-100">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 bg-gradient-to-br from-ottoman-gold/20 to-ottoman-cream rounded-xl flex items-center justify-center text-xl shadow-sm">&#9998;</div>
+                <h2 class="font-serif text-xl font-bold text-ottoman-dark">Yeni Not Ekle</h2>
+            </div>
+            <div class="space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-600 mb-2">Baslik</label>
+                    <input type="text" id="ref-title" class="w-full border-2 border-gray-100 rounded-xl px-4 py-3 focus:outline-none focus:border-ottoman-gold transition bg-gray-50 focus:bg-white" placeholder="Notunuza bir baslik verin...">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-600 mb-2">Etiket</label>
+                    <div class="flex flex-wrap gap-2" id="ref-tags">
+                        <button onclick="selectTag(this)" data-tag="genel" class="ref-tag px-4 py-2 rounded-xl text-xs font-semibold border-2 border-ottoman-gold bg-ottoman-gold/10 text-ottoman-dark transition">Genel</button>
+                        {% for durak in duraklar %}
+                        <button onclick="selectTag(this)" data-tag="durak-{{ durak.id }}" class="ref-tag px-4 py-2 rounded-xl text-xs font-semibold border-2 border-gray-100 text-gray-500 hover:border-ottoman-gold transition">{{ durak.emoji }} Durak {{ durak.id }}</button>
+                        {% endfor %}
+                        {% for lider in liderler %}
+                        <button onclick="selectTag(this)" data-tag="lider-{{ lider.id }}" class="ref-tag px-4 py-2 rounded-xl text-xs font-semibold border-2 border-gray-100 text-gray-500 hover:border-ottoman-gold transition">{{ lider.emoji }} {{ lider.isim.split(' ')[-1] }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-600 mb-2">Notunuz</label>
+                    <textarea id="ref-content" class="w-full border-2 border-gray-100 rounded-xl px-4 py-3 focus:outline-none focus:border-ottoman-gold transition resize-none bg-gray-50 focus:bg-white" rows="5" placeholder="Dusuncelerinizi buraya yazin..."></textarea>
+                </div>
+                <button onclick="saveReflection()" class="bg-ottoman-red text-white px-8 py-3 rounded-xl font-bold hover:bg-ottoman-red/90 transition shadow-lg shadow-ottoman-red/20 inline-flex items-center gap-2">
+                    &#128190; Kaydet
+                </button>
+            </div>
+        </div>
+
+        <!-- Filtre -->
+        <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-ottoman-red/10 rounded-xl flex items-center justify-center text-lg">&#128203;</div>
+                <h2 class="font-serif text-xl font-bold text-ottoman-dark">Notlarim</h2>
+            </div>
+            <select id="ref-filter" onchange="filterReflections()" class="border-2 border-gray-100 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-ottoman-gold bg-white transition">
+                <option value="all">Tumu</option>
+                <option value="genel">Genel</option>
+                {% for durak in duraklar %}
+                <option value="durak-{{ durak.id }}">{{ durak.emoji }} Durak {{ durak.id }}</option>
+                {% endfor %}
+                {% for lider in liderler %}
+                <option value="lider-{{ lider.id }}">{{ lider.emoji }} {{ lider.isim.split(' ')[-1] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Notlar Listesi -->
+        <div id="reflections-list" class="space-y-4">
+            <div class="text-center text-gray-400 py-16" id="empty-state">
+                <div class="w-16 h-16 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center text-3xl mb-4">&#128214;</div>
+                <p>Henuz not eklemediniz. Ilk notunuzu yukari yazarak baslayabilirsiniz.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let selectedTag = 'genel';
+
+function selectTag(btn) {
+    document.querySelectorAll('.ref-tag').forEach(t => {
+        t.classList.remove('border-ottoman-gold', 'bg-ottoman-gold/10', 'text-ottoman-dark');
+        t.classList.add('border-gray-100', 'text-gray-500');
+    });
+    btn.classList.add('border-ottoman-gold', 'bg-ottoman-gold/10', 'text-ottoman-dark');
+    btn.classList.remove('border-gray-100', 'text-gray-500');
+    selectedTag = btn.dataset.tag;
+}
+
+function saveReflection() {
+    const title = document.getElementById('ref-title').value.trim();
+    const content = document.getElementById('ref-content').value.trim();
+    if (!content) return alert('Lutfen bir not yazin.');
+
+    const reflections = JSON.parse(localStorage.getItem('tl_reflections') || '[]');
+    reflections.unshift({
+        id: Date.now(),
+        title: title || 'Basliksiz Not',
+        content: content,
+        tag: selectedTag,
+        date: new Date().toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+    });
+    localStorage.setItem('tl_reflections', JSON.stringify(reflections));
+
+    document.getElementById('ref-title').value = '';
+    document.getElementById('ref-content').value = '';
+    renderReflections();
+}
+
+function deleteReflection(id) {
+    if (!confirm('Bu notu silmek istediginize emin misiniz?')) return;
+    let reflections = JSON.parse(localStorage.getItem('tl_reflections') || '[]');
+    reflections = reflections.filter(r => r.id !== id);
+    localStorage.setItem('tl_reflections', JSON.stringify(reflections));
+    renderReflections();
+}
+
+function filterReflections() {
+    renderReflections();
+}
+
+function getTagLabel(tag) {
+    const labels = {
+        'genel': 'Genel',
+        'durak-1': '&#127984; Durak 1', 'durak-2': '&#127984; Durak 2', 'durak-3': '&#127984; Durak 3',
+        'durak-4': '&#127984; Durak 4', 'durak-5': '&#127984; Durak 5', 'durak-6': '&#127984; Durak 6', 'durak-7': '&#127984; Durak 7',
+        'lider-1': '&#9876; Lider 1', 'lider-2': '&#127963; Lider 2', 'lider-3': '&#128081; Lider 3',
+        'lider-4': '&#127912; Lider 4', 'lider-5': '&#11088; Lider 5'
+    };
+    return labels[tag] || tag;
+}
+
+function renderReflections() {
+    const reflections = JSON.parse(localStorage.getItem('tl_reflections') || '[]');
+    const filter = document.getElementById('ref-filter').value;
+    const filtered = filter === 'all' ? reflections : reflections.filter(r => r.tag === filter);
+    const list = document.getElementById('reflections-list');
+    const empty = document.getElementById('empty-state');
+
+    if (filtered.length === 0) {
+        list.innerHTML = '';
+        list.appendChild(empty);
+        empty.classList.remove('hidden');
+        return;
+    }
+
+    empty.classList.add('hidden');
+    list.innerHTML = filtered.map(r => `
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition">
+            <div class="flex items-start justify-between mb-3">
+                <div>
+                    <h3 class="font-serif font-bold text-ottoman-dark text-lg">${r.title}</h3>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-xs bg-ottoman-cream text-ottoman-dark px-3 py-1 rounded-lg font-medium">${getTagLabel(r.tag)}</span>
+                        <span class="text-xs text-gray-400">${r.date}</span>
+                    </div>
+                </div>
+                <button onclick="deleteReflection(${r.id})" class="text-gray-300 hover:text-red-500 transition text-lg p-1" title="Sil">&#10006;</button>
+            </div>
+            <p class="text-gray-600 text-sm whitespace-pre-wrap leading-relaxed">${r.content}</p>
+        </div>
+    `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', renderReflections);
+</script>
+{% endblock %}

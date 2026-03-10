@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Topkapi Duraklari - Tarihten Liderlik{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="relative h-[35vh] md:h-[40vh] overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/static/img/durak4.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-ottoman-dark via-ottoman-dark/60 to-ottoman-dark/30"></div>
+    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+        <div class="max-w-7xl mx-auto text-center text-white">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mb-3 drop-shadow-lg">
+                Topkapi Sarayi Duraklari
+            </h1>
+            <p class="text-gray-300 max-w-2xl mx-auto drop-shadow">Sarayin her kosesinde, liderligin ve yonetimin tarihsel izlerini gormek mumkundur.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Progress -->
+<div class="bg-white shadow-sm border-b">
+    <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex items-center gap-3">
+            <span class="text-sm text-gray-500 font-medium">Ilerleme:</span>
+            <div class="flex-1 bg-gray-100 rounded-full h-3 overflow-hidden">
+                <div id="durak-progress" class="bg-gradient-to-r from-ottoman-red to-ottoman-gold h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <span id="durak-progress-text" class="text-sm font-semibold text-ottoman-dark">0/7</span>
+        </div>
+    </div>
+</div>
+
+<section class="max-w-7xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-2 gap-8">
+        {% for durak in duraklar %}
+        <a href="/durak/{{ durak.id }}" class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden group" id="durak-card-{{ durak.id }}">
+            <!-- Durak Gorseli -->
+            <div class="relative h-48 md:h-56 overflow-hidden">
+                <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('{{ durak.gorsel }}');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute top-4 left-4">
+                    <span class="bg-ottoman-red text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Durak {{ durak.id }}</span>
+                </div>
+                <div class="absolute bottom-4 left-4 right-4">
+                    <h2 class="font-serif text-2xl font-bold text-white drop-shadow-lg">{{ durak.baslik }}</h2>
+                    <p class="text-ottoman-gold text-sm font-serif italic mt-1 drop-shadow">{{ durak.altbaslik }}</p>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">{{ durak.tarihi_aciklama[:200] }}...</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {% for yetkinlik in durak.anahtar_yetkinlikler %}
+                    <span class="text-xs bg-ottoman-cream text-ottoman-dark px-3 py-1 rounded-full font-medium">{{ yetkinlik }}</span>
+                    {% endfor %}
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-400">
+                        <span class="durak-status" data-durak="{{ durak.id }}">&#9675;</span>
+                        <span class="durak-status-text" data-durak="{{ durak.id }}">Henuz ziyaret edilmedi</span>
+                    </span>
+                    <span class="text-ottoman-red font-semibold text-sm group-hover:translate-x-1 transition-transform inline-block">
+                        Kesfet &#10132;
+                    </span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    updateDurakProgress();
+});
+</script>
+{% endblock %}
