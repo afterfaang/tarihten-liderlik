@@ -523,6 +523,18 @@ def admin_export():
 
 with app.app_context():
     db.create_all()
+    # Auto-create admin if not exists
+    admin_email = 'admin@tarihtenliderllik.com'
+    if not User.query.filter_by(email=admin_email).first():
+        admin = User(
+            email=admin_email,
+            password_hash=generate_password_hash('admin123', method='pbkdf2:sha256'),
+            name='Admin',
+            is_admin=True
+        )
+        db.session.add(admin)
+        db.session.commit()
+        print(f'Admin olusturuldu: {admin_email}')
 
 
 if __name__ == '__main__':
