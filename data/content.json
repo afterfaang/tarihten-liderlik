@@ -618,32 +618,32 @@
           {
             "soru": "Bab-ı Hümayun'u kim inşa ettirmiştir?",
             "secenekler": [
-              "Kanuni Sultan Süleyman",
               "Sultan II. Mehmet",
+              "Kanuni Sultan Süleyman",
               "Sultan I. Murad",
               "Sultan II. Bayezid"
             ],
-            "dogru": 1
+            "dogru": 0
           },
           {
             "soru": "Bab-ı Hümayun hangi liderlik temasıyla ilişkilendirilir?",
             "secenekler": [
               "Yetenek Yönetimi",
-              "Güven ve Taahhüt",
               "Delegasyon",
+              "Güven ve Taahhüt",
               "Stratejik Vizyon"
             ],
-            "dogru": 1
+            "dogru": 2
           },
           {
             "soru": "Birinci Avlu'nun modern karşılığı nedir?",
             "secenekler": [
               "Toplantı odası",
-              "Halkla ilişkiler departmanı",
+              "Ar-Ge birimi",
               "Depo",
-              "Ar-Ge birimi"
+              "Halkla ilişkiler departmanı"
             ],
-            "dogru": 1
+            "dogru": 3
           }
         ]
       },
@@ -654,31 +654,31 @@
             "soru": "Babüsselam'dan sadece kimin at üzerinde geçmesine izin verilirdi?",
             "secenekler": [
               "Sadrazam",
-              "Sultan",
               "Yeniçeri Ağası",
-              "Defterdar"
+              "Defterdar",
+              "Sultan"
             ],
-            "dogru": 1
+            "dogru": 3
           },
           {
             "soru": "Babüsselam'daki ikiz kuleler hangi dönemde eklenmiştir?",
             "secenekler": [
-              "Fatih dönemi",
               "Kanuni dönemi",
+              "Fatih dönemi",
               "II. Bayezid dönemi",
               "Yavuz dönemi"
             ],
-            "dogru": 1
+            "dogru": 0
           },
           {
             "soru": "Babüsselam hangi liderlik konseptiyle eşleşir?",
             "secenekler": [
               "Liyakat",
-              "Simgeler ve Aidiyet",
               "Finansal Yönetim",
+              "Simgeler ve Aidiyet",
               "Risk Analizi"
             ],
-            "dogru": 1
+            "dogru": 2
           }
         ]
       },
@@ -686,34 +686,34 @@
         "durak_id": 3,
         "sorular": [
           {
-            "soru": "Bâbüssaâde'de hangi törenler düzelenirdi?",
+            "soru": "Bâbüssaâde'de hangi törenler düzenlenirdi?",
             "secenekler": [
               "Savaş hazırlıkları",
-              "Cülûs ve bayram törenleri",
               "Ticaret anlaşmaları",
+              "Cülûs ve bayram törenleri",
               "Halk şikayet toplantıları"
             ],
-            "dogru": 1
+            "dogru": 2
           },
           {
             "soru": "Bâbüssaâde'nin modern iş dünyasındaki karşılığı nedir?",
             "secenekler": [
-              "Fabrika",
               "Şirket merkezi ana girişi",
+              "Fabrika",
               "Depo",
               "Kantin"
             ],
-            "dogru": 1
+            "dogru": 0
           },
           {
             "soru": "Bâbüssaâde hangi liderlik yetkinliğiyle öne çıkar?",
             "secenekler": [
               "Teknik beceriler",
-              "Kültür ve Ritüeller",
               "Finansal okuryazarlık",
-              "Kodlama"
+              "Kodlama",
+              "Kültür ve Ritüeller"
             ],
-            "dogru": 1
+            "dogru": 3
           }
         ]
       },
@@ -724,31 +724,31 @@
             "soru": "Topkapı Sarayı'ndan Dolmabahçe'ye geçiş neyi sembolize eder?",
             "secenekler": [
               "Askeri gücü",
-              "Stratejik dönüşümü",
               "Ekonomik krizi",
+              "Stratejik dönüşümü",
               "Savaş hazırlığını"
             ],
-            "dogru": 1
+            "dogru": 2
           },
           {
             "soru": "Topkapı Sarayı'nın mimari yaklaşımı nasıldı?",
             "secenekler": [
-              "Gösterişli ve israfçı",
               "Mütevazı ve stratejik",
+              "Gösterişli ve israfçı",
               "Askeri kale tarzı",
               "Avrupa saray stili"
             ],
-            "dogru": 1
+            "dogru": 0
           },
           {
             "soru": "Bu durakta vurgulanan liderlik teması nedir?",
             "secenekler": [
               "İnsan kaynakları",
-              "Uzun vadeli stratejik bakış",
               "Finansal planlama",
-              "Operasyonel verimlilik"
+              "Operasyonel verimlilik",
+              "Uzun vadeli stratejik bakış"
             ],
-            "dogru": 1
+            "dogru": 3
           }
         ]
       },
@@ -759,31 +759,31 @@
             "soru": "Matbah-ı Âmire ne işe yarardı?",
             "secenekler": [
               "Silah üretimi",
-              "Sarayın mutfak bölümü",
               "Eğitim merkezi",
+              "Sarayın mutfak bölümü",
               "Hazıne odası"
             ],
-            "dogru": 1
+            "dogru": 2
           },
           {
             "soru": "Matbah-ı Âmire'de öne çıkan liderlik prensibi nedir?",
             "secenekler": [
-              "Cesaret",
               "Sistemik düşünce ve liyakat",
+              "Cesaret",
               "Karizma",
               "Risk yönetimi"
             ],
-            "dogru": 1
+            "dogru": 0
           },
           {
             "soru": "Modern iş dünyasında Matbah-ı Âmire neye benzer?",
             "secenekler": [
               "CEO ofisi",
-              "Tedarik zinciri yönetimi",
               "Pazarlama departmanı",
-              "Hukuk birimi"
+              "Hukuk birimi",
+              "Tedarik zinciri yönetimi"
             ],
-            "dogru": 1
+            "dogru": 3
           }
         ]
       },
@@ -794,31 +794,31 @@
             "soru": "Enderun'un temel amacı neydi?",
             "secenekler": [
               "Askeri eğitim",
-              "Genç yeteneklerin keşfi ve yetiştirilmesi",
               "Din eğitimi",
+              "Genç yeteneklerin keşfi ve yetiştirilmesi",
               "Ticaret eğitimi"
             ],
-            "dogru": 1
+            "dogru": 2
           },
           {
             "soru": "Fatih, Enderun sistemiyle neyi amaçlamıştır?",
             "secenekler": [
-              "Askeri gücü artırmak",
               "Kökenden bağımsız, liyakate dayalı bürokrasi",
+              "Askeri gücü artırmak",
               "Vergi toplamak",
               "Dış ticaret"
             ],
-            "dogru": 1
+            "dogru": 0
           },
           {
             "soru": "Enderun'un modern karşılığı nedir?",
             "secenekler": [
               "Muhasebe",
-              "Yetenek yönetimi ve liderlik pipeline",
               "Depolama",
-              "Lojistik"
+              "Lojistik",
+              "Yetenek yönetimi ve liderlik pipeline"
             ],
-            "dogru": 1
+            "dogru": 3
           }
         ]
       },
@@ -829,26 +829,26 @@
             "soru": "Divan-ı Hümayun kimin başkanlığında toplanırdı?",
             "secenekler": [
               "Padişah",
-              "Sadrazam",
               "Şeyhulislam",
+              "Sadrazam",
               "Yeniçeri Ağası"
             ],
-            "dogru": 1
+            "dogru": 2
           },
           {
             "soru": "Sultan toplantıları nasıl takip ederdi?",
             "secenekler": [
-              "Bizzat başkanlık ederek",
               "Kafes arkasından izleyerek",
+              "Bizzat başkanlık ederek",
               "Yazılı raporlarla",
               "Hiç takip etmezdi"
             ],
-            "dogru": 1
+            "dogru": 0
           },
           {
             "soru": "Divan-ı Hümayun hangi liderlik kavramıyla özdeşleşir?",
             "secenekler": [
-              "Bireysel kahramanılık",
+              "Bireysel kahramanlık",
               "Delegasyon ve çeşitlilik",
               "Askeri strateji",
               "Finansal yönetim"
