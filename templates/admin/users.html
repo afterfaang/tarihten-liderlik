@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Kullanicilar - Admin{% endblock %}
+{% block title %}Kullanıcılar - Admin{% endblock %}
 
 {% block content %}
 <div class="bg-gray-50 min-h-screen">
@@ -10,12 +10,12 @@
                     <div class="flex items-center gap-3 mb-1">
                         <a href="{{ url_for('admin_dashboard') }}" class="text-gray-400 hover:text-white transition text-sm">&#9881; Admin</a>
                         <span class="text-gray-600">/</span>
-                        <span class="text-white text-sm font-semibold">Kullanicilar</span>
+                        <span class="text-white text-sm font-semibold">Kullanıcılar</span>
                     </div>
-                    <h1 class="font-serif text-2xl font-bold">&#128101; Kullanicilar</h1>
+                    <h1 class="font-serif text-2xl font-bold">&#128101; Kullanıcılar</h1>
                 </div>
                 <div class="flex gap-3">
-                    <a href="{{ url_for('admin_create_user') }}" class="px-4 py-2 rounded-xl bg-ottoman-gold text-ottoman-dark text-sm font-bold hover:bg-ottoman-gold/80 transition">+ Yeni Kullanici</a>
+                    <a href="{{ url_for('admin_create_user') }}" class="px-4 py-2 rounded-xl bg-ottoman-gold text-ottoman-dark text-sm font-bold hover:bg-ottoman-gold/80 transition">+ Yeni Kullanıcı</a>
                     <a href="{{ url_for('admin_export') }}" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm font-semibold transition">&#128229; CSV Export</a>
                 </div>
             </div>
@@ -40,13 +40,13 @@
             <table class="w-full">
                 <thead>
                     <tr class="bg-gray-50 border-b border-gray-100">
-                        <th class="text-left px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Kullanici</th>
+                        <th class="text-left px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Kullanıcı</th>
                         <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Duraklar</th>
                         <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Quiz</th>
                         <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Refleksiyon</th>
                         <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">HAP</th>
-                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Son Giris</th>
-                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Islemler</th>
+                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Son Giriş</th>
+                        <th class="text-center px-4 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">İşlemler</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,7 +92,7 @@
                     {% endfor %}
                     {% if not user_data %}
                     <tr>
-                        <td colspan="7" class="text-center py-12 text-gray-400">Henuz kullanici yok.</td>
+                        <td colspan="7" class="text-center py-12 text-gray-400">Henüz kullanıcı yok.</td>
                     </tr>
                     {% endif %}
                 </tbody>

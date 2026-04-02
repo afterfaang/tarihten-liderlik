@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Yeni Kullanici - Admin{% endblock %}
+{% block title %}Yeni Kullanıcı - Admin{% endblock %}
 
 {% block content %}
 <div class="bg-gray-50 min-h-screen">
@@ -8,11 +8,11 @@
             <div class="flex items-center gap-3 mb-2">
                 <a href="{{ url_for('admin_dashboard') }}" class="text-gray-400 hover:text-white transition text-sm">&#9881; Admin</a>
                 <span class="text-gray-600">/</span>
-                <a href="{{ url_for('admin_users') }}" class="text-gray-400 hover:text-white transition text-sm">Kullanicilar</a>
+                <a href="{{ url_for('admin_users') }}" class="text-gray-400 hover:text-white transition text-sm">Kullanıcılar</a>
                 <span class="text-gray-600">/</span>
-                <span class="text-white text-sm font-semibold">Yeni Kullanici</span>
+                <span class="text-white text-sm font-semibold">Yeni Kullanıcı</span>
             </div>
-            <h1 class="font-serif text-2xl font-bold">+ Yeni Kullanici Olustur</h1>
+            <h1 class="font-serif text-2xl font-bold">+ Yeni Kullanıcı Olustur</h1>
         </div>
     </div>
 
@@ -44,17 +44,17 @@
                         placeholder="email@ornek.com">
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold text-gray-600 mb-2">Sifre</label>
+                    <label class="block text-sm font-semibold text-gray-600 mb-2">Şifre</label>
                     <input type="password" name="password" required minlength="4"
                         class="w-full border-2 border-gray-100 rounded-xl px-4 py-3 focus:outline-none focus:border-ottoman-gold transition bg-gray-50 focus:bg-white"
                         placeholder="En az 4 karakter">
                 </div>
                 <div class="flex gap-3 pt-2">
                     <button type="submit" class="bg-ottoman-red text-white px-8 py-3 rounded-xl font-bold hover:bg-ottoman-red/90 transition shadow-lg shadow-ottoman-red/20">
-                        Kullanici Olustur
+                        Kullanıcı Oluştur
                     </button>
                     <a href="{{ url_for('admin_users') }}" class="px-6 py-3 rounded-xl bg-gray-100 text-gray-600 font-semibold hover:bg-gray-200 transition">
-                        Iptal
+                        İptal
                     </a>
                 </div>
             </form>

@@ -1,4 +1,4 @@
-"""Ilk admin kullanicisini olusturur. Kullanim: python seed.py"""
+"""İlk admin kullanıcısını oluşturur. Kullanım: python seed.py"""
 from app import app, db
 from models import User
 from werkzeug.security import generate_password_hash
@@ -16,4 +16,4 @@ with app.app_context():
         )
         db.session.add(admin)
         db.session.commit()
-        print(f'Admin olusturuldu: {email} / admin123')
+        print(f'Admin oluşturuldu: {email} / admin123')

@@ -34,11 +34,11 @@
 <!-- Sticky mini nav -->
 <div class="sticky top-16 z-30 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
     <div class="max-w-5xl mx-auto px-4 flex items-center gap-5 py-3 overflow-x-auto text-sm">
-        <a href="#hakkinda" class="text-gray-500 hover:text-ottoman-red font-medium whitespace-nowrap transition">Hakkinda</a>
+        <a href="#hakkinda" class="text-gray-500 hover:text-ottoman-red font-medium whitespace-nowrap transition">Hakkında</a>
         <a href="#kronoloji" class="text-gray-500 hover:text-ottoman-red font-medium whitespace-nowrap transition">Kronoloji</a>
-        <a href="#ozellikler" class="text-gray-500 hover:text-ottoman-red font-medium whitespace-nowrap transition">Ozellikler</a>
+        <a href="#ozellikler" class="text-gray-500 hover:text-ottoman-red font-medium whitespace-nowrap transition">Özellikler</a>
         <a href="#galeri" class="text-gray-500 hover:text-ottoman-red font-medium whitespace-nowrap transition">Galeri</a>
-        <a href="#anahtarlar" class="text-gray-500 hover:text-ottoman-red font-medium whitespace-nowrap transition">Degisim Anahtarlari</a>
+        <a href="#anahtarlar" class="text-gray-500 hover:text-ottoman-red font-medium whitespace-nowrap transition">Değişim Anahtarları</a>
         <a href="#hap" class="text-gray-500 hover:text-ottoman-red font-medium whitespace-nowrap transition">HAP</a>
     </div>
 </div>
@@ -46,7 +46,7 @@
 <div class="bg-gray-50">
     <div class="max-w-5xl mx-auto px-4 py-12 space-y-12">
 
-        <!-- Hakkinda -->
+        <!-- Hakkında -->
         <section id="hakkinda" class="scroll-mt-32">
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100">
                 <div class="md:flex">
@@ -55,7 +55,7 @@
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-12 h-12 bg-gradient-to-br from-ottoman-gold/20 to-ottoman-cream rounded-xl flex items-center justify-center text-xl shadow-sm">&#128214;</div>
                             <div>
-                                <h2 class="font-serif text-2xl font-bold text-ottoman-dark">Hakkinda</h2>
+                                <h2 class="font-serif text-2xl font-bold text-ottoman-dark">Hakkında</h2>
                                 <p class="text-xs text-gray-400">{{ lider.unvan }} &bull; {{ lider.donem }}</p>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                     <div class="md:w-5/12 bg-gradient-to-b from-ottoman-cream/50 to-ottoman-cream/20 p-8 md:p-10 flex flex-col justify-center border-l border-gray-100">
                         {% if lider.onemli_sozler %}
                         <div class="mb-6">
-                            <p class="text-xs font-bold text-ottoman-red uppercase tracking-wider mb-4">&#128172; Onemli Sozleri</p>
+                            <p class="text-xs font-bold text-ottoman-red uppercase tracking-wider mb-4">&#128172; Önemli Sözleri</p>
                             {% for soz in lider.onemli_sozler %}
                             <div class="mb-5 {% if not loop.last %}pb-5 border-b border-ottoman-gold/10{% endif %}">
                                 <p class="text-ottoman-dark font-serif italic leading-relaxed">"{{ soz }}"</p>
@@ -97,8 +97,8 @@
             <div class="flex items-center gap-4 mb-8 px-2">
                 <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center text-xl shadow-sm">&#128197;</div>
                 <div>
-                    <h2 class="font-serif text-2xl font-bold text-ottoman-dark">Yasam Kronolojisi</h2>
-                    <p class="text-xs text-gray-400">{{ lider.isim }}'in hayatindan onemli tarihler</p>
+                    <h2 class="font-serif text-2xl font-bold text-ottoman-dark">Yaşam Kronolojisi</h2>
+                    <p class="text-xs text-gray-400">{{ lider.isim }}'in hayatından önemli tarihler</p>
                 </div>
             </div>
             <div class="relative">
@@ -124,11 +124,11 @@
         </section>
         {% endif %}
 
-        <!-- Liderlik Ozellikleri -->
+        <!-- Liderlik Özellikleri -->
         <section id="ozellikler" class="scroll-mt-32">
             <div class="flex items-center gap-4 mb-6 px-2">
                 <div class="w-12 h-12 bg-gradient-to-br from-ottoman-red/10 to-red-50 rounded-xl flex items-center justify-center text-xl shadow-sm">&#127942;</div>
-                <h2 class="font-serif text-2xl font-bold text-ottoman-dark">Temel Liderlik Ozellikleri</h2>
+                <h2 class="font-serif text-2xl font-bold text-ottoman-dark">Temel Liderlik Özellikleri</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-5">
                 {% for ozellik in lider.liderlik_ozellikleri %}
@@ -147,14 +147,14 @@
             </div>
         </section>
 
-        <!-- Gorsel Galeri -->
+        <!-- Görsel Galeri -->
         {% if lider.ek_gorseller %}
         <section id="galeri" class="scroll-mt-32">
             <div class="flex items-center gap-4 mb-6 px-2">
                 <div class="w-12 h-12 bg-gradient-to-br from-ottoman-gold/20 to-ottoman-cream rounded-xl flex items-center justify-center text-xl shadow-sm">&#128247;</div>
                 <div>
-                    <h2 class="font-serif text-2xl font-bold text-ottoman-dark">Gorsel Galeri</h2>
-                    <p class="text-xs text-gray-400">{{ lider.isim }} ile ilgili tarihi gorseller</p>
+                    <h2 class="font-serif text-2xl font-bold text-ottoman-dark">Görsel Galeri</h2>
+                    <p class="text-xs text-gray-400">{{ lider.isim }} ile ilgili tarihi görseller</p>
                 </div>
             </div>
             <div class="grid md:grid-cols-2 gap-6">
@@ -172,7 +172,7 @@
         </section>
         {% endif %}
 
-        <!-- Degisim Anahtarlari -->
+        <!-- Değişim Anahtarları -->
         <section id="anahtarlar" class="scroll-mt-32">
             <div class="bg-gradient-to-br from-ottoman-dark via-ottoman-navy to-ottoman-dark rounded-3xl shadow-xl p-8 md:p-10 relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-ottoman-gold/5 rounded-full -mr-32 -mt-32"></div>
@@ -181,8 +181,8 @@
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-12 h-12 bg-ottoman-gold/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-xl">&#128273;</div>
                         <div>
-                            <h2 class="font-serif text-2xl font-bold text-white">Degisim Anahtarlari</h2>
-                            <p class="text-gray-400 text-sm">{{ lider.isim }}'den modern liderlige</p>
+                            <h2 class="font-serif text-2xl font-bold text-white">Değişim Anahtarları</h2>
+                            <p class="text-gray-400 text-sm">{{ lider.isim }}'den modern liderliğe</p>
                         </div>
                     </div>
                     <div class="space-y-4">
@@ -208,7 +208,7 @@
                         <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-2xl">&#128161;</div>
                         <div>
                             <h2 class="font-serif text-2xl font-bold">HAP - Hemen Aksiyon Plani</h2>
-                            <p class="text-white/70 text-sm">Kendi degisimine liderlik etme sorulari</p>
+                            <p class="text-white/70 text-sm">Kendi değişimine liderlik etme soruları</p>
                         </div>
                     </div>
                 </div>
@@ -243,7 +243,7 @@
             {% if lider.id > 1 %}
             <a href="/lider/{{ lider.id - 1 }}" class="inline-flex items-center gap-3 bg-white rounded-xl shadow-md px-6 py-3 hover:shadow-lg transition group border border-gray-100">
                 <span class="text-ottoman-red group-hover:-translate-x-1 transition-transform">&#8592;</span>
-                <span class="font-semibold text-ottoman-dark text-sm">Onceki Lider</span>
+                <span class="font-semibold text-ottoman-dark text-sm">Önceki Lider</span>
             </a>
             {% else %}
             <div></div>

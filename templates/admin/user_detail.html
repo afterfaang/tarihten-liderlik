@@ -8,7 +8,7 @@
             <div class="flex items-center gap-3 mb-2">
                 <a href="{{ url_for('admin_dashboard') }}" class="text-gray-400 hover:text-white transition text-sm">&#9881; Admin</a>
                 <span class="text-gray-600">/</span>
-                <a href="{{ url_for('admin_users') }}" class="text-gray-400 hover:text-white transition text-sm">Kullanicilar</a>
+                <a href="{{ url_for('admin_users') }}" class="text-gray-400 hover:text-white transition text-sm">Kullanıcılar</a>
                 <span class="text-gray-600">/</span>
                 <span class="text-white text-sm font-semibold">{{ user.name }}</span>
             </div>
@@ -16,7 +16,7 @@
                 <div class="w-14 h-14 bg-ottoman-gold/20 rounded-2xl flex items-center justify-center text-ottoman-gold font-bold text-xl">{{ user.name[:2]|upper }}</div>
                 <div>
                     <h1 class="font-serif text-2xl font-bold">{{ user.name }}</h1>
-                    <p class="text-gray-400 text-sm">{{ user.email }} &bull; Kayit: {{ user.created_at.strftime('%d.%m.%Y') if user.created_at else '-' }} &bull; Son Giris: {{ user.last_login.strftime('%d.%m.%Y %H:%M') if user.last_login else 'Hic' }}</p>
+                    <p class="text-gray-400 text-sm">{{ user.email }} &bull; Kayıt: {{ user.created_at.strftime('%d.%m.%Y') if user.created_at else '-' }} &bull; Son Giriş: {{ user.last_login.strftime('%d.%m.%Y %H:%M') if user.last_login else 'Hiç' }}</p>
                 </div>
             </div>
         </div>
@@ -24,9 +24,9 @@
 
     <div class="max-w-4xl mx-auto px-4 py-8 space-y-6">
 
-        <!-- Durak Ilerleme -->
+        <!-- Durak İlerleme -->
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#127984; Durak Ilerleme ({{ visited|length }}/7)</h2>
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#127984; Durak İlerleme ({{ visited|length }}/7)</h2>
             <div class="grid grid-cols-7 gap-2">
                 {% for durak in duraklar %}
                 <div class="text-center p-3 rounded-xl {% if durak.id in visited %}bg-green-50 border border-green-200{% else %}bg-gray-50 border border-gray-100{% endif %}">
@@ -37,10 +37,10 @@
             </div>
         </div>
 
-        <!-- Durak Notlari -->
+        <!-- Durak Notları -->
         {% if durak_notes %}
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128221; Durak Notlari</h2>
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128221; Durak Notları</h2>
             <div class="space-y-3">
                 {% for durak_id, note in durak_notes.items() %}
                 <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
@@ -74,14 +74,14 @@
                 </div>
             </div>
             {% else %}
-            <p class="text-gray-400 text-sm">Quiz henuz cozulmedi.</p>
+            <p class="text-gray-400 text-sm">Quiz henüz çözülmedi.</p>
             {% endif %}
         </div>
 
-        <!-- HAP Cevaplari -->
+        <!-- HAP Cevapları -->
         {% if hap_answers %}
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128161; HAP Cevaplari</h2>
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128161; HAP Cevapları</h2>
             {% for lider_id, answers in hap_answers.items() %}
             {% set lider = liderler|selectattr('id', 'equalto', lider_id)|first %}
             <div class="mb-6 last:mb-0">
@@ -118,7 +118,7 @@
                 {% endfor %}
             </div>
             {% else %}
-            <p class="text-gray-400 text-sm">Henuz refleksiyon yok.</p>
+            <p class="text-gray-400 text-sm">Henüz refleksiyon yok.</p>
             {% endif %}
         </div>
     </div>

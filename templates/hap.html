@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}HAP - Hemen Aksiyon Plani{% endblock %}
+{% block title %}HAP - Hemen Aksiyon Planı{% endblock %}
 
 {% block content %}
 <!-- Hero -->
@@ -12,8 +12,8 @@
     <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
         <div class="max-w-4xl mx-auto text-center">
             <div class="text-5xl mb-4">&#128161;</div>
-            <h1 class="font-serif text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">HAP - Hemen Aksiyon Plani</h1>
-            <p class="text-gray-300 max-w-xl mx-auto">Her liderin ogretilerini kendi hayatiniza uyarlayin. Sorulari cevaplayin, planlama yapin.</p>
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">HAP - Hemen Aksiyon Planı</h1>
+            <p class="text-gray-300 max-w-xl mx-auto">Her liderin öğretilerini kendi hayatınıza uyarlayın. Soruları cevaplayın, planlama yapın.</p>
         </div>
     </div>
 </section>
@@ -56,13 +56,13 @@
                 </div>
             </div>
 
-            <!-- Degisim Anahtarlari -->
+            <!-- Değişim Anahtarları -->
             <div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-12 h-12 bg-gradient-to-br from-ottoman-gold/20 to-ottoman-cream rounded-xl flex items-center justify-center text-xl shadow-sm">&#128273;</div>
                     <div>
-                        <h2 class="font-serif text-xl font-bold text-ottoman-dark">Degisim Anahtarlari Ozeti</h2>
-                        <p class="text-xs text-gray-400">{{ lider.isim }}'in liderlik ogretileri</p>
+                        <h2 class="font-serif text-xl font-bold text-ottoman-dark">Değişim Anahtarları Özeti</h2>
+                        <p class="text-xs text-gray-400">{{ lider.isim }}'in liderlik öğretileri</p>
                     </div>
                 </div>
                 <div class="grid md:grid-cols-2 gap-4">
@@ -75,15 +75,15 @@
                 </div>
             </div>
 
-            <!-- HAP Sorulari -->
+            <!-- HAP Soruları -->
             <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
                 <div class="bg-gradient-to-r from-ottoman-red to-ottoman-red/80 p-8 text-white relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-20 -mt-20"></div>
                     <div class="relative flex items-center gap-4">
                         <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-2xl">&#128221;</div>
                         <div>
-                            <h2 class="font-serif text-xl font-bold">Kendi Degisimime Liderlik Etme Sorulari</h2>
-                            <p class="text-white/70 text-sm">Her soruyu dusunun ve ictenlikle cevaplayin</p>
+                            <h2 class="font-serif text-xl font-bold">Kendi Değişimime Liderlik Etme Soruları</h2>
+                            <p class="text-white/70 text-sm">Her soruyu düşünün ve içtenlikle cevaplayın</p>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                         <textarea
                             class="hap-answer w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-ottoman-gold focus:bg-white resize-none text-sm transition"
                             rows="3"
-                            placeholder="Cevabinizi buraya yazin..."
+                            placeholder="Cevabınızı buraya yazın..."
                             data-lider="{{ lider.id }}"
                             data-question="{{ loop.index0 }}"></textarea>
                     </div>
@@ -115,7 +115,7 @@
             <!-- Lider Detay Link -->
             <div class="text-center">
                 <a href="/lider/{{ lider.id }}" class="inline-flex items-center gap-2 text-ottoman-red font-semibold hover:underline transition">
-                    {{ lider.isim }} hakkinda detayli bilgi <span>&#10132;</span>
+                    {{ lider.isim }} hakkında detaylı bilgi <span>&#10132;</span>
                 </a>
             </div>
         </div>

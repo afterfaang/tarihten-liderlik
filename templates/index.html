@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Tarihten Liderlik - Osmanli'dan Liderlik Ogrenimleri{% endblock %}
+{% block title %}Tarihten Liderlik - Osmanlı'dan Liderlik Öğrenimleri{% endblock %}
 
 {% block content %}
 <!-- Hero Section with Background Image -->
@@ -12,17 +12,17 @@
             <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
                 <span class="text-ottoman-gold">Tarihten</span> Liderlik
             </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-2 font-serif italic drop-shadow">Osmanli'dan Liderlik Ogrenimleri</p>
+            <p class="text-xl md:text-2xl text-gray-200 mb-2 font-serif italic drop-shadow">Osmanlı'dan Liderlik Öğrenimleri</p>
             <p class="text-lg text-ottoman-gold mb-8 drop-shadow">Bediz Kilickini</p>
             <p class="max-w-2xl mx-auto text-gray-300 mb-10 leading-relaxed drop-shadow">
                 {{ program.tanim }}
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="/gezi" class="bg-ottoman-red hover:bg-ottoman-red/90 text-white px-8 py-3 rounded-xl font-semibold text-lg transition shadow-lg hover:shadow-ottoman-red/30">
-                    &#128506; Gezi Rehberini Ac
+                    &#128506; Gezi Rehberini Aç
                 </a>
                 <a href="/duraklar" class="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 px-8 py-3 rounded-xl font-semibold text-lg transition">
-                    &#127984; Duraklari Kesfet
+                    &#127984; Durakları Keşfet
                 </a>
             </div>
         </div>
@@ -35,7 +35,7 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
                 <div class="text-3xl font-bold text-ottoman-red">7</div>
-                <div class="text-sm text-gray-500">Topkapi Duragi</div>
+                <div class="text-sm text-gray-500">Topkapı Durağı</div>
             </div>
             <div>
                 <div class="text-3xl font-bold text-ottoman-red">5</div>
@@ -47,7 +47,7 @@
             </div>
             <div>
                 <div class="text-3xl font-bold text-ottoman-red">30+</div>
-                <div class="text-sm text-gray-500">Dusundurici Soru</div>
+                <div class="text-sm text-gray-500">Düşündürücü Soru</div>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
 <section class="max-w-7xl mx-auto px-4 py-16">
     <div class="text-center mb-12 scroll-reveal">
         <h2 class="font-serif text-3xl font-bold text-ottoman-dark mb-3">Topkapi Sarayi Duraklari</h2>
-        <p class="text-gray-600 max-w-xl mx-auto">Sarayin her kosesinde, liderligin ve yonetimin tarihsel izlerini gormek mumkundur.</p>
+        <p class="text-gray-600 max-w-xl mx-auto">Sarayın her köşesinde, liderliğin ve yönetimin tarihsel izlerini görmek mümkündür.</p>
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for durak in duraklar %}
@@ -86,7 +86,7 @@
         <!-- CTA Card -->
         <a href="/gezi" class="card-hover bg-gradient-to-br from-ottoman-red to-ottoman-dark rounded-2xl shadow-lg p-8 flex flex-col items-center justify-center text-center group text-white">
             <div class="text-4xl mb-4">&#128506;</div>
-            <p class="font-serif text-xl font-bold mb-2">Gezi Rehberini Ac</p>
+            <p class="font-serif text-xl font-bold mb-2">Gezi Rehberini Aç</p>
             <p class="text-gray-300 text-sm">Topkapi turuna interaktif eslik</p>
         </a>
     </div>
@@ -97,7 +97,7 @@
     <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-12 scroll-reveal">
             <h2 class="font-serif text-3xl font-bold text-ottoman-dark mb-3">Tarihten Liderler</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">Bes farkli medeniyet, bes farkli donem, bes farkli lider.</p>
+            <p class="text-gray-600 max-w-xl mx-auto">Beş farklı medeniyet, beş farklı dönem, beş farklı lider.</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
             {% for lider in liderler %}
@@ -123,23 +123,23 @@
 <!-- Interactive Features -->
 <section class="max-w-7xl mx-auto px-4 py-16">
     <div class="text-center mb-12 scroll-reveal">
-        <h2 class="font-serif text-3xl font-bold text-ottoman-dark mb-3">Interaktif Ogrenme Araclari</h2>
+        <h2 class="font-serif text-3xl font-bold text-ottoman-dark mb-3">İnteraktif Öğrenme Araçları</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-8">
         <a href="/quiz" class="card-hover bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
             <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">&#129504;</div>
             <h3 class="font-serif font-bold text-lg mb-2 text-ottoman-dark">Liderlik Testi</h3>
-            <p class="text-gray-500 text-sm">Hangi tarihi lidere benzedigini kesfet. 6 soru, kisisel sonuc.</p>
+            <p class="text-gray-500 text-sm">Hangi tarihi lidere benzediğini keşfet. 6 soru, kişisel sonuç.</p>
         </a>
         <a href="/hap" class="card-hover bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
             <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">&#128161;</div>
             <h3 class="font-serif font-bold text-lg mb-2 text-ottoman-dark">HAP - Aksiyon Plani</h3>
-            <p class="text-gray-500 text-sm">Hemen Aksiyon Plani ile ogrendiklerini hayata gecir.</p>
+            <p class="text-gray-500 text-sm">Hemen Aksiyon Planı ile öğrendiklerini hayata geçir.</p>
         </a>
         <a href="/refleksiyon" class="card-hover bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
             <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">&#128221;</div>
             <h3 class="font-serif font-bold text-lg mb-2 text-ottoman-dark">Refleksiyon Defteri</h3>
-            <p class="text-gray-500 text-sm">Kisisel notlarini tut, dusuncelerini kaydet.</p>
+            <p class="text-gray-500 text-sm">Kişisel notlarını tut, düşüncelerini kaydet.</p>
         </a>
     </div>
 </section>
@@ -154,7 +154,7 @@
                 &#128218;
             </div>
             <div class="text-white">
-                <h2 class="font-serif text-2xl font-bold text-ottoman-gold mb-3">Bediz Kilickini Hakkinda</h2>
+                <h2 class="font-serif text-2xl font-bold text-ottoman-gold mb-3">Bediz Kilickini Hakkında</h2>
                 <p class="text-gray-300 leading-relaxed text-sm">{{ program.yazar_bio }}</p>
             </div>
         </div>

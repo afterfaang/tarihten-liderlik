@@ -8,11 +8,11 @@
             <div class="flex items-center justify-between">
                 <div>
                     <h1 class="font-serif text-2xl font-bold">&#9881; Admin Panel</h1>
-                    <p class="text-gray-400 text-sm mt-1">Kullanici yonetimi ve analitik</p>
+                    <p class="text-gray-400 text-sm mt-1">Kullanıcı yönetimi ve analitik</p>
                 </div>
                 <div class="flex gap-3">
-                    <a href="{{ url_for('admin_users') }}" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm font-semibold transition">&#128101; Kullanicilar</a>
-                    <a href="{{ url_for('admin_create_user') }}" class="px-4 py-2 rounded-xl bg-ottoman-gold text-ottoman-dark text-sm font-bold hover:bg-ottoman-gold/80 transition">+ Yeni Kullanici</a>
+                    <a href="{{ url_for('admin_users') }}" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm font-semibold transition">&#128101; Kullanıcılar</a>
+                    <a href="{{ url_for('admin_create_user') }}" class="px-4 py-2 rounded-xl bg-ottoman-gold text-ottoman-dark text-sm font-bold hover:bg-ottoman-gold/80 transition">+ Yeni Kullanıcı</a>
                     <a href="{{ url_for('admin_export') }}" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm font-semibold transition">&#128229; CSV Export</a>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
             <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
                 <div class="text-3xl font-bold text-ottoman-red">{{ total_users }}</div>
-                <div class="text-xs text-gray-500 mt-1">Toplam Kullanici</div>
+                <div class="text-xs text-gray-500 mt-1">Toplam Kullanıcı</div>
             </div>
             <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
                 <div class="text-3xl font-bold text-ottoman-red">{{ total_quiz }}</div>
@@ -46,7 +46,7 @@
 
         <!-- Recent Logins -->
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128337; Son Girisler</h2>
+            <h2 class="font-serif text-lg font-bold text-ottoman-dark mb-4">&#128337; Son Girişler</h2>
             {% if recent_logins %}
             <div class="space-y-3">
                 {% for user in recent_logins %}
@@ -63,7 +63,7 @@
                 {% endfor %}
             </div>
             {% else %}
-            <p class="text-gray-400 text-sm">Henuz giris yapan yok.</p>
+            <p class="text-gray-400 text-sm">Henüz giriş yapan yok.</p>
             {% endif %}
         </div>
     </div>

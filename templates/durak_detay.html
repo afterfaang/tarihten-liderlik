@@ -36,9 +36,9 @@
         <div class="flex items-center gap-6 py-3 overflow-x-auto text-sm">
             <a href="#tarihi" class="text-ottoman-dark hover:text-ottoman-red font-medium transition whitespace-nowrap">Tarihi Bilgi</a>
             <a href="#liderlik" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Liderlik Dersi</a>
-            <a href="#modern" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Modern Baglanti</a>
+            <a href="#modern" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Modern Bağlantı</a>
             <a href="#yetkinlikler" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Yetkinlikler</a>
-            <a href="#dusunce" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Dusunce</a>
+            <a href="#dusunce" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Düşünce</a>
             {% if quiz %}
             <a href="#quiz" class="text-gray-400 hover:text-ottoman-red font-medium transition whitespace-nowrap">Quiz</a>
             {% endif %}
@@ -72,7 +72,7 @@
             </div>
         </div>
 
-        <!-- Modern Baglanti -->
+        <!-- Modern Bağlantı -->
         <div id="modern" class="scroll-mt-20 scroll-reveal mb-10">
             <div class="bg-gradient-to-r from-ottoman-navy to-ottoman-dark rounded-3xl shadow-lg p-8 md:p-10 relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-ottoman-gold/5 rounded-full -mr-32 -mt-32"></div>
@@ -81,7 +81,7 @@
                     <div class="flex items-center gap-3 mb-6">
                         <span class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-xl">&#128188;</span>
                         <div>
-                            <h2 class="font-serif text-xl font-bold text-white">Bugunku Is Dunyasina Baglanti</h2>
+                            <h2 class="font-serif text-xl font-bold text-white">Bugünkü İş Dünyasına Bağlantı</h2>
                             <p class="text-ottoman-gold text-sm">Tarihten Bugune</p>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <!-- Dusundurici Soru -->
+        <!-- Düşündürücü Soru -->
         <div id="dusunce" class="scroll-mt-20 scroll-reveal mb-10">
             <div class="bg-ottoman-dark text-white rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-lg">
                 <div class="absolute top-0 right-0 w-48 h-48 bg-ottoman-gold/10 rounded-full -mr-24 -mt-24"></div>
@@ -118,7 +118,7 @@
                 <div class="relative">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl">&#129300;</span>
-                        <h2 class="font-serif text-xl font-bold text-ottoman-gold">Dusundurici Soru</h2>
+                        <h2 class="font-serif text-xl font-bold text-ottoman-gold">Düşündürücü Soru</h2>
                     </div>
                     <blockquote class="text-xl md:text-2xl italic leading-relaxed text-gray-200 mb-8 font-serif border-l-4 border-ottoman-gold pl-6">
                         {{ durak.dusundurici_soru }}
@@ -183,14 +183,14 @@
                 {% if durak.id > 1 %}
                 <a href="/durak/{{ durak.id - 1 }}" class="flex items-center gap-3 text-ottoman-dark hover:text-ottoman-red transition font-semibold group">
                     <span class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-ottoman-red/10 transition">&#8592;</span>
-                    Onceki Durak
+                    Önceki Durak
                 </a>
                 {% else %}
                 <div></div>
                 {% endif %}
 
                 <button onclick="markDurakVisited({{ durak.id }})" id="mark-visited-btn" class="bg-ottoman-green text-white px-8 py-3 rounded-xl font-bold hover:bg-ottoman-green/80 transition shadow-lg inline-flex items-center gap-2">
-                    &#9989; Tamamlandi Olarak Isaretle
+                    &#9989; Tamamlandı Olarak İşaretle
                 </button>
 
                 {% if durak.id < toplam_durak %}

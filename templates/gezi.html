@@ -42,7 +42,7 @@
                                 <span class="w-2 h-2 bg-ottoman-gold rounded-full animate-pulse"></span>
                                 Durak {{ durak.id }} / {{ duraklar|length }}
                             </span>
-                            <span class="gezi-visited-tag hidden text-xs bg-green-500/90 backdrop-blur-sm text-white px-3 py-1 rounded-full font-semibold" data-vtag="{{ durak.id }}">Tamamlandi</span>
+                            <span class="gezi-visited-tag hidden text-xs bg-green-500/90 backdrop-blur-sm text-white px-3 py-1 rounded-full font-semibold" data-vtag="{{ durak.id }}">Tamamlandı</span>
                         </div>
                         <h1 class="font-serif text-3xl md:text-5xl font-bold mb-2 text-white drop-shadow-lg">{{ durak.baslik }}</h1>
                         <p class="text-ottoman-gold text-lg md:text-xl font-serif italic drop-shadow">{{ durak.altbaslik }}</p>
@@ -75,7 +75,7 @@
                 <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center text-lg">&#128188;</span>
-                        <h3 class="font-serif font-bold text-ottoman-dark">Bugunku Is Dunyasi</h3>
+                        <h3 class="font-serif font-bold text-ottoman-dark">Bugünkü İş Dünyası</h3>
                     </div>
                     <p class="text-gray-600 text-sm leading-relaxed">{{ durak.modern_baglanti }}</p>
                 </div>
@@ -87,13 +87,13 @@
                     {% endfor %}
                 </div>
 
-                <!-- Dusundurici Soru -->
+                <!-- Düşündürücü Soru -->
                 <div class="bg-ottoman-dark rounded-2xl p-6 text-white relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-ottoman-gold/10 rounded-full -mr-16 -mt-16"></div>
                     <div class="relative">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="w-9 h-9 bg-ottoman-gold/20 rounded-lg flex items-center justify-center text-lg">&#129300;</span>
-                            <h3 class="font-serif font-bold text-ottoman-gold">Dusundurici Soru</h3>
+                            <h3 class="font-serif font-bold text-ottoman-gold">Düşündürücü Soru</h3>
                         </div>
                         <p class="text-gray-200 text-base italic leading-relaxed mb-4">{{ durak.dusundurici_soru }}</p>
                         <textarea
@@ -225,7 +225,7 @@ function setActiveGezi(durakId) {
         btn.classList.remove('from-ottoman-red', 'to-ottoman-red/80');
         btn.classList.add('from-green-600', 'to-green-700');
         icon.innerHTML = '&#9989;';
-        text.textContent = 'Tamamlandi';
+        text.textContent = 'Tamamlandı';
     } else {
         btn.classList.remove('from-green-600', 'to-green-700');
         btn.classList.add('from-ottoman-red', 'to-ottoman-red/80');

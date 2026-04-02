@@ -21,7 +21,7 @@ migrate = Migrate(app, db)
 
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
-login_manager.login_message = 'Lutfen giris yapiniz.'
+login_manager.login_message = 'Lütfen giriş yapınız.'
 login_manager.login_message_category = 'info'
 
 
@@ -35,7 +35,7 @@ def admin_required(f):
     @login_required
     def decorated(*args, **kwargs):
         if not current_user.is_admin:
-            flash('Bu sayfaya erisim yetkiniz yok.', 'error')
+            flash('Bu sayfaya erişim yetkiniz yok.', 'error')
             return redirect(url_for('index'))
         return f(*args, **kwargs)
     return decorated
@@ -64,7 +64,7 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.password_hash, password):
             if not user.is_active:
-                flash('Hesabiniz devre disi birakilmis.', 'error')
+                flash('Hesabınız devre dışı bırakılmış.', 'error')
                 return render_template('login.html')
             login_user(user)
             user.last_login = datetime.now(timezone.utc)
@@ -72,7 +72,7 @@ def login():
             next_page = request.args.get('next')
             return redirect(next_page or url_for('index'))
         else:
-            flash('Email veya sifre hatali.', 'error')
+            flash('Email veya şifre hatalı.', 'error')
 
     return render_template('login.html')
 
@@ -112,7 +112,7 @@ def durak_detay(durak_id):
     content = load_content()
     durak = next((d for d in content['duraklar'] if d['id'] == durak_id), None)
     if not durak:
-        return "Durak bulunamadi", 404
+        return "Durak bulunamadı", 404
     quiz = next((q for q in content['quizler']['durak_quizleri'] if q['durak_id'] == durak_id), None)
     return render_template('durak_detay.html', durak=durak, quiz=quiz, toplam_durak=len(content['duraklar']))
 
@@ -128,7 +128,7 @@ def lider_detay(lider_id):
     content = load_content()
     lider = next((l for l in content['liderler'] if l['id'] == lider_id), None)
     if not lider:
-        return "Lider bulunamadi", 404
+        return "Lider bulunamadı", 404
     return render_template('lider_detay.html', lider=lider, toplam_lider=len(content['liderler']))
 
 @app.route('/quiz')
@@ -221,7 +221,7 @@ def api_durak_visit():
     data = request.get_json()
     durak_id = data.get('durak_id')
     if not durak_id or durak_id < 1 or durak_id > 7:
-        return jsonify({'error': 'Gecersiz durak_id'}), 400
+        return jsonify({'error': 'Geçersiz durak_id'}), 400
 
     existing = UserVisitedDurak.query.filter_by(user_id=current_user.id, durak_id=durak_id).first()
     if not existing:
@@ -239,7 +239,7 @@ def api_durak_note():
     durak_id = data.get('durak_id')
     note = data.get('note', '').strip()
     if not durak_id:
-        return jsonify({'error': 'Gecersiz durak_id'}), 400
+        return jsonify({'error': 'Geçersiz durak_id'}), 400
 
     existing = UserDurakNote.query.filter_by(user_id=current_user.id, durak_id=durak_id).first()
     if existing:
@@ -280,7 +280,7 @@ def api_hap_save():
     answers = data.get('answers', [])
 
     if not lider_id:
-        return jsonify({'error': 'Gecersiz lider_id'}), 400
+        return jsonify({'error': 'Geçersiz lider_id'}), 400
 
     for idx, answer_text in enumerate(answers):
         if not answer_text or not answer_text.strip():
@@ -304,12 +304,12 @@ def api_hap_save():
 @login_required
 def api_reflection_save():
     data = request.get_json()
-    title = data.get('title', '').strip() or 'Basliksiz Not'
+    title = data.get('title', '').strip() or 'Başlıksız Not'
     content = data.get('content', '').strip()
     tag = data.get('tag', 'genel')
 
     if not content:
-        return jsonify({'error': 'Icerik bos olamaz'}), 400
+        return jsonify({'error': 'İçerik boş olamaz'}), 400
 
     ref = UserReflection(user_id=current_user.id, title=title, content=content, tag=tag)
     db.session.add(ref)
@@ -329,7 +329,7 @@ def api_reflection_save():
 def api_reflection_delete(ref_id):
     ref = UserReflection.query.filter_by(id=ref_id, user_id=current_user.id).first()
     if not ref:
-        return jsonify({'error': 'Not bulunamadi'}), 404
+        return jsonify({'error': 'Not bulunamadı'}), 404
     db.session.delete(ref)
     db.session.commit()
     return jsonify({'ok': True})
@@ -399,7 +399,7 @@ def admin_users():
 def admin_user_detail(user_id):
     user = db.session.get(User, user_id)
     if not user:
-        flash('Kullanici bulunamadi.', 'error')
+        flash('Kullanıcı bulunamadı.', 'error')
         return redirect(url_for('admin_users'))
 
     content = load_content()
@@ -443,11 +443,11 @@ def admin_create_user():
         password = request.form.get('password', '')
 
         if not name or not email or not password:
-            flash('Tum alanlar zorunludur.', 'error')
+            flash('Tüm alanlar zorunludur.', 'error')
             return render_template('admin/create_user.html')
 
         if User.query.filter_by(email=email).first():
-            flash('Bu email zaten kayitli.', 'error')
+            flash('Bu email zaten kayıtlı.', 'error')
             return render_template('admin/create_user.html')
 
         user = User(
@@ -457,7 +457,7 @@ def admin_create_user():
         )
         db.session.add(user)
         db.session.commit()
-        flash(f'{name} basariyla olusturuldu.', 'success')
+        flash(f'{name} başarıyla oluşturuldu.', 'success')
         return redirect(url_for('admin_users'))
 
     return render_template('admin/create_user.html')
@@ -472,7 +472,7 @@ def admin_delete_user(user_id):
 
     user = db.session.get(User, user_id)
     if not user:
-        flash('Kullanici bulunamadi.', 'error')
+        flash('Kullanıcı bulunamadı.', 'error')
         return redirect(url_for('admin_users'))
 
     db.session.delete(user)
@@ -488,7 +488,7 @@ def admin_export():
 
     output = io.StringIO()
     writer = csv.writer(output)
-    writer.writerow(['Ad', 'Email', 'Durak Ilerleme', 'Quiz Durumu', 'Quiz Sonucu', 'Refleksiyon Sayisi', 'HAP Cevap Sayisi', 'Kayit Tarihi', 'Son Giris'])
+    writer.writerow(['Ad', 'Email', 'Durak İlerleme', 'Quiz Durumu', 'Quiz Sonucu', 'Refleksiyon Sayısı', 'HAP Cevap Sayısı', 'Kayit Tarihi', 'Son Giris'])
 
     users = User.query.filter_by(is_admin=False).all()
     for u in users:
@@ -501,7 +501,7 @@ def admin_export():
             u.name,
             u.email,
             f'{visited_count}/7',
-            'Evet' if quiz else 'Hayir',
+            'Evet' if quiz else 'Hayır',
             quiz.result_key if quiz else '-',
             ref_count,
             hap_count,
@@ -534,7 +534,7 @@ with app.app_context():
         )
         db.session.add(admin)
         db.session.commit()
-        print(f'Admin olusturuldu: {admin_email}')
+        print(f'Admin oluşturuldu: {admin_email}')
 
 
 if __name__ == '__main__':

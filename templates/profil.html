@@ -13,7 +13,7 @@
         <div class="max-w-4xl mx-auto text-center">
             <div class="text-5xl mb-3">&#128100;</div>
             <h1 class="font-serif text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">Liderlik Profilim</h1>
-            <p class="text-gray-300 max-w-xl mx-auto">Ogrenme yolculugunuzdaki ilerlemenizi takip edin.</p>
+            <p class="text-gray-300 max-w-xl mx-auto">Öğrenme yolculuğunuzdaki ilerlemenizi takip edin.</p>
         </div>
     </div>
 </section>
@@ -25,7 +25,7 @@
         <div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
             <div class="flex items-center gap-4 mb-8">
                 <div class="w-12 h-12 bg-gradient-to-br from-ottoman-gold/20 to-ottoman-cream rounded-xl flex items-center justify-center text-xl shadow-sm">&#128200;</div>
-                <h2 class="font-serif text-xl font-bold text-ottoman-dark">Ilerleme Ozetim</h2>
+                <h2 class="font-serif text-xl font-bold text-ottoman-dark">İlerleme Özetim</h2>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
                 <div class="text-center bg-gradient-to-b from-ottoman-red/5 to-white rounded-2xl p-5 border border-gray-100">
@@ -46,14 +46,14 @@
                 <div class="text-center bg-gradient-to-b from-green-50 to-white rounded-2xl p-5 border border-gray-100">
                     <div class="w-14 h-14 mx-auto bg-green-100 rounded-2xl flex items-center justify-center text-2xl mb-3">&#128161;</div>
                     <div class="text-3xl font-bold text-ottoman-red" id="hap-count">0</div>
-                    <div class="text-xs text-gray-500 mt-1">HAP Cevabi</div>
+                    <div class="text-xs text-gray-500 mt-1">HAP Cevabı</div>
                 </div>
             </div>
 
             <!-- Progress Bar -->
             <div class="mt-8 bg-gray-50 rounded-2xl p-5">
                 <div class="flex items-center justify-between mb-3">
-                    <span class="text-sm font-semibold text-gray-600">Genel Ilerleme</span>
+                    <span class="text-sm font-semibold text-gray-600">Genel İlerleme</span>
                     <span class="text-sm font-bold text-ottoman-red" id="overall-percent">0%</span>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
@@ -71,7 +71,7 @@
             <div id="quiz-result-content">
                 <div class="text-center py-12 px-8 text-gray-400">
                     <div class="w-16 h-16 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center text-3xl mb-4">&#129504;</div>
-                    <p class="mb-4">Henuz liderlik testi cozmediniz.</p>
+                    <p class="mb-4">Henüz liderlik testi çözmediniz.</p>
                     <a href="/quiz" class="inline-flex items-center gap-2 bg-ottoman-red text-white px-6 py-3 rounded-xl font-semibold hover:bg-ottoman-red/90 transition shadow-lg shadow-ottoman-red/20">
                         &#127942; Testi Coz
                     </a>
@@ -83,7 +83,7 @@
         <div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
             <div class="flex items-center gap-4 mb-6">
                 <div class="w-12 h-12 bg-gradient-to-br from-ottoman-red/10 to-red-50 rounded-xl flex items-center justify-center text-xl shadow-sm">&#127984;</div>
-                <h2 class="font-serif text-xl font-bold text-ottoman-dark">Durak Ilerleme Detayi</h2>
+                <h2 class="font-serif text-xl font-bold text-ottoman-dark">Durak İlerleme Detayı</h2>
             </div>
             <div class="space-y-3" id="durak-detail-list">
                 {% for durak in duraklar %}
@@ -103,12 +103,12 @@
         <div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
             <div class="flex items-center gap-4 mb-6">
                 <div class="w-12 h-12 bg-gradient-to-br from-ottoman-gold/20 to-ottoman-cream rounded-xl flex items-center justify-center text-xl shadow-sm">&#128221;</div>
-                <h2 class="font-serif text-xl font-bold text-ottoman-dark">Son Refleksiyonlarim</h2>
+                <h2 class="font-serif text-xl font-bold text-ottoman-dark">Son Refleksiyonlarım</h2>
             </div>
             <div id="recent-notes">
                 <div class="text-center py-10 text-gray-400">
                     <div class="w-16 h-16 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center text-3xl mb-4">&#128214;</div>
-                    <p class="mb-4">Henuz not eklemediniz.</p>
+                    <p class="mb-4">Henüz not eklemediniz.</p>
                     <a href="/refleksiyon" class="inline-flex items-center gap-2 bg-ottoman-gold text-ottoman-dark px-6 py-3 rounded-xl font-semibold hover:bg-ottoman-gold/80 transition">
                         &#9998; Not Ekle
                     </a>
@@ -159,7 +159,7 @@ async function loadProfile() {
                 </div>
                 <p class="text-gray-600 text-sm line-clamp-2">${r.content}</p>
             </div>
-        `).join('') + `<a href="/refleksiyon" class="inline-flex items-center gap-1 mt-3 text-ottoman-red font-semibold text-sm hover:underline">Tum notlari gor &#10132;</a>`;
+        `).join('') + `<a href="/refleksiyon" class="inline-flex items-center gap-1 mt-3 text-ottoman-red font-semibold text-sm hover:underline">Tüm notları gör &#10132;</a>`;
     }
 
     const quizResult = data.quiz_result;
