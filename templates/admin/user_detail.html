@@ -16,7 +16,7 @@
                 <div class="w-14 h-14 bg-ottoman-gold/20 rounded-2xl flex items-center justify-center text-ottoman-gold font-bold text-xl">{{ user.name[:2]|upper }}</div>
                 <div>
                     <h1 class="font-serif text-2xl font-bold">{{ user.name }}</h1>
-                    <p class="text-gray-400 text-sm">{{ user.email }} &bull; Kayıt: {{ user.created_at.strftime('%d.%m.%Y') if user.created_at else '-' }} &bull; Son Giriş: {{ user.last_login.strftime('%d.%m.%Y %H:%M') if user.last_login else 'Hiç' }}</p>
+                    <p class="text-gray-400 text-sm">{{ user.email }}{% if user.phone %} &bull; {{ user.phone }}{% endif %} &bull; Kayıt: {{ user.created_at.strftime('%d.%m.%Y') if user.created_at else '-' }} &bull; Son Giriş: {{ user.last_login.strftime('%d.%m.%Y %H:%M') if user.last_login else 'Hiç' }}</p>
                 </div>
             </div>
         </div>

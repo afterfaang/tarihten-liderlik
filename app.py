@@ -77,6 +77,54 @@ def login():
     return render_template('login.html')
 
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+
+    if request.method == 'POST':
+        name = request.form.get('name', '').strip()
+        email = request.form.get('email', '').strip().lower()
+        phone = request.form.get('phone', '').strip()
+        password = request.form.get('password', '')
+        password2 = request.form.get('password2', '')
+        kvkk = request.form.get('kvkk')
+
+        if not name or not email or not password:
+            flash('Ad, email ve şifre alanları zorunludur.', 'error')
+            return render_template('register.html')
+
+        if password != password2:
+            flash('Şifreler eşleşmiyor.', 'error')
+            return render_template('register.html')
+
+        if len(password) < 6:
+            flash('Şifre en az 6 karakter olmalıdır.', 'error')
+            return render_template('register.html')
+
+        if not kvkk:
+            flash('KVKK onayı zorunludur.', 'error')
+            return render_template('register.html')
+
+        if User.query.filter_by(email=email).first():
+            flash('Bu email zaten kayıtlı.', 'error')
+            return render_template('register.html')
+
+        user = User(
+            name=name,
+            email=email,
+            phone=phone or None,
+            password_hash=generate_password_hash(password, method='pbkdf2:sha256'),
+            kvkk_accepted=True
+        )
+        db.session.add(user)
+        db.session.commit()
+        flash('Hesabınız oluşturuldu! Giriş yapabilirsiniz.', 'success')
+        return redirect(url_for('login'))
+
+    return render_template('register.html')
+
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -488,7 +536,7 @@ def admin_export():
 
     output = io.StringIO()
     writer = csv.writer(output)
-    writer.writerow(['Ad', 'Email', 'Durak İlerleme', 'Quiz Durumu', 'Quiz Sonucu', 'Refleksiyon Sayısı', 'HAP Cevap Sayısı', 'Kayit Tarihi', 'Son Giris'])
+    writer.writerow(['Ad', 'Email', 'Telefon', 'Durak İlerleme', 'Quiz Durumu', 'Quiz Sonucu', 'Refleksiyon Sayısı', 'HAP Cevap Sayısı', 'Kayıt Tarihi', 'Son Giriş'])
 
     users = User.query.filter_by(is_admin=False).all()
     for u in users:
@@ -500,6 +548,7 @@ def admin_export():
         writer.writerow([
             u.name,
             u.email,
+            u.phone or '',
             f'{visited_count}/7',
             'Evet' if quiz else 'Hayır',
             quiz.result_key if quiz else '-',

@@ -57,6 +57,7 @@
                                 <div class="w-10 h-10 bg-ottoman-red/10 rounded-xl flex items-center justify-center text-ottoman-red font-bold text-sm">{{ item.user.name[:2]|upper }}</div>
                                 <div>
                                     <p class="font-semibold text-sm text-ottoman-dark">{{ item.user.name }}</p>
+                                    {% if item.user.phone %}<p class="text-xs text-gray-400">{{ item.user.phone }}</p>{% endif %}
                                     <p class="text-xs text-gray-400">{{ item.user.email }}</p>
                                 </div>
                             </div>
