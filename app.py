@@ -572,6 +572,16 @@ def admin_export():
 
 with app.app_context():
     db.create_all()
+    # Add new columns to existing tables if missing
+    from sqlalchemy import inspect, text
+    inspector = inspect(db.engine)
+    user_columns = [c['name'] for c in inspector.get_columns('user')]
+    if 'phone' not in user_columns:
+        db.session.execute(text('ALTER TABLE "user" ADD COLUMN phone VARCHAR(20)'))
+        db.session.commit()
+    if 'kvkk_accepted' not in user_columns:
+        db.session.execute(text('ALTER TABLE "user" ADD COLUMN kvkk_accepted BOOLEAN DEFAULT FALSE'))
+        db.session.commit()
     # Auto-create admin if not exists
     admin_email = 'admin@tarihtenliderllik.com'
     if not User.query.filter_by(email=admin_email).first():
